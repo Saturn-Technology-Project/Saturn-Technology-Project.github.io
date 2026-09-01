@@ -1,7 +1,21 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
+function spaFallback() {
+  return {
+    name: 'spa-fallback',
+    closeBundle() {
+      const index = path.resolve('dist/index.html')
+      if (fs.existsSync(index)) {
+        fs.copyFileSync(index, path.resolve('dist/404.html'))
+      }
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [vue()],
+  base: '/',
+  plugins: [vue(), spaFallback()],
 })

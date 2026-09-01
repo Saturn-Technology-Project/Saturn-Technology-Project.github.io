@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix source",
+    "build": "npm run build --prefix source",
+    "preview": "npm run preview --prefix source"
+  }
+}

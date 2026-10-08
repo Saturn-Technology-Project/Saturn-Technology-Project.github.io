@@ -9,7 +9,7 @@ const route = useRoute()
 
 const page = computed<PageName>(() => {
   const name = route.name
-  if (name === 'product' || name === 'approach' || name === 'developers') return name
+  if (name === 'mcp' || name === 'app' || name === 'pricing') return name
   return 'home'
 })
 
@@ -26,7 +26,6 @@ watch(
 </script>
 
 <template>
-  <div class="noise" aria-hidden="true" />
   <NavBar />
   <main>
     <RouterView />

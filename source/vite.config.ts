@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 
 const sourceDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(sourceDir, '..')
-const published = ['index.html', '404.html', 'favicon.svg', 'icons.svg', '.nojekyll', 'assets']
+const published = ['index.html', '404.html', 'favicon.svg', 'favicon.png', 'icons.svg', '.nojekyll', 'assets']
 
 function copyDir(from: string, to: string) {
   fs.mkdirSync(to, { recursive: true })

@@ -217,7 +217,7 @@ const messages = {
     },
     plans: {
       title: 'Plans for individuals and organizations',
-      desc: 'Start free today. Pro pricing will be announced soon. Enterprise is available now — contact us for a tailored proposal.',
+      desc: 'Start free today. Pro and Enterprise are coming soon.',
       items: [
         {
           id: 'free',
@@ -243,11 +243,11 @@ const messages = {
           id: 'enterprise',
           name: 'Enterprise',
           kind: 'Organization',
-          price: 'Custom',
+          price: 'Coming soon',
           period: 'annual agreement',
           tagline: 'For teams that need governance across the whole organization.',
           points: ['Everything in Pro', 'Members, roles, and custom permissions', 'Shared team agents with scoped editors', 'MCP server mapping per employee', 'Priority support and onboarding'],
-          cta: 'Contact sales',
+          cta: 'Coming soon',
         },
       ],
     },
@@ -423,10 +423,43 @@ const messages = {
         ['Is Saturn App really free?', 'Yes. The desktop App and its runtime are open source under the MIT license. There is no paid tier, no usage cap, and no telemetry.'],
         ['What does Pro add?', 'Pro gives a personal account access to the Saturn MCP gateway: connect MCP servers, build tool sets, write policies, review approvals, and read the audit trail. Pro is a single-user plan and cannot invite members.'],
         ['What is the difference between Personal and Organization?', 'Free and Pro are personal accounts that act as one user. Enterprise is an organization: it has members, roles, custom permissions, shared team agents, and MCP server mapping per employee.'],
-        ['How is Enterprise priced?', 'Enterprise is an annual agreement sized to your organization. Contact us and we will put together a proposal that covers onboarding and support.'],
+        ['How is Enterprise priced?', 'Enterprise pricing is coming soon. Book a demo and we will follow up when the plan opens.'],
       ],
       ctaTitle: 'Not sure which plan fits?',
       ctaBody: 'Tell us how many agents you run and what they touch. We will recommend a setup.',
+    },
+    demoPage: {
+      title: 'Book a demo — Saturn',
+      description: 'Tell us about your team and we will schedule a walkthrough of Saturn.',
+      eyebrow: 'Book a demo',
+      heading: 'See Saturn with your own tools.',
+      lede: 'Leave your name, work email, and company site. We will write back to schedule a walkthrough.',
+      name: 'Name',
+      email: 'Email',
+      company: 'Company',
+      website: 'Company website',
+      role: 'Role',
+      message: 'What should we cover?',
+      optional: 'Optional',
+      submit: 'Submit',
+      sending: 'Sending…',
+      successTitle: 'Request received.',
+      successBody: 'Thanks. We will write to the email you left.',
+      back: 'Back to home',
+      error: 'This request did not go through. Email hello@saturn.technology and we will set up the demo.',
+      errors: {
+        required: 'This field is required.',
+        email: 'Enter a valid email address.',
+        website: 'Enter a company website, like acme.com.',
+      },
+      placeholders: {
+        name: 'Ada Lovelace',
+        email: 'ada@acme.com',
+        company: 'Acme',
+        website: 'acme.com',
+        role: 'Head of Platform',
+        message: 'The agents, MCP servers, and actions you want to gate.',
+      },
     },
   },
   zh: {
@@ -614,7 +647,7 @@ const messages = {
     },
     plans: {
       title: '適合個人與組織的方案',
-      desc: '今天就免費開始。Pro 定價即將公布。Enterprise 現已開放，歡迎聯絡我們取得專屬提案。',
+      desc: '今天就免費開始。Pro 與 Enterprise 即將推出。',
       items: [
         {
           id: 'free',
@@ -640,11 +673,11 @@ const messages = {
           id: 'enterprise',
           name: 'Enterprise',
           kind: '組織',
-          price: '客製化',
+          price: 'Coming soon',
           period: '年度合約',
           tagline: '適合需要全組織治理的團隊。',
           points: ['包含 Pro 全部功能', '成員、角色與自訂權限', '共用的團隊 Agent 與限定範圍的編輯者', '逐員工對應 MCP Server', '優先支援與導入協助'],
-          cta: '聯絡我們',
+          cta: 'Coming soon',
         },
       ],
     },
@@ -820,15 +853,48 @@ const messages = {
         ['Saturn App 真的免費嗎？', '是的。桌面 App 與其 Runtime 以 MIT 授權開源。沒有付費版本、沒有用量上限、沒有遙測。'],
         ['Pro 多了什麼？', 'Pro 讓個人帳號可以使用 Saturn MCP Gateway：連接 MCP Server、組建工具集、撰寫政策、審核核准、查看審計軌跡。Pro 是單一使用者方案，無法邀請成員。'],
         ['個人與組織有什麼差別？', 'Free 與 Pro 是個人帳號，以單一使用者身份運作。Enterprise 是組織：擁有成員、角色、自訂權限、共用的團隊 Agent，以及逐員工的 MCP Server 對應。'],
-        ['Enterprise 怎麼計價？', 'Enterprise 採年度合約，依組織規模訂定。聯絡我們，我們會提供包含導入與支援的提案。'],
+        ['Enterprise 怎麼計價？', 'Enterprise 定價即將公布。歡迎預約展示，方案開放時我們會再與你聯絡。'],
       ],
       ctaTitle: '不確定哪個方案適合？',
       ctaBody: '告訴我們你跑多少 Agent、它們碰哪些系統。我們會建議一套配置。',
     },
+    demoPage: {
+      title: '預約展示 — Saturn',
+      description: '留下姓名、公司網址與 Email，我們會安排 Saturn 展示。',
+      eyebrow: '預約展示',
+      heading: '用你自己的工具，看一次 Saturn。',
+      lede: '留下姓名、工作 Email 與公司網址。我們會回信安排一次導覽。',
+      name: '姓名',
+      email: 'Email',
+      company: '公司',
+      website: '公司網址',
+      role: '職稱',
+      message: '希望我們示範什麼？',
+      optional: '選填',
+      submit: '送出',
+      sending: '送出中…',
+      successTitle: '已收到你的資料。',
+      successBody: '謝謝。我們會寄信到你留下的 Email。',
+      back: '回到首頁',
+      error: '這筆資料沒有送出。請改寄信到 hello@saturn.technology，我們會安排展示。',
+      errors: {
+        required: '此欄必填。',
+        email: '請輸入有效的 Email。',
+        website: '請輸入公司網址，例如 acme.com。',
+      },
+      placeholders: {
+        name: '林小華',
+        email: 'hua@acme.com',
+        company: 'Acme',
+        website: 'acme.com',
+        role: '平台負責人',
+        message: '你的 Agent、MCP Server，以及想控管的操作。',
+      },
+    },
   },
 } as const
 
-export type PageName = 'home' | 'mcp' | 'app' | 'pricing'
+export type PageName = 'home' | 'mcp' | 'app' | 'pricing' | 'demo'
 
 watch(
   locale,
@@ -848,6 +914,7 @@ export function pageMeta(page: PageName) {
   if (page === 'mcp') return { title: m.mcpPage.title, description: m.mcpPage.description }
   if (page === 'app') return { title: m.appPage.title, description: m.appPage.description }
   if (page === 'pricing') return { title: m.pricingPage.title, description: m.pricingPage.description }
+  if (page === 'demo') return { title: m.demoPage.title, description: m.demoPage.description }
   return { title: m.meta.title, description: m.meta.description }
 }
 

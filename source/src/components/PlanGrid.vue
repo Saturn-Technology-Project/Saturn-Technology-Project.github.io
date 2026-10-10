@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '../i18n'
-import { CONSOLE_URL, CONTACT_EMAIL } from '../config'
+import { CONSOLE_URL } from '../config'
 
 const { t } = useI18n()
 </script>
@@ -21,7 +21,6 @@ const { t } = useI18n()
         <li v-for="point in plan.points" :key="point">{{ point }}</li>
       </ul>
       <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ plan.cta }}</a>
-      <a v-else-if="plan.id === 'enterprise'" class="btn btn-primary" :href="CONTACT_EMAIL">{{ plan.cta }}</a>
       <button v-else class="btn btn-outline" type="button" disabled>{{ plan.cta }}</button>
     </article>
   </div>

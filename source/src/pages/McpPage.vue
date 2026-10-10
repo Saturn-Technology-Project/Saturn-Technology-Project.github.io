@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PolicyCode from '../components/PolicyCode.vue'
 import { useI18n } from '../i18n'
-import { CONSOLE_URL, CONTACT_EMAIL } from '../config'
+import { CONSOLE_URL } from '../config'
 
 const { t } = useI18n()
 </script>
@@ -15,7 +15,7 @@ const { t } = useI18n()
         <p class="lede">{{ t.mcpPage.lede }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.mcpPage.primary }}</a>
-          <a class="btn btn-outline btn-lg" :href="CONTACT_EMAIL">{{ t.mcpPage.secondary }}</a>
+          <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.mcpPage.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.mcpPage.note }}</p>
       </div>
@@ -97,7 +97,7 @@ const { t } = useI18n()
       <p class="lede">{{ t.mcpPage.ctaBody }}</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.mcpPage.primary }}</a>
-        <a class="btn btn-outline btn-lg" :href="CONTACT_EMAIL">{{ t.mcpPage.secondary }}</a>
+        <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.mcpPage.secondary }}</RouterLink>
       </div>
     </div>
   </section>

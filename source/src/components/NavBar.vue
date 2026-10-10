@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import Brand from './Brand.vue'
 import { useI18n } from '../i18n'
-import { CONSOLE_URL, CONTACT_EMAIL } from '../config'
+import { CONSOLE_URL } from '../config'
 
 const { locale, t, setLocale } = useI18n()
 const route = useRoute()
@@ -38,7 +38,7 @@ const links = computed(() => [
           <span aria-hidden="true">/</span>
           <button type="button" :class="{ active: locale === 'zh' }" @click="setLocale('zh')">中文</button>
         </div>
-        <a class="btn btn-outline btn-sm" :href="CONTACT_EMAIL">{{ t.nav.demo }}</a>
+        <RouterLink class="btn btn-outline btn-sm" to="/demo">{{ t.nav.demo }}</RouterLink>
         <a class="btn btn-primary btn-sm" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.nav.start }}</a>
       </div>
 
@@ -56,7 +56,7 @@ const links = computed(() => [
     <div v-if="menuOpen" class="mobile-menu wrap">
       <RouterLink v-for="link in links" :key="link.to" :to="link.to">{{ link.label }}</RouterLink>
       <a :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.nav.start }}</a>
-      <a :href="CONTACT_EMAIL">{{ t.nav.demo }}</a>
+      <RouterLink to="/demo">{{ t.nav.demo }}</RouterLink>
       <div class="lang">
         <button type="button" :class="{ active: locale === 'en' }" @click="setLocale('en')">EN</button>
         <span aria-hidden="true">/</span>

@@ -2,7 +2,7 @@
 import PlanGrid from '../components/PlanGrid.vue'
 import PolicyCode from '../components/PolicyCode.vue'
 import { useI18n } from '../i18n'
-import { CONSOLE_URL, CONTACT_EMAIL } from '../config'
+import { CONSOLE_URL } from '../config'
 
 const { t } = useI18n()
 </script>
@@ -16,7 +16,7 @@ const { t } = useI18n()
         <p class="lede">{{ t.hero.desc }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.hero.primary }}</a>
-          <a class="btn btn-outline btn-lg" :href="CONTACT_EMAIL">{{ t.hero.secondary }}</a>
+          <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.hero.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.hero.note }}</p>
       </div>
@@ -160,7 +160,7 @@ const { t } = useI18n()
       <p class="lede">{{ t.cta.body }}</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.cta.primary }}</a>
-        <a class="btn btn-outline btn-lg" :href="CONTACT_EMAIL">{{ t.cta.secondary }}</a>
+        <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.cta.secondary }}</RouterLink>
       </div>
     </div>
   </section>

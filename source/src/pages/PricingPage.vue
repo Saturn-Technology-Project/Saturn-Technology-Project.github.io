@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import PlanGrid from '../components/PlanGrid.vue'
 import { useI18n } from '../i18n'
-import { CONTACT_EMAIL } from '../config'
 
 const { t } = useI18n()
 </script>
@@ -50,7 +49,7 @@ const { t } = useI18n()
       <h2>{{ t.pricingPage.ctaTitle }}</h2>
       <p class="lede">{{ t.pricingPage.ctaBody }}</p>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" :href="CONTACT_EMAIL">{{ t.nav.demo }}</a>
+        <RouterLink class="btn btn-primary btn-lg" to="/demo">{{ t.nav.demo }}</RouterLink>
       </div>
     </div>
   </section>

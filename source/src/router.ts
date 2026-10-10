@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage.vue'
 import McpPage from './pages/McpPage.vue'
 import AppPage from './pages/AppPage.vue'
 import PricingPage from './pages/PricingPage.vue'
+import DemoPage from './pages/DemoPage.vue'
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +12,7 @@ export const router = createRouter({
     { path: '/mcp', name: 'mcp', component: McpPage },
     { path: '/app', name: 'app', component: AppPage },
     { path: '/pricing', name: 'pricing', component: PricingPage },
+    { path: '/demo', name: 'demo', component: DemoPage },
     { path: '/platform', redirect: '/mcp' },
     { path: '/security', redirect: '/mcp' },
     { path: '/product', redirect: '/mcp' },

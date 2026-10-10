@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import Breadcrumb from '../components/Breadcrumb.vue'
 import PlanGrid from '../components/PlanGrid.vue'
-import { useI18n } from '../i18n'
+import { localePath, useI18n } from '../i18n'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 </script>
 
 <template>
   <section class="page-hero">
     <div class="wrap center">
+      <Breadcrumb :current="t.nav.pricing" />
       <p class="eyebrow accent">{{ t.pricingPage.eyebrow }}</p>
       <h1>{{ t.pricingPage.heading }}</h1>
       <p class="lede">{{ t.pricingPage.lede }}</p>
@@ -32,7 +34,7 @@ const { t } = useI18n()
 
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" id="faq">
         <h2>{{ t.pricingPage.faqTitle }}</h2>
       </div>
       <dl class="faq">
@@ -49,7 +51,7 @@ const { t } = useI18n()
       <h2>{{ t.pricingPage.ctaTitle }}</h2>
       <p class="lede">{{ t.pricingPage.ctaBody }}</p>
       <div class="actions">
-        <RouterLink class="btn btn-primary btn-lg" to="/demo">{{ t.nav.demo }}</RouterLink>
+        <RouterLink class="btn btn-primary btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
       </div>
     </div>
   </section>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import PlanGrid from '../components/PlanGrid.vue'
 import PolicyCode from '../components/PolicyCode.vue'
-import { useI18n } from '../i18n'
+import { localePath, useI18n } from '../i18n'
 import { CONSOLE_URL } from '../config'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 </script>
 
 <template>
@@ -15,8 +15,8 @@ const { t } = useI18n()
         <h1>{{ t.hero.title }}</h1>
         <p class="lede">{{ t.hero.desc }}</p>
         <div class="actions">
-          <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.hero.primary }}</a>
-          <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.hero.secondary }}</RouterLink>
+          <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.hero.primary }}</a>
+          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.hero.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.hero.note }}</p>
       </div>
@@ -154,13 +154,27 @@ const { t } = useI18n()
     </div>
   </section>
 
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{{ t.homeFaq.title }}</h2>
+      </div>
+      <dl class="faq">
+        <div v-for="item in t.homeFaq.items" :key="item[0]">
+          <dt>{{ item[0] }}</dt>
+          <dd>{{ item[1] }}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap cta">
       <h2>{{ t.cta.title }}</h2>
       <p class="lede">{{ t.cta.body }}</p>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.cta.primary }}</a>
-        <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.cta.secondary }}</RouterLink>
+        <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.cta.primary }}</a>
+        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.cta.secondary }}</RouterLink>
       </div>
     </div>
   </section>

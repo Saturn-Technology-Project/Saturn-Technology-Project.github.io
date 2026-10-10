@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useI18n } from '../i18n'
+import Breadcrumb from '../components/Breadcrumb.vue'
+import { localePath, useI18n } from '../i18n'
 import { DEMO_FORM_ENDPOINT } from '../config'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 
 type Field = 'name' | 'email' | 'company' | 'website'
 
@@ -78,6 +79,7 @@ async function submit() {
   <section class="page-hero">
     <div class="wrap demo-layout">
       <div>
+        <Breadcrumb :current="t.nav.demo" />
         <p class="eyebrow accent">{{ t.demoPage.eyebrow }}</p>
         <h1>{{ t.demoPage.heading }}</h1>
         <p class="lede">{{ t.demoPage.lede }}</p>
@@ -86,7 +88,7 @@ async function submit() {
       <div v-if="status === 'sent'" class="card demo-form demo-success">
         <h2>{{ t.demoPage.successTitle }}</h2>
         <p>{{ t.demoPage.successBody }}</p>
-        <RouterLink class="btn btn-outline" to="/">{{ t.demoPage.back }}</RouterLink>
+        <RouterLink class="btn btn-outline" :to="localePath('/', locale)">{{ t.demoPage.back }}</RouterLink>
       </div>
 
       <form v-else class="card demo-form" novalidate @submit.prevent="submit">

@@ -314,22 +314,110 @@ html[lang="zh-Hant"] .hero h1 {
 }
 
 .lang {
+  position: relative;
+}
+
+.lang-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--ink-2);
+}
+
+.lang-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lang-btn:hover,
+.lang-btn[aria-expanded='true'] {
+  background: var(--bg-raised);
+  color: var(--ink);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 30;
+  min-width: 168px;
+  padding: 6px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px -24px rgba(20, 20, 19, 0.45);
+}
+
+.lang-menu a {
   display: flex;
   align-items: center;
+  min-height: 36px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.lang-menu a:hover,
+.lang-menu a.active {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.crumbs {
+  margin-bottom: 18px;
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
+  list-style: none;
+  color: var(--ink-3);
   font-size: 13px;
+}
+
+.crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crumbs li:not(:last-child)::after {
+  content: "/";
   color: var(--ink-3);
 }
 
-.lang button.active {
+.crumbs a:hover {
   color: var(--ink);
+}
+
+.crumbs [aria-current="page"] {
+  color: var(--ink-2);
+}
+
+.center .crumbs ol {
+  justify-content: center;
+}
+
+.mobile-tools {
+  display: none;
 }
 
 .menu-toggle {
   display: none;
   width: 36px;
   height: 36px;
-  margin-left: auto;
   border-radius: var(--radius-sm);
 }
 
@@ -1013,7 +1101,9 @@ main {
 
 .site-footer nav {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 20px;
   color: var(--ink-2);
 }
 
@@ -1156,6 +1246,18 @@ main {
     display: none;
   }
 
+  .mobile-tools {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    position: relative;
+  }
+
+  .mobile-tools .lang {
+    position: static;
+  }
+
   .menu-toggle {
     display: inline-flex;
     align-items: center;
@@ -1174,10 +1276,6 @@ main {
     height: 44px;
     display: flex;
     align-items: center;
-  }
-
-  .mobile-menu .lang {
-    margin-top: 8px;
   }
 
   .section {

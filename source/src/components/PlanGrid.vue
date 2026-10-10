@@ -15,12 +15,12 @@ const { t } = useI18n()
     >
       <p class="kind">{{ plan.kind }}</p>
       <h3>{{ plan.name }}</h3>
-      <p class="price">{{ plan.price }} <span class="period">· {{ plan.period }}</span></p>
+      <p class="price">{{ plan.price }} <span v-if="plan.period" class="period">· {{ plan.period }}</span></p>
       <p class="tagline">{{ plan.tagline }}</p>
       <ul class="checks">
         <li v-for="point in plan.points" :key="point">{{ point }}</li>
       </ul>
-      <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ plan.cta }}</a>
+      <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL">{{ plan.cta }}</a>
       <button v-else class="btn btn-outline" type="button" disabled>{{ plan.cta }}</button>
     </article>
   </div>

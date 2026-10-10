@@ -9,6 +9,7 @@ pnpm-debug.log*
 node_modules
 source/node_modules
 source/dist
+source/dist-ssr
 source/.vite
 *.local
 

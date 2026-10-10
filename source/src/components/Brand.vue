@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useI18n } from '../i18n'
+import { localePath, useI18n } from '../i18n'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 </script>
 
 <template>
-  <RouterLink to="/" class="brand" :aria-label="t.nav.home">
-    <img src="/favicon.png" alt="" aria-hidden="true" />
+  <RouterLink :to="localePath('/', locale)" class="brand" :aria-label="t.nav.home">
+    <img src="/favicon.png" alt="" width="24" height="24" aria-hidden="true" />
     <span class="wordmark">Saturn</span>
   </RouterLink>
 </template>

@@ -1,0 +1,121 @@
+# Saturn
+
+> Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail in one console.
+
+Updated 10 October 2026.
+Website: https://saturn.technology/
+Contact: hello@saturn-core.com
+Demo requests: sales@saturn-core.com
+Console: https://dashboard.saturn-core.com
+Source (Saturn App): https://github.com/Saturn-Technology-Project/Saturn-App
+Saturn Technology Project by Prism Capital LLC. Saturn App is copyright Prism Capital LLC and MIT licensed.
+
+## What Saturn is
+
+Saturn sits between AI agents and MCP servers. Agents never connect directly to CRM, payments, databases, or cloud consoles. They connect to one Saturn MCP endpoint. Saturn exposes only the tools you approve, evaluates every call against policy, pauses sensitive calls for a person, and records the whole path.
+
+Saturn has two products:
+
+- Saturn MCP is the gateway. It is a standards-compliant MCP server over HTTP (initialize, tools/list, tools/call) with OAuth 2.1 and PKCE.
+- Saturn App is a free desktop agent for macOS and Windows. It can run on its own, or point at Saturn MCP when you want governance.
+
+Compatible clients: Claude, ChatGPT, Cursor, Gemini, LM Studio, Saturn App, and any other MCP client. Existing MCP servers do not need code changes.
+
+## How a team starts
+
+1. Connect MCP servers by URL. Saturn discovers their tools, handles upstream OAuth where needed, and seals credentials in its vault.
+2. Build a tool set for each agent, across servers. Mark each tool Call (automatic) or Approval (needs a person).
+3. Write versioned policy rules with conditions on arguments, such as amount > 1000 or environment == "production". Each rule allows the call, requires approval, or denies it.
+4. Point every agent at the same Saturn MCP endpoint. Agents sign in with OAuth and see only their tool set.
+
+No SDK and no agent code changes. Saturn works at the protocol level.
+
+## What the gateway does
+
+- Identity. OAuth 2.1 with PKCE. Each session is bound to a user or an organization, and the profile is checked on every request.
+- Tool discovery. Register MCP servers by URL. Saturn catalogs tools and refreshes upstream tokens.
+- Tool sets. Only the chosen tools appear in tools/list. Each tool is Call or Approval.
+- Policy engine. Ordered, versioned rules with conditions on arguments. Every call records the policy id, version, and matched rule.
+- Approval queue. Sensitive calls wait in the console with the agent, the tool, the arguments, and the rule that held them. A rejection is returned to the agent as an explicit decision, not a timeout. A paused agent cannot start a new call.
+- Credential vault. Upstream tokens and secrets are sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Keys are derived with HKDF-SHA384. The key seed lives in configuration, not in the database. Agents never see the secret. APIs report only whether a secret exists. Every secret read is a credential_accessed audit event.
+- Network boundaries. Upstream URLs must use HTTPS, or HTTP on localhost. Private, link-local, and cloud metadata addresses are refused.
+- Denied means never sent. A denied call never leaves Saturn. A held call returns approval_required with a reference id.
+- Audit trail. Requested, evaluated, approval requested, granted or rejected, executed, credential accessed. Each event records the agent, tool, arguments, policy version, and reviewer.
+- Cost. Wallets and x402 payments attribute cost to each tool call and each agent.
+- Access control. Preset roles admin, operator, and viewer, or custom permission sets. Editors can be scoped to specific agents. Each employee can be mapped to the MCP servers they may connect.
+
+## How Saturn differs from connecting agents directly
+
+Without a gateway, every agent holds its own API keys and OAuth tokens, tool access is all-or-nothing per server, there is no way to pause a sensitive action, logs are scattered, and revoking one agent means rotating credentials everywhere.
+
+With Saturn, credentials stay in the vault, each agent has a curated tool set and argument-level rules, sensitive calls wait for a reviewer, one audit trail covers every agent, and an agent or a single call can be stopped from the console.
+
+## How Saturn differs from an API gateway
+
+An API gateway governs services by route and HTTP method. It is designed for services, not for a caller that reasons and chooses tools. Saturn understands tools and arguments, can require a human to approve a call, and records which policy allowed it.
+
+## Examples
+
+Finance. payments.transfer at or under 1000 is allowed. Above 1000 requires approval. A refund above 10000 is denied. The reviewer sees the amount, the recipient, and the invoice reference.
+
+Customer support. The agent can look up a customer, update a ticket, and reply to email. Destructive CRM tools are not in the tool set, so for that agent they do not exist. Email to an external domain requires approval.
+
+Platform. A rollout to staging is allowed. A rollout to production requires an on-call engineer. db.drop_table is denied in every environment.
+
+Data. Analyst agents get read-only warehouse tools. Exporting more than 100000 rows requires approval. Server mapping decides which teams may attach the warehouse at all.
+
+## Saturn App
+
+Saturn App is a local agent for macOS and Windows (x64). Packaged builds include the Runtime, so a separate Node install is not required. It is free, open source, MIT licensed, with no paid tier, no usage cap, and no telemetry.
+
+Two processes: Saturn Desktop is the window. Saturn Runtime is the core and listens only on http://127.0.0.1:4700. Desktop talks to Runtime only from local origins. Runtime can also run headless. Data is stored in ~/.saturn-app by default (override with SATURN_DATA_DIR).
+
+Built-in skills: files (list, read, write, patch inside the workspace), code (run commands in the workspace), web (read public pages; local and private addresses are refused), and mcp / multi_step (call attached MCP tools and keep a step-by-step plan).
+
+Models: OpenAI, Claude, Gemini, or a local model through LM Studio. Keys stay in a local credential broker and are never returned to the UI. File and command access stays inside the workspace directory. Point the App at Saturn MCP to add tool sets, policies, and approvals. The same agent works with or without the gateway.
+
+Download: https://github.com/Saturn-Technology-Project/Saturn-App/releases/latest
+
+## Pricing
+
+- Free, personal, $0 forever. Saturn App for macOS and Windows, your own models and MCP servers, built-in skills, local credential broker, MIT license.
+- Pro, personal, coming soon. Everything in Free, plus Saturn MCP gateway access, tool sets, per-tool approval mode, the versioned policy engine, the approval queue, and the audit trail. Pro is a single user and cannot invite members.
+- Enterprise, organization, Coming Soon. Everything in Pro, plus members, roles, custom permissions, shared team agents with scoped editors, MCP server mapping per employee, and priority support.
+
+Enterprise pricing is not published yet. Book a demo at https://saturn.technology/demo.
+
+## Questions worth quoting
+
+What is Saturn?
+Saturn is a secure MCP gateway between AI agents and the tools they call. It centralizes access, enforces fine-grained permissions, requires a person to approve sensitive actions, and keeps a complete audit trail in one console.
+
+What is an MCP gateway?
+MCP (Model Context Protocol) is the standard AI agents use to call tools. An MCP gateway sits in front of your MCP servers. Agents talk only to Saturn, which exposes the tools you choose, evaluates every call against policy, and forwards only the calls that are allowed.
+
+Which AI clients work with Saturn?
+Any MCP client, including Claude, ChatGPT, Cursor, Gemini, LM Studio, and Saturn App.
+
+Do agents see API keys or OAuth tokens?
+No. Upstream credentials stay in Saturn's vault, sealed with ML-KEM-1024 and AES-256-GCM. Agents receive only the result of an authorized call.
+
+Is Saturn App free?
+Yes. The desktop app and its runtime are MIT licensed. There is no paid tier for the App. The gateway is included in Pro and Enterprise.
+
+## 中文摘要
+
+Saturn 是部署在 AI Agent 與 MCP Server 之間的安全 MCP Gateway。Agent 只連到同一個 Saturn MCP 端點。Saturn 只露出你核准的工具，對每一筆呼叫比對政策，把敏感呼叫暫停交給人，並記錄完整路徑。
+
+Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/call），連線使用 OAuth 2.1 與 PKCE。Saturn App 是 macOS 與 Windows 上免費、開源、MIT 授權的桌面 Agent，預設在本機運行，Runtime 只監聽 127.0.0.1:4700。需要治理時，再把 App 指向 Saturn MCP。
+
+相容 Claude、ChatGPT、Cursor、Gemini、LM Studio、Saturn App，以及任何 MCP 用戶端。現有 MCP Server 不需要修改程式碼。
+
+憑證封存在金庫中，使用 ML-KEM-1024 後量子金鑰封裝與 AES-256-GCM。Agent 看不到密鑰。被拒絕的呼叫不會送出上游。
+
+方案：Free 永久免費，只有 Saturn App。Pro 與 Enterprise 即將推出，包含 Saturn MCP Gateway。Enterprise 是組織方案，有成員、角色、共用 Agent，以及逐員工的 MCP Server 對應。
+
+中文頁面：
+- https://saturn.technology/zh
+- https://saturn.technology/zh/mcp
+- https://saturn.technology/zh/app
+- https://saturn.technology/zh/pricing
+- https://saturn.technology/zh/demo

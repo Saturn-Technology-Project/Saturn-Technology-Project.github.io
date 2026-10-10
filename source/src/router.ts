@@ -1,26 +1,65 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import type { Component } from 'vue'
+import { createMemoryHistory, createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomePage from './pages/HomePage.vue'
 import McpPage from './pages/McpPage.vue'
 import AppPage from './pages/AppPage.vue'
 import PricingPage from './pages/PricingPage.vue'
 import DemoPage from './pages/DemoPage.vue'
+import { locale, type Locale, type PageName } from './i18n'
 
-export const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    { path: '/', name: 'home', component: HomePage },
-    { path: '/mcp', name: 'mcp', component: McpPage },
-    { path: '/app', name: 'app', component: AppPage },
-    { path: '/pricing', name: 'pricing', component: PricingPage },
-    { path: '/demo', name: 'demo', component: DemoPage },
-    { path: '/platform', redirect: '/mcp' },
-    { path: '/security', redirect: '/mcp' },
-    { path: '/product', redirect: '/mcp' },
-    { path: '/cloud', redirect: '/mcp' },
-    { path: '/approach', redirect: '/mcp' },
-    { path: '/developers', redirect: '/app' },
-  ],
-  scrollBehavior() {
-    return { top: 0 }
-  },
-})
+declare module 'vue-router' {
+  interface RouteMeta {
+    locale?: Locale
+    page?: PageName
+  }
+}
+
+const pages: { path: string; page: PageName; component: Component }[] = [
+  { path: '/', page: 'home', component: HomePage },
+  { path: '/mcp', page: 'mcp', component: McpPage },
+  { path: '/app', page: 'app', component: AppPage },
+  { path: '/pricing', page: 'pricing', component: PricingPage },
+  { path: '/demo', page: 'demo', component: DemoPage },
+]
+
+function localized(lang: Locale): RouteRecordRaw[] {
+  return pages.map(
+    (page): RouteRecordRaw => ({
+      path: lang === 'zh' ? (page.path === '/' ? '/zh' : `/zh${page.path}`) : page.path,
+      name: lang === 'en' ? page.page : `${lang}-${page.page}`,
+      component: page.component,
+      meta: { locale: lang, page: page.page },
+    }),
+  )
+}
+
+export const routes: RouteRecordRaw[] = [
+  ...localized('en'),
+  ...localized('zh'),
+  { path: '/platform', redirect: '/mcp' },
+  { path: '/security', redirect: '/mcp' },
+  { path: '/product', redirect: '/mcp' },
+  { path: '/cloud', redirect: '/mcp' },
+  { path: '/approach', redirect: '/mcp' },
+  { path: '/developers', redirect: '/app' },
+]
+
+export function createAppRouter() {
+  const history = import.meta.env.SSR ? createMemoryHistory() : createWebHistory(import.meta.env.BASE_URL)
+  const router = createRouter({
+    history,
+    routes,
+    scrollBehavior() {
+      return { top: 0 }
+    },
+  })
+
+  router.beforeEach((to) => {
+    const next = to.meta.locale === 'zh' ? 'zh' : 'en'
+    if (locale.value !== next) locale.value = next
+  })
+
+  return router
+}
+
+export const router = createAppRouter()

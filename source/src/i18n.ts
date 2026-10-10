@@ -1,27 +1,28 @@
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 export type Locale = 'en' | 'zh'
 
-const STORAGE_KEY = 'saturn-locale'
-
-function readStored(): Locale {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved === 'en' || saved === 'zh') return saved
-  } catch {
-    /* ignore */
-  }
-  return 'en'
+function localeFromPath(path: string): Locale {
+  return path === '/zh' || path.startsWith('/zh/') ? 'zh' : 'en'
 }
 
-export const locale = ref<Locale>(readStored())
+export const locale = ref<Locale>(
+  typeof window === 'undefined' ? 'en' : localeFromPath(window.location.pathname),
+)
+
+export function localePath(path: string, lang: Locale): string {
+  const withSlash = path.startsWith('/') ? path : `/${path}`
+  const bare = withSlash === '/zh' ? '/' : withSlash.startsWith('/zh/') ? withSlash.slice(3) : withSlash
+  if (lang === 'zh') return bare === '/' ? '/zh' : `/zh${bare}`
+  return bare
+}
 
 const messages = {
   en: {
     meta: {
       title: 'Saturn — Secure MCP Gateway for AI Agents',
       description:
-        'Saturn is a secure MCP gateway between your AI agents and your tools. Centralize access, enforce fine-grained permissions, require human approval for sensitive actions, and keep a complete audit trail.',
+        'Saturn is a secure MCP gateway between AI agents and your tools. It enforces argument-level permissions, human approval, and a complete audit trail.',
     },
     nav: {
       home: 'Saturn home',
@@ -38,7 +39,7 @@ const messages = {
       desc: 'Saturn is a secure MCP gateway that sits between your AI agents and your MCP servers. Centralize access, enforce fine-grained permissions, require human approval for sensitive actions, and keep a complete audit trail — all from one console.',
       primary: 'Get started',
       secondary: 'Book a demo',
-      note: 'Works with any MCP-compatible client. No changes to your existing MCP servers.',
+      note: 'Works with any Model Context Protocol (MCP) client. No changes to your existing MCP servers.',
       mock: {
         header: 'Approval required',
         agent: 'Agent',
@@ -243,11 +244,11 @@ const messages = {
           id: 'enterprise',
           name: 'Enterprise',
           kind: 'Organization',
-          price: 'Coming soon',
-          period: 'annual agreement',
+          price: 'Coming Soon',
+          period: '',
           tagline: 'For teams that need governance across the whole organization.',
           points: ['Everything in Pro', 'Members, roles, and custom permissions', 'Shared team agents with scoped editors', 'MCP server mapping per employee', 'Priority support and onboarding'],
-          cta: 'Coming soon',
+          cta: 'Coming Soon',
         },
       ],
     },
@@ -264,11 +265,23 @@ const messages = {
       pricing: 'Pricing',
       console: 'Console',
       github: 'GitHub',
-      project: 'A Prism Technology Project',
+      sitemap: 'Sitemap',
+      project: 'Saturn Project by Prism Capital LLC',
+    },
+    homeFaq: {
+      title: 'Questions about Saturn',
+      items: [
+        ['What is Saturn?', 'Saturn is a secure MCP gateway between AI agents and the tools they call. It centralizes access, enforces fine-grained permissions, requires a person to approve sensitive actions, and keeps a complete audit trail in one console.'],
+        ['What is an MCP gateway?', 'MCP (Model Context Protocol) is the standard AI agents use to call tools. An MCP gateway sits in front of your MCP servers. Agents talk only to Saturn, which exposes the tools you choose, evaluates every call against policy, and forwards only the calls that are allowed.'],
+        ['Which AI clients work with Saturn?', 'Any MCP client, including Claude, ChatGPT, Cursor, Gemini, LM Studio, and Saturn App. Every agent uses one Saturn MCP endpoint. Existing MCP servers do not need code changes.'],
+        ['How is Saturn different from an API gateway?', 'An API gateway governs services by route and HTTP method. Saturn governs agents. It understands tools and arguments, can hold a call for human approval, and records which policy and which reviewer allowed it.'],
+        ['Do agents see API keys or OAuth tokens?', 'No. Upstream credentials stay in Saturn’s vault, sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Agents receive only the result of an authorized call. APIs report whether a secret exists, never the secret itself.'],
+        ['Is Saturn App free?', 'Yes. Saturn App is a free, open-source desktop agent for macOS and Windows, MIT licensed. It runs on your computer with your models and files. The Saturn MCP gateway is a separate product, included in Pro and Enterprise, which are coming soon.'],
+      ],
     },
     mcpPage: {
       title: 'Saturn MCP — The MCP gateway for AI agents',
-      description: 'One MCP endpoint in front of all your tools. Tool sets, argument-level policies, human approvals, sealed credentials, and a complete audit trail.',
+      description: 'Saturn MCP is the MCP server your AI agents talk to. It exposes only approved tools, checks every call against policy, and records the audit trail.',
       eyebrow: 'Saturn MCP',
       heading: 'The MCP gateway that decides what your agents may do.',
       lede: 'Saturn MCP is the MCP server your agents talk to. Behind it sit your real MCP servers — CRM, payments, databases, cloud consoles. Saturn exposes only the tools you approve, evaluates every call against policy, pauses the sensitive ones for a human, and records everything.',
@@ -338,7 +351,7 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — Free, open-source desktop AI agent',
-      description: 'Saturn App runs AI agents on your own computer with your own models, MCP servers, and files. Free, open source, MIT licensed.',
+      description: 'Saturn App is a free, MIT-licensed desktop AI agent for macOS and Windows. It runs locally with your models, files, and MCP servers.',
       eyebrow: 'Saturn App · Open source · Free',
       heading: 'A desktop AI agent that runs on your computer. Free, open source, yours.',
       lede: 'Saturn App is a local agent for macOS and Windows. Connect your own models and MCP servers, give it a workspace, and let it read, write, run, and browse — on your machine, under your rules. No subscription, no telemetry, no lock-in.',
@@ -411,8 +424,8 @@ const messages = {
       ctaBody: 'Saturn App is free for everyone. Star the repository, open an issue, or send a pull request.',
     },
     pricingPage: {
-      title: 'Pricing — Saturn',
-      description: 'Saturn App is free. Saturn MCP gateway in Pro and Enterprise.',
+      title: 'Saturn Pricing — Free Desktop App and MCP Gateway',
+      description: 'Saturn App is free and MIT licensed. The Saturn MCP gateway — tool sets, policies, approvals, and audit — is included in Pro and Enterprise.',
       eyebrow: 'Pricing',
       heading: 'Start free. Add the gateway when your agents go to production.',
       lede: 'The desktop App is free for everyone, forever. The Saturn MCP gateway — tool sets, policies, approvals, and audit — is included in Pro and Enterprise.',
@@ -429,8 +442,8 @@ const messages = {
       ctaBody: 'Tell us how many agents you run and what they touch. We will recommend a setup.',
     },
     demoPage: {
-      title: 'Book a demo — Saturn',
-      description: 'Tell us about your team and we will schedule a walkthrough of Saturn.',
+      title: 'Book a Demo — Saturn MCP Gateway',
+      description: 'Book a walkthrough of Saturn, the secure MCP gateway for AI agents. Tell us which tools your agents call.',
       eyebrow: 'Book a demo',
       heading: 'See Saturn with your own tools.',
       lede: 'Leave your name, work email, and company site. We will write back to schedule a walkthrough.',
@@ -446,7 +459,7 @@ const messages = {
       successTitle: 'Request received.',
       successBody: 'Thanks. We will write to the email you left.',
       back: 'Back to home',
-      error: 'This request did not go through. Email hello@saturn.technology and we will set up the demo.',
+      error: 'This request did not go through. Email sales@saturn-core.com and we will set up the demo.',
       errors: {
         required: 'This field is required.',
         email: 'Enter a valid email address.',
@@ -466,7 +479,7 @@ const messages = {
     meta: {
       title: 'Saturn — 企業級 AI Agent 的安全 MCP Gateway',
       description:
-        'Saturn 是部署在 AI Agent 與工具之間的安全 MCP Gateway。集中管理工具存取、細緻到參數層級的權限控管、敏感操作人工核准，以及完整的審計紀錄。',
+        'Saturn 是介於 AI Agent 與工具之間的安全 MCP（Model Context Protocol）Gateway，提供參數層級權限、人工核准與完整審計紀錄。',
     },
     nav: {
       home: 'Saturn 首頁',
@@ -483,7 +496,7 @@ const messages = {
       desc: 'Saturn 是一套安全的 MCP Gateway，部署在 AI Agent 與 MCP Server 之間。集中管理工具存取、落實細緻到參數層級的權限控管、對敏感操作要求人工核准，並保留完整的審計紀錄——全部在同一個主控台完成。',
       primary: '開始使用',
       secondary: '預約展示',
-      note: '相容任何支援 MCP 的用戶端。現有的 MCP Server 不需要任何修改。',
+      note: '相容任何支援 MCP（Model Context Protocol）的用戶端。現有的 MCP Server 不需要任何修改。',
       mock: {
         header: '待核准',
         agent: 'Agent',
@@ -673,11 +686,11 @@ const messages = {
           id: 'enterprise',
           name: 'Enterprise',
           kind: '組織',
-          price: 'Coming soon',
-          period: '年度合約',
+          price: 'Coming Soon',
+          period: '',
           tagline: '適合需要全組織治理的團隊。',
           points: ['包含 Pro 全部功能', '成員、角色與自訂權限', '共用的團隊 Agent 與限定範圍的編輯者', '逐員工對應 MCP Server', '優先支援與導入協助'],
-          cta: 'Coming soon',
+          cta: 'Coming Soon',
         },
       ],
     },
@@ -694,11 +707,23 @@ const messages = {
       pricing: '方案與定價',
       console: '主控台',
       github: 'GitHub',
-      project: 'A Prism Technology Project',
+      sitemap: '網站地圖',
+      project: 'Saturn Project by Prism Capital LLC',
+    },
+    homeFaq: {
+      title: '關於 Saturn',
+      items: [
+        ['Saturn 是什麼？', 'Saturn 是部署在 AI Agent 與工具之間的安全 MCP Gateway。它集中管理工具存取、落實細緻到參數層級的權限控管、對敏感操作要求人工核准，並在同一個主控台保留完整的審計紀錄。'],
+        ['什麼是 MCP Gateway？', 'MCP（Model Context Protocol）是 AI Agent 呼叫工具的標準協定。MCP Gateway 放在你的 MCP Server 前面，Agent 只跟 Gateway 對話。Saturn 只露出你選擇的工具，對每一筆呼叫比對政策，並且只轉送被允許的呼叫。'],
+        ['哪些 AI 用戶端可以用 Saturn？', '任何 MCP 用戶端，包括 Claude、ChatGPT、Cursor、Gemini、LM Studio 與 Saturn App。所有 Agent 使用同一個 Saturn MCP 端點。現有的 MCP Server 不需要修改程式碼。'],
+        ['Saturn 和 API Gateway 有什麼不同？', 'API Gateway 依路徑與 HTTP 方法治理服務。Saturn 治理的是 Agent：它理解工具與參數，可以把一筆呼叫暫停等待人工核准，並記錄是哪條政策、哪位審核人員放行。'],
+        ['Agent 看得到 API Key 或 OAuth Token 嗎？', '看不到。上游憑證封存在 Saturn 的金庫中，以 ML-KEM-1024 後量子金鑰封裝搭配 AES-256-GCM 加密。Agent 只拿得到一筆經授權呼叫的結果。API 只回報密鑰是否存在，絕不回傳內容。'],
+        ['Saturn App 是免費的嗎？', '是的。Saturn App 是 macOS 與 Windows 上免費、開源的桌面 Agent，採 MIT 授權，在你的電腦上用你的模型與檔案運行。Saturn MCP Gateway 是另外的產品，包含在即將推出的 Pro 與 Enterprise 方案中。'],
+      ],
     },
     mcpPage: {
       title: 'Saturn MCP — AI Agent 的 MCP Gateway',
-      description: '一個 MCP 端點放在所有工具前面。工具集、參數層級政策、人工核准、封存憑證與完整審計軌跡。',
+      description: 'Saturn MCP 是 Agent 實際連線的 MCP Server。它只露出核准過的工具，對每一筆呼叫比對政策，並留下審計軌跡。',
       eyebrow: 'Saturn MCP',
       heading: '決定 Agent 可以做什麼的 MCP Gateway。',
       lede: 'Saturn MCP 是 Agent 實際對話的那台 MCP Server。它後面才是你真正的 MCP Server——CRM、付款、資料庫、雲端主控台。Saturn 只露出你核准的工具，對每一筆呼叫比對政策，把敏感的那幾筆暫停交給人，並記錄一切。',
@@ -768,7 +793,7 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — 免費、開源的桌面 AI Agent',
-      description: 'Saturn App 在你自己的電腦上運行 AI Agent，使用你自己的模型、MCP Server 與檔案。免費、開源、MIT 授權。',
+      description: 'Saturn App 是 macOS 與 Windows 上免費、MIT 授權的桌面 AI Agent。它在本機運行，使用你自己的模型、檔案與 MCP Server。',
       eyebrow: 'Saturn App · 開源 · 免費',
       heading: '在你電腦上運行的桌面 AI Agent。免費、開源、完全屬於你。',
       lede: 'Saturn App 是 macOS 與 Windows 上的本機 Agent。接上你自己的模型與 MCP Server，給它一個工作區，讓它在你的機器上、依你的規則讀寫檔案、執行指令、瀏覽網頁。沒有訂閱、沒有遙測、沒有綁定。',
@@ -841,8 +866,8 @@ const messages = {
       ctaBody: 'Saturn App 對所有人免費。給 repo 一顆星、開一個 issue，或送一個 pull request。',
     },
     pricingPage: {
-      title: '方案與定價 — Saturn',
-      description: 'Saturn App 免費。Saturn MCP Gateway 包含在 Pro 與 Enterprise。',
+      title: '方案與定價 — 免費 Saturn App 與 MCP Gateway',
+      description: 'Saturn App 永久免費、MIT 授權。Saturn MCP Gateway（工具集、政策、核准與審計）包含在 Pro 與 Enterprise。',
       eyebrow: '方案與定價',
       heading: '免費開始。Agent 上正式環境時，再加上 Gateway。',
       lede: '桌面 App 對所有人永久免費。Saturn MCP Gateway——工具集、政策、核准與審計——包含在 Pro 與 Enterprise 方案。',
@@ -859,8 +884,8 @@ const messages = {
       ctaBody: '告訴我們你跑多少 Agent、它們碰哪些系統。我們會建議一套配置。',
     },
     demoPage: {
-      title: '預約展示 — Saturn',
-      description: '留下姓名、公司網址與 Email，我們會安排 Saturn 展示。',
+      title: '預約展示 — Saturn MCP Gateway',
+      description: '預約 Saturn 的導覽。Saturn 是 AI Agent 的安全 MCP Gateway。告訴我們你的 Agent 會呼叫哪些工具。',
       eyebrow: '預約展示',
       heading: '用你自己的工具，看一次 Saturn。',
       lede: '留下姓名、工作 Email 與公司網址。我們會回信安排一次導覽。',
@@ -876,7 +901,7 @@ const messages = {
       successTitle: '已收到你的資料。',
       successBody: '謝謝。我們會寄信到你留下的 Email。',
       back: '回到首頁',
-      error: '這筆資料沒有送出。請改寄信到 hello@saturn.technology，我們會安排展示。',
+      error: '這筆資料沒有送出。請改寄信到 sales@saturn-core.com，我們會安排展示。',
       errors: {
         required: '此欄必填。',
         email: '請輸入有效的 Email。',
@@ -896,21 +921,8 @@ const messages = {
 
 export type PageName = 'home' | 'mcp' | 'app' | 'pricing' | 'demo'
 
-watch(
-  locale,
-  (value) => {
-    try {
-      localStorage.setItem(STORAGE_KEY, value)
-    } catch {
-      /* ignore */
-    }
-    document.documentElement.lang = value === 'zh' ? 'zh-Hant' : 'en'
-  },
-  { immediate: true },
-)
-
-export function pageMeta(page: PageName) {
-  const m = messages[locale.value]
+export function pageMeta(page: PageName, lang: Locale = locale.value) {
+  const m = messages[lang]
   if (page === 'mcp') return { title: m.mcpPage.title, description: m.mcpPage.description }
   if (page === 'app') return { title: m.appPage.title, description: m.appPage.description }
   if (page === 'pricing') return { title: m.pricingPage.title, description: m.pricingPage.description }
@@ -918,12 +930,11 @@ export function pageMeta(page: PageName) {
   return { title: m.meta.title, description: m.meta.description }
 }
 
+export function copy(lang: Locale = locale.value) {
+  return messages[lang]
+}
+
 export function useI18n() {
   const t = computed(() => messages[locale.value])
-
-  function setLocale(next: Locale) {
-    locale.value = next
-  }
-
-  return { locale, t, setLocale }
+  return { locale, t }
 }

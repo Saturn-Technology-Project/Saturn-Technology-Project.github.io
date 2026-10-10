@@ -3,23 +3,21 @@ import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
-import { locale, pageMeta, type PageName } from './i18n'
+import { locale, type PageName } from './i18n'
+import { applyHead } from './seo'
 
 const route = useRoute()
 
 const page = computed<PageName>(() => {
-  const name = route.name
-  if (name === 'mcp' || name === 'app' || name === 'pricing' || name === 'demo') return name
+  const name = route.meta.page
+  if (name === 'mcp' || name === 'app' || name === 'pricing' || name === 'demo' || name === 'home') return name
   return 'home'
 })
 
 watch(
   [locale, page],
   () => {
-    const meta = pageMeta(page.value)
-    document.title = meta.title
-    const el = document.querySelector('meta[name="description"]')
-    if (el) el.setAttribute('content', meta.description)
+    applyHead(page.value, locale.value)
   },
   { immediate: true },
 )

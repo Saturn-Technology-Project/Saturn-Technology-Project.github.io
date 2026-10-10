@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { useI18n } from '../i18n'
+import Breadcrumb from '../components/Breadcrumb.vue'
+import { localePath, useI18n } from '../i18n'
 import { DOWNLOAD_URLS, GITHUB_URL } from '../config'
 import { detectPlatform, type DesktopPlatform } from '../platform'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 const platform = ref<DesktopPlatform>('other')
 
 onMounted(() => {
@@ -16,6 +17,7 @@ onMounted(() => {
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
+        <Breadcrumb :current="t.nav.app" />
         <p class="eyebrow accent">{{ t.appPage.eyebrow }}</p>
         <h1>{{ t.appPage.heading }}</h1>
         <p class="lede">{{ t.appPage.lede }}</p>
@@ -28,7 +30,7 @@ onMounted(() => {
             <span>{{ t.appPage.download }}</span>
             <span class="btn-sub">{{ t.appPage.downloadFor[platform] }}</span>
           </a>
-          <RouterLink class="btn btn-ghost btn-lg" to="/mcp">{{ t.appPage.secondary }}</RouterLink>
+          <RouterLink class="btn btn-ghost btn-lg" :to="localePath('/mcp', locale)">{{ t.appPage.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.appPage.note }}</p>
       </div>

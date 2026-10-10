@@ -1,21 +1,23 @@
 <script setup lang="ts">
+import Breadcrumb from '../components/Breadcrumb.vue'
 import PolicyCode from '../components/PolicyCode.vue'
-import { useI18n } from '../i18n'
+import { localePath, useI18n } from '../i18n'
 import { CONSOLE_URL } from '../config'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 </script>
 
 <template>
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
+        <Breadcrumb :current="t.nav.mcp" />
         <p class="eyebrow accent">{{ t.mcpPage.eyebrow }}</p>
         <h1>{{ t.mcpPage.heading }}</h1>
         <p class="lede">{{ t.mcpPage.lede }}</p>
         <div class="actions">
-          <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.mcpPage.primary }}</a>
-          <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.mcpPage.secondary }}</RouterLink>
+          <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.mcpPage.primary }}</a>
+          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.mcpPage.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.mcpPage.note }}</p>
       </div>
@@ -96,8 +98,8 @@ const { t } = useI18n()
       <h2>{{ t.mcpPage.ctaTitle }}</h2>
       <p class="lede">{{ t.mcpPage.ctaBody }}</p>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.mcpPage.primary }}</a>
-        <RouterLink class="btn btn-outline btn-lg" to="/demo">{{ t.mcpPage.secondary }}</RouterLink>
+        <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.mcpPage.primary }}</a>
+        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.mcpPage.secondary }}</RouterLink>
       </div>
     </div>
   </section>

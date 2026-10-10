@@ -1,0 +1,37 @@
+# Saturn
+
+> Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail.
+
+Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, is MIT licensed (copyright Prism Capital LLC). Saturn MCP is the gateway. Updated 10 October 2026.
+
+## English
+
+- [Saturn](https://saturn.technology/): Secure MCP gateway for AI agents. One endpoint, tool sets, argument-level policy, human approval, and audit.
+- [What Saturn is](https://saturn.technology/#faq): Definitions of Saturn, an MCP gateway, supported clients, the difference from an API gateway, credential handling, and Saturn App pricing.
+- [Saturn MCP](https://saturn.technology/mcp): The MCP server agents talk to. Connect existing MCP servers, build tool sets, write policies, and point every agent at one endpoint.
+- [Saturn App](https://saturn.technology/app): Free, MIT-licensed desktop AI agent for macOS and Windows. Runs locally with your models, files, and MCP servers.
+- [Pricing](https://saturn.technology/pricing): Saturn App is free. The MCP gateway is included in Pro and Enterprise, which are coming soon.
+- [Pricing questions](https://saturn.technology/pricing#faq): What is free, what Pro adds, personal versus organization accounts, and Enterprise pricing.
+- [Book a demo](https://saturn.technology/demo): Request a walkthrough of Saturn with your own tools.
+
+## 中文
+
+- [Saturn](https://saturn.technology/zh): 企業級 AI Agent 的安全 MCP Gateway。
+- [關於 Saturn](https://saturn.technology/zh#faq): Saturn 的定義、MCP Gateway、支援的用戶端、與 API Gateway 的差別、憑證處理，以及 Saturn App 是否免費。
+- [Saturn MCP](https://saturn.technology/zh/mcp): Agent 實際連線的 MCP Server。連接既有 MCP Server、組建工具集、撰寫政策。
+- [Saturn App](https://saturn.technology/zh/app): macOS 與 Windows 上免費、MIT 授權的桌面 AI Agent，在本機運行。
+- [方案與定價](https://saturn.technology/zh/pricing): Saturn App 永久免費。MCP Gateway 包含在即將推出的 Pro 與 Enterprise。
+- [常見問題](https://saturn.technology/zh/pricing#faq): 免費範圍、Pro 內容、個人與組織的差別、Enterprise 計價。
+- [預約展示](https://saturn.technology/zh/demo): 用你自己的工具預約一次導覽。
+
+## Facts
+
+- [Full product brief](https://saturn.technology/llms-full.txt): Complete description of Saturn MCP and Saturn App for language models, in English and 中文.
+
+## Optional
+
+- [Sitemap](https://saturn.technology/sitemap.xml): Every public page in English and 繁體中文.
+- [GitHub](https://github.com/Saturn-Technology-Project/Saturn-App): Saturn App source, MIT licensed.
+- [Console](https://dashboard.saturn-core.com): Saturn console, where agents, policies, approvals, and the audit trail are managed.
+- [Contact](mailto:hello@saturn-core.com): General email.
+- [Book a demo by email](mailto:sales@saturn-core.com): Demo requests go to sales.

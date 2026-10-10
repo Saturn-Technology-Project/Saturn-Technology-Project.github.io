@@ -1,6 +1,8 @@
+export const SITE_URL = 'https://saturn.technology'
 export const CONSOLE_URL = 'https://dashboard.saturn-core.com'
-export const CONTACT_ADDRESS = 'hello@saturn.technology'
-export const DEMO_FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_ADDRESS}`
+export const CONTACT_ADDRESS = 'hello@saturn-core.com'
+export const DEMO_ADDRESS = 'sales@saturn-core.com'
+export const DEMO_FORM_ENDPOINT = `https://formsubmit.co/ajax/${DEMO_ADDRESS}`
 export const GITHUB_URL = 'https://github.com/Saturn-Technology-Project/Saturn-App'
 
 // Desktop downloads. Asset names come from electron-builder's

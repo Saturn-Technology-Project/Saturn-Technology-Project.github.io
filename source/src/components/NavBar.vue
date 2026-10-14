@@ -89,6 +89,7 @@ const zhTo = computed(() => localePath(route.path, 'zh'))
       </div>
 
       <div class="mobile-tools">
+        <a class="btn btn-primary btn-sm mobile-start" :href="CONSOLE_URL">{{ t.nav.start }}</a>
         <div class="lang" @click.stop>
           <button
             class="lang-btn"
@@ -127,7 +128,6 @@ const zhTo = computed(() => localePath(route.path, 'zh'))
 
     <div v-if="menuOpen" class="mobile-menu wrap">
       <RouterLink v-for="link in links" :key="link.to" :to="link.to" :aria-current="route.path === link.to ? 'page' : undefined">{{ link.label }}</RouterLink>
-      <a :href="CONSOLE_URL">{{ t.nav.start }}</a>
       <RouterLink :to="demoTo">{{ t.nav.demo }}</RouterLink>
     </div>
   </header>

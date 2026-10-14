@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run dev --prefix source",
-    "build": "npm run build --prefix source",
+    "build": "npm ci --prefix source && npm run build --prefix source",
     "preview": "npm run preview --prefix source",
     "deploy": "npm run build && wrangler pages deploy source/dist --project-name=saturn --commit-dirty=true"
   },

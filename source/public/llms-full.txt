@@ -3,12 +3,12 @@
 > Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail in one console.
 
 Updated 10 October 2026.
-Website: https://saturn.technology/
+Website: https://saturn-core.com/
 Contact: hello@saturn-core.com
 Demo requests: sales@saturn-core.com
 Console: https://dashboard.saturn-core.com
 Source (Saturn App): https://github.com/Saturn-Technology-Project/Saturn-App
-Saturn Technology Project by Prism Capital LLC. Saturn App is copyright Prism Capital LLC and MIT licensed.
+Saturn Technology Project by Prism Capital LLC. Saturn App is copyright Prism Capital LLC and MIT licensed. Rick Weng, an individual in Taiwan, operates the website, Saturn App distribution, and the hosted gateway. Prism Capital LLC, a Wyoming limited liability company, owns the intellectual property. Terms: https://saturn-core.com/terms Privacy: https://saturn-core.com/privacy
 
 ## What Saturn is
 
@@ -82,7 +82,7 @@ Download: https://github.com/Saturn-Technology-Project/Saturn-App/releases/lates
 - Pro, personal, coming soon. Everything in Free, plus Saturn MCP gateway access, tool sets, per-tool approval mode, the versioned policy engine, the approval queue, and the audit trail. Pro is a single user and cannot invite members.
 - Enterprise, organization, Coming Soon. Everything in Pro, plus members, roles, custom permissions, shared team agents with scoped editors, MCP server mapping per employee, and priority support.
 
-Enterprise pricing is not published yet. Book a demo at https://saturn.technology/demo.
+Enterprise pricing is not published yet. Book a demo at https://saturn-core.com/demo.
 
 ## Questions worth quoting
 
@@ -114,8 +114,8 @@ Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/
 方案：Free 永久免費，只有 Saturn App。Pro 與 Enterprise 即將推出，包含 Saturn MCP Gateway。Enterprise 是組織方案，有成員、角色、共用 Agent，以及逐員工的 MCP Server 對應。
 
 中文頁面：
-- https://saturn.technology/zh
-- https://saturn.technology/zh/mcp
-- https://saturn.technology/zh/app
-- https://saturn.technology/zh/pricing
-- https://saturn.technology/zh/demo
+- https://saturn-core.com/zh
+- https://saturn-core.com/zh/mcp
+- https://saturn-core.com/zh/app
+- https://saturn-core.com/zh/pricing
+- https://saturn-core.com/zh/demo

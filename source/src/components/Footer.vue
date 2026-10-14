@@ -2,33 +2,43 @@
 import { computed } from 'vue'
 import Brand from './Brand.vue'
 import { localePath, useI18n } from '../i18n'
-import { CONSOLE_URL, GITHUB_URL } from '../config'
 
 const { locale, t } = useI18n()
+const year = new Date().getFullYear()
 
-const links = computed(() => [
-  { label: t.value.footer.mcp, to: localePath('/mcp', locale.value) },
-  { label: t.value.footer.app, to: localePath('/app', locale.value) },
-  { label: t.value.footer.pricing, to: localePath('/pricing', locale.value) },
+const columns = computed(() => [
+  {
+    heading: t.value.footer.product,
+    links: [
+      { label: t.value.footer.mcp, to: localePath('/mcp', locale.value) },
+      { label: t.value.footer.app, to: localePath('/app', locale.value) },
+      { label: t.value.footer.pricing, to: localePath('/pricing', locale.value) },
+    ],
+  },
+  {
+    heading: t.value.footer.legal,
+    links: [
+      { label: t.value.footer.privacy, to: localePath('/privacy', locale.value) },
+      { label: t.value.footer.terms, to: localePath('/terms', locale.value) },
+    ],
+  },
 ])
 </script>
 
 <template>
   <footer class="site-footer">
     <div class="wrap">
-      <div class="top">
-        <div>
+      <div class="footer-main">
+        <div class="footer-brand">
           <Brand />
           <p class="tagline">{{ t.footer.tagline }}</p>
         </div>
-        <nav :aria-label="locale === 'zh' ? '頁尾' : 'Footer'">
-          <RouterLink v-for="link in links" :key="link.to" :to="link.to">{{ link.label }}</RouterLink>
-          <a :href="GITHUB_URL" target="_blank" rel="noopener noreferrer">{{ t.footer.github }}</a>
-          <a :href="CONSOLE_URL" target="_blank" rel="noopener noreferrer">{{ t.footer.console }}</a>
-          <a href="/sitemap.xml">{{ t.footer.sitemap }}</a>
+        <nav v-for="column in columns" :key="column.heading" :aria-label="column.heading">
+          <p class="footer-heading">{{ column.heading }}</p>
+          <RouterLink v-for="link in column.links" :key="link.to" :to="link.to">{{ link.label }}</RouterLink>
         </nav>
       </div>
-      <p class="legal">{{ t.footer.project }}</p>
+      <p class="legal">© {{ year }} {{ t.footer.project }}</p>
     </div>
   </footer>
 </template>

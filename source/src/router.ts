@@ -5,6 +5,7 @@ import McpPage from './pages/McpPage.vue'
 import AppPage from './pages/AppPage.vue'
 import PricingPage from './pages/PricingPage.vue'
 import DemoPage from './pages/DemoPage.vue'
+import LegalPage from './pages/LegalPage.vue'
 import { locale, type Locale, type PageName } from './i18n'
 
 declare module 'vue-router' {
@@ -20,6 +21,8 @@ const pages: { path: string; page: PageName; component: Component }[] = [
   { path: '/app', page: 'app', component: AppPage },
   { path: '/pricing', page: 'pricing', component: PricingPage },
   { path: '/demo', page: 'demo', component: DemoPage },
+  { path: '/terms', page: 'terms', component: LegalPage },
+  { path: '/privacy', page: 'privacy', component: LegalPage },
 ]
 
 function localized(lang: Locale): RouteRecordRaw[] {

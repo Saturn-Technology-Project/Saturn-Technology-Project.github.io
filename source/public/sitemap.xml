@@ -1,93 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://saturn.technology/</loc>
+    <loc>https://saturn-core.com/</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/zh</loc>
+    <loc>https://saturn-core.com/zh</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/mcp</loc>
+    <loc>https://saturn-core.com/mcp</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/mcp"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/mcp"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/mcp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/mcp"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/mcp"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/zh/mcp</loc>
+    <loc>https://saturn-core.com/zh/mcp</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/mcp"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/mcp"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/mcp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/mcp"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/mcp"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/app</loc>
+    <loc>https://saturn-core.com/app</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/app"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/app"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/app"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/app"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/app"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/app"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/zh/app</loc>
+    <loc>https://saturn-core.com/zh/app</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/app"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/app"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/app"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/app"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/app"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/app"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/pricing</loc>
+    <loc>https://saturn-core.com/pricing</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/pricing"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/pricing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/pricing"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/zh/pricing</loc>
+    <loc>https://saturn-core.com/zh/pricing</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/pricing"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/pricing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/pricing"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/demo</loc>
+    <loc>https://saturn-core.com/demo</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/demo"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/demo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/demo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/demo"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/demo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/demo"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://saturn.technology/zh/demo</loc>
+    <loc>https://saturn-core.com/zh/demo</loc>
     <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://saturn.technology/demo"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn.technology/zh/demo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn.technology/demo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/demo"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/demo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/demo"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://saturn-core.com/terms</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/terms"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/terms"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://saturn-core.com/zh/terms</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/terms"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/terms"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://saturn-core.com/privacy</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/privacy"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://saturn-core.com/zh/privacy</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saturn-core.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://saturn-core.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saturn-core.com/privacy"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

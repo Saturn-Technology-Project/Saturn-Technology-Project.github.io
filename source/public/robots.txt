@@ -1,6 +1,6 @@
 # Saturn welcomes search engines and generative-engine crawlers.
-# A concise brief for language models: https://saturn.technology/llms.txt
-# Full product brief: https://saturn.technology/llms-full.txt
+# A concise brief for language models: https://saturn-core.com/llms.txt
+# Full product brief: https://saturn-core.com/llms-full.txt
 
 User-agent: *
 Allow: /
@@ -41,4 +41,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://saturn.technology/sitemap.xml
+Sitemap: https://saturn-core.com/sitemap.xml

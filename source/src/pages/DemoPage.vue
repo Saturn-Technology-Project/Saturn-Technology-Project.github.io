@@ -138,6 +138,9 @@ async function submit() {
         <button class="btn btn-primary" type="submit" :disabled="status === 'sending'">
           {{ status === 'sending' ? t.demoPage.sending : t.demoPage.submit }}
         </button>
+        <p class="form-note">
+          {{ t.demoPage.legalBefore }}<RouterLink :to="localePath('/terms', locale)">{{ t.demoPage.termsLink }}</RouterLink>{{ t.demoPage.legalMid }}<RouterLink :to="localePath('/privacy', locale)">{{ t.demoPage.privacyLink }}</RouterLink>{{ t.demoPage.legalAfter }}
+        </p>
       </form>
     </div>
   </section>

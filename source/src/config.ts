@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://saturn.technology'
+export const SITE_URL = 'https://saturn-core.com'
 export const CONSOLE_URL = 'https://dashboard.saturn-core.com'
 export const CONTACT_ADDRESS = 'hello@saturn-core.com'
 export const DEMO_ADDRESS = 'sales@saturn-core.com'

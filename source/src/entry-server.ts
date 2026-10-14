@@ -23,6 +23,14 @@ export async function render(url: string) {
   const html = await renderToString(app)
   const page = appRouter.currentRoute.value.meta.page
   const current: PageName =
-    page === 'mcp' || page === 'app' || page === 'pricing' || page === 'demo' || page === 'home' ? page : 'home'
+    page === 'mcp' ||
+    page === 'app' ||
+    page === 'pricing' ||
+    page === 'demo' ||
+    page === 'terms' ||
+    page === 'privacy' ||
+    page === 'home'
+      ? page
+      : 'home'
   return { html, head: headTags(current, lang), lang }
 }

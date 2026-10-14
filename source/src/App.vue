@@ -10,7 +10,16 @@ const route = useRoute()
 
 const page = computed<PageName>(() => {
   const name = route.meta.page
-  if (name === 'mcp' || name === 'app' || name === 'pricing' || name === 'demo' || name === 'home') return name
+  if (
+    name === 'mcp' ||
+    name === 'app' ||
+    name === 'pricing' ||
+    name === 'demo' ||
+    name === 'terms' ||
+    name === 'privacy' ||
+    name === 'home'
+  )
+    return name
   return 'home'
 })
 

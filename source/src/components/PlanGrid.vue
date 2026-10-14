@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from '../i18n'
+import { localePath, useI18n } from '../i18n'
 import { CONSOLE_URL } from '../config'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 </script>
 
 <template>
@@ -21,6 +21,12 @@ const { t } = useI18n()
         <li v-for="point in plan.points" :key="point">{{ point }}</li>
       </ul>
       <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL">{{ plan.cta }}</a>
+      <RouterLink
+        v-else-if="plan.id === 'team' || plan.id === 'enterprise'"
+        class="btn"
+        :class="plan.id === 'enterprise' ? 'btn-primary' : 'btn-outline'"
+        :to="localePath('/demo', locale)"
+      >{{ plan.cta }}</RouterLink>
       <button v-else class="btn btn-outline" type="button" disabled>{{ plan.cta }}</button>
     </article>
   </div>

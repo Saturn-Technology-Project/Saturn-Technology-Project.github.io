@@ -1,7 +1,8 @@
 import { CONTACT_ADDRESS, GITHUB_URL, SITE_URL } from './config'
 import { copy, pageMeta, type Locale, type PageName } from './i18n'
+import { legalCopy } from './legal'
 
-export const PAGES = ['home', 'mcp', 'app', 'pricing', 'demo'] as const
+export const PAGES = ['home', 'mcp', 'app', 'pricing', 'demo', 'terms', 'privacy'] as const
 const LOCALES = ['en', 'zh'] as const
 const ORG_ID = `${SITE_URL}/#organization`
 const SITE_ID = `${SITE_URL}/#website`
@@ -41,6 +42,7 @@ function crumbLabel(page: PageName, lang: Locale): string {
   if (page === 'app') return nav.app
   if (page === 'pricing') return nav.pricing
   if (page === 'demo') return nav.demo
+  if (page === 'terms' || page === 'privacy') return legalCopy[lang][page].crumb
   return 'Saturn'
 }
 
@@ -71,13 +73,13 @@ function mcpApplication(lang: Locale) {
     description: text.mcpPage.description,
     featureList:
       lang === 'zh'
-        ? ['工具集', '參數層級政策', '人工核准佇列', '後量子憑證金庫', '審計軌跡']
-        : ['Tool sets', 'Argument-level policy', 'Human approval queue', 'Post-quantum credential vault', 'Audit trail'],
+        ? ['工具集', '參數層級政策', '多人核准', '簽章 Webhook', '加密的原始內容', '審計軌跡']
+        : ['Tool sets', 'Argument-level policy', 'Multi-approver quorum', 'Signed webhooks', 'Encrypted raw payloads', 'Audit trail'],
     provider: { '@id': ORG_ID },
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/PreOrder',
-      description: lang === 'zh' ? 'Pro 與 Enterprise 即將推出。' : 'Pro and Enterprise plans are coming soon.',
+      description: lang === 'zh' ? 'Pro、Team 與 Enterprise 即將推出。' : 'Pro, Team, and Enterprise plans are coming soon.',
     },
   }
 }
@@ -215,6 +217,8 @@ export function sitemapXml(): string {
     app: '0.9',
     pricing: '0.8',
     demo: '0.6',
+    terms: '0.3',
+    privacy: '0.3',
   }
   const lastmod = new Date().toISOString().slice(0, 10)
   const urls = PAGES.flatMap((page) =>

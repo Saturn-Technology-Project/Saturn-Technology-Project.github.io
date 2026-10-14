@@ -1,2 +1,5 @@
 name = "saturn"
 pages_build_output_dir = "./source/dist"
+
+[build]
+command = "npm ci --prefix source && npm run build --prefix source"

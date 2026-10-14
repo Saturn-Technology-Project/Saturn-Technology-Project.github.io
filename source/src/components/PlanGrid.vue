@@ -11,7 +11,7 @@ const { locale, t } = useI18n()
       v-for="plan in t.plans.items"
       :key="plan.id"
       class="card plan"
-      :class="{ featured: plan.id === 'enterprise' }"
+      :class="{ featured: plan.id === 'team' }"
     >
       <p class="kind">{{ plan.kind }}</p>
       <h3>{{ plan.name }}</h3>
@@ -22,9 +22,8 @@ const { locale, t } = useI18n()
       </ul>
       <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL">{{ plan.cta }}</a>
       <RouterLink
-        v-else-if="plan.id === 'team' || plan.id === 'enterprise'"
-        class="btn"
-        :class="plan.id === 'enterprise' ? 'btn-primary' : 'btn-outline'"
+        v-else-if="plan.id === 'team'"
+        class="btn btn-primary"
         :to="localePath('/demo', locale)"
       >{{ plan.cta }}</RouterLink>
       <button v-else class="btn btn-outline" type="button" disabled>{{ plan.cta }}</button>

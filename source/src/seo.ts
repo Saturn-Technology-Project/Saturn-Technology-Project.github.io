@@ -79,7 +79,7 @@ function mcpApplication(lang: Locale) {
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/PreOrder',
-      description: lang === 'zh' ? 'Pro、Team 與 Enterprise 即將推出。' : 'Pro, Team, and Enterprise plans are coming soon.',
+      description: lang === 'zh' ? 'Pro 與 Team 即將推出。' : 'Pro and Team plans are coming soon.',
     },
   }
 }

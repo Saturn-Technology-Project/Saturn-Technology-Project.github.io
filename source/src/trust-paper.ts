@@ -52,7 +52,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
           },
           {
             type: 'p',
-            text: 'The gateway stores PBKDF2-HMAC-SHA256 of that hex string: 210,000 iterations, a random 16-byte salt, in the form pbkdf2_sha256$210000$salt$digest. A caller that still posts a raw password, such as an operator seed, is normalized with the same labeled SHA-256 before PBKDF2, so the stored verifier matches the browser.',
+            text: 'The gateway stores Argon2id of that hex string. Each account gets its own salt inside the hash. An older PBKDF2 verifier still signs in, and the gateway rewrites it as Argon2id. A caller that posts a raw password, such as an operator seed, is normalized with the same labeled SHA-256 before Argon2id.',
           },
           {
             type: 'p',
@@ -107,7 +107,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
         blocks: [
           {
             type: 'p',
-            text: 'Access tokens and client secrets use a separate ML-KEM-1024 key that belongs to the gateway. The seed is a fixed 64-byte key. Each secret is sealed as the prefix pq1., then ML-KEM-1024 encapsulation, HKDF-SHA384 with info saturn-credential-aes-256-gcm-v1, and AES-256-GCM.',
+            text: 'Access tokens and client secrets use a separate ML-KEM-1024 key that belongs to the gateway. The seed is read from Secret Manager secret F3PF_FALLBACK_SEED. The gateway does not start when that secret cannot be read. Each secret is sealed as the prefix pq1., then ML-KEM-1024 encapsulation, HKDF-SHA384 with info saturn-credential-aes-256-gcm-v1, and AES-256-GCM.',
           },
           {
             type: 'p',
@@ -131,7 +131,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
             type: 'ul',
             items: [
               'Envelopes wrapped to an earlier X25519 key stay sealed. The organization creates a new ML-KEM-1024 payload key.',
-              'A password verifier created from the raw password, before the labeled sign-in hash, requires a password reset before that account can sign in with the current client.',
+              'A password verifier created from the raw password, before the labeled sign-in hash, is checked once on the next sign-in and then rewritten as Argon2id.',
               'Anyone who can read the gateway credential seed can open upstream secrets. That seed exists so the gateway can complete an authorized call.',
               'A member who has the password and the password backup can open their private key, and then any payload wrapped to that key.',
               'Losing both the member backups and the organization recovery key leaves those payloads sealed.',
@@ -183,7 +183,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
           },
           {
             type: 'p',
-            text: 'Gateway 保存的是這串十六進位的 PBKDF2-HMAC-SHA256：210,000 次迭代、16 位元組隨機鹽，格式為 pbkdf2_sha256$210000$salt$digest。仍以明文密碼送出的呼叫者（例如營運種子帳號）會先套用同一個帶標籤的 SHA-256，再做 PBKDF2，因此存檔的驗證值與瀏覽器一致。',
+            text: 'Gateway 保存的是這串十六進位的 Argon2id。每個帳號的雜湊裡有自己的鹽。較早的 PBKDF2 驗證值仍可登入，Gateway 會把它改寫成 Argon2id。仍以明文密碼送出的呼叫者（例如營運種子帳號）會先套用同一個帶標籤的 SHA-256，再做 Argon2id。',
           },
           {
             type: 'p',
@@ -238,7 +238,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
         blocks: [
           {
             type: 'p',
-            text: 'Access token 與 client secret 使用另一把屬於 Gateway 的 ML-KEM-1024 金鑰。種子是一把固定的 64 位元組金鑰。每筆密鑰封成前綴 pq1.，接著是 ML-KEM-1024 封裝、info 為 saturn-credential-aes-256-gcm-v1 的 HKDF-SHA384，以及 AES-256-GCM。',
+            text: 'Access token 與 client secret 使用另一把屬於 Gateway 的 ML-KEM-1024 金鑰。種子從 Secret Manager 的 F3PF_FALLBACK_SEED 讀取。讀不到時 Gateway 不會啟動。每筆密鑰封成前綴 pq1.，接著是 ML-KEM-1024 封裝、info 為 saturn-credential-aes-256-gcm-v1 的 HKDF-SHA384，以及 AES-256-GCM。',
           },
           {
             type: 'p',
@@ -262,7 +262,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
             type: 'ul',
             items: [
               '封給較早 X25519 金鑰的信封維持密封。組織需建立新的 ML-KEM-1024 Payload 金鑰。',
-              '在帶標籤的登入雜湊之前、以明文密碼建立的驗證值，需先重設密碼，該帳號才能用目前的用戶端登入。',
+              '在帶標籤的登入雜湊之前、以明文密碼建立的驗證值，會在下一次登入時核對一次，然後改寫成 Argon2id。',
               '能讀取 Gateway 憑證種子的人可以打開上游密鑰。這顆種子的用途是讓 Gateway 完成已授權的呼叫。',
               '持有密碼與密碼備份的成員可以打開自己的私鑰，以及封給該金鑰的 Payload。',
               '成員備份與組織復原金鑰同時遺失時，那些 Payload 維持密封。',

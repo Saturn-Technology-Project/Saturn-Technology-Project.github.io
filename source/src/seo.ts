@@ -81,7 +81,7 @@ function mcpApplication(lang: Locale) {
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/PreOrder',
-      description: lang === 'zh' ? 'Pro 與 Team 即將推出。' : 'Pro and Team plans are coming soon.',
+      description: lang === 'zh' ? 'Pro 每月 20 美元。Team 每用戶每月 20 美元。' : 'Pro is $20 per month. Team is $20 per user per month.',
     },
   }
 }

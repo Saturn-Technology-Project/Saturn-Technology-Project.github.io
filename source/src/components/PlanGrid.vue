@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { localePath, useI18n } from '../i18n'
-import { CONSOLE_URL } from '../config'
+import { useI18n } from '../i18n'
 
-const { locale, t } = useI18n()
+const SIGNUP_URL = 'https://dashboard.saturn-core.com/'
+const { t } = useI18n()
 </script>
 
 <template>
@@ -20,13 +20,7 @@ const { locale, t } = useI18n()
       <ul class="checks">
         <li v-for="point in plan.points" :key="point">{{ point }}</li>
       </ul>
-      <a v-if="plan.id === 'free'" class="btn btn-primary" :href="CONSOLE_URL">{{ plan.cta }}</a>
-      <RouterLink
-        v-else-if="plan.id === 'team'"
-        class="btn btn-primary"
-        :to="localePath('/demo', locale)"
-      >{{ plan.cta }}</RouterLink>
-      <button v-else class="btn btn-outline" type="button" disabled>{{ plan.cta }}</button>
+      <a class="btn btn-primary" :href="SIGNUP_URL">{{ plan.cta }}</a>
     </article>
   </div>
 </template>

@@ -25,10 +25,10 @@ const { locale, t } = useI18n()
         <pre class="code code-wrap"><span class="k">{{ t.plans.items[0].id }}</span>    <span class="ok">{{ t.plans.items[0].price }}</span> <span class="k">{{ t.plans.items[0].period }}</span>
 <span class="v">{{ t.plans.items[0].tagline }}</span>
 
-<span class="k">{{ t.plans.items[1].id }}</span>     <span class="a">{{ t.plans.items[1].price }}</span>
+<span class="k">{{ t.plans.items[1].id }}</span>     <span class="a">{{ t.plans.items[1].price }}</span> <span class="k">{{ t.plans.items[1].period }}</span>
 <span class="v">{{ t.plans.items[1].tagline }}</span>
 
-<span class="k">{{ t.plans.items[2].id }}</span>    <span class="a">{{ t.plans.items[2].price }}</span>
+<span class="k">{{ t.plans.items[2].id }}</span>    <span class="a">{{ t.plans.items[2].price }}</span> <span class="k">{{ t.plans.items[2].period }}</span>
 <span class="v">{{ t.plans.items[2].tagline }}</span></pre>
         <p class="code-caption">{{ t.pricingPage.includedTitle }}</p>
       </div>

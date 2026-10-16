@@ -13,6 +13,7 @@ const page = computed<PageName>(() => {
   if (
     name === 'mcp' ||
     name === 'app' ||
+    name === 'trust' ||
     name === 'pricing' ||
     name === 'demo' ||
     name === 'terms' ||

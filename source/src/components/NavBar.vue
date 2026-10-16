@@ -43,6 +43,7 @@ onBeforeUnmount(() => {
 const links = computed(() => [
   { label: t.value.nav.mcp, to: localePath('/mcp', locale.value) },
   { label: t.value.nav.app, to: localePath('/app', locale.value) },
+  { label: t.value.nav.trust, to: localePath('/trust', locale.value) },
   { label: t.value.nav.pricing, to: localePath('/pricing', locale.value) },
 ])
 const demoTo = computed(() => localePath('/demo', locale.value))

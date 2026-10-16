@@ -2,7 +2,7 @@ import { CONTACT_ADDRESS, GITHUB_URL, SITE_URL } from './config'
 import { copy, pageMeta, type Locale, type PageName } from './i18n'
 import { legalCopy } from './legal'
 
-export const PAGES = ['home', 'mcp', 'app', 'pricing', 'demo', 'terms', 'privacy'] as const
+export const PAGES = ['home', 'mcp', 'app', 'trust', 'pricing', 'demo', 'terms', 'privacy'] as const
 const LOCALES = ['en', 'zh'] as const
 const ORG_ID = `${SITE_URL}/#organization`
 const SITE_ID = `${SITE_URL}/#website`
@@ -40,6 +40,7 @@ function crumbLabel(page: PageName, lang: Locale): string {
   const nav = copy(lang).nav
   if (page === 'mcp') return nav.mcp
   if (page === 'app') return nav.app
+  if (page === 'trust') return nav.trust
   if (page === 'pricing') return nav.pricing
   if (page === 'demo') return nav.demo
   if (page === 'terms' || page === 'privacy') return legalCopy[lang][page].crumb
@@ -49,6 +50,7 @@ function crumbLabel(page: PageName, lang: Locale): string {
 function faqFor(page: PageName, lang: Locale) {
   const text = copy(lang)
   if (page === 'home') return text.homeFaq.items
+  if (page === 'trust') return text.trustPage.faq
   if (page === 'pricing') return text.pricingPage.faq
   return null
 }
@@ -215,6 +217,7 @@ export function sitemapXml(): string {
     home: '1.0',
     mcp: '0.9',
     app: '0.9',
+    trust: '0.8',
     pricing: '0.8',
     demo: '0.6',
     terms: '0.3',

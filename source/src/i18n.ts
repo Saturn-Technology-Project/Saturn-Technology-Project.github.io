@@ -29,6 +29,7 @@ const messages = {
       home: 'Saturn home',
       mcp: 'Saturn MCP',
       app: 'Saturn App',
+      trust: 'Trust',
       pricing: 'Pricing',
       start: 'Get started',
       demo: 'Book a demo',
@@ -266,6 +267,7 @@ const messages = {
       legal: 'Legal',
       mcp: 'Saturn MCP',
       app: 'Saturn App',
+      trust: 'Trust',
       pricing: 'Pricing',
       terms: 'Terms of Service',
       privacy: 'Privacy Policy',
@@ -426,6 +428,54 @@ const messages = {
       ctaTitle: 'Download the source, build it, run it.',
       ctaBody: 'Saturn App is free for everyone. Star the repository, open an issue, or send a pull request.',
     },
+    trustPage: {
+      title: 'Saturn Trust — How keys, payloads, and credentials are protected',
+      description:
+        'Saturn seals tool payloads with AES-256-GCM and ML-KEM-1024. Passwords are hashed in the browser before they reach the gateway. Saturn cannot unwrap member private keys.',
+      eyebrow: 'Trust',
+      heading: 'The gateway can run the call. It cannot read the sealed payload.',
+      lede: 'Tool arguments, the upstream response, and the result returned to the agent share one AES-256-GCM envelope. ML-KEM-1024 wraps the data key to public keys Saturn does not hold.',
+      layersTitle: 'Three protections, kept apart.',
+      layersDesc: 'A password, a member private key, and a tool payload never share one secret.',
+      layers: [
+        ['Sign-in', 'The browser hashes the password before sending it. Saturn hashes that value again with PBKDF2 and never stores the password.'],
+        ['Member private key', 'A different key, derived only in the browser, wraps the ML-KEM private key. The sign-in hash cannot open it.'],
+        ['Tool payloads', 'One random AES-256-GCM data key encrypts the request and the response. ML-KEM-1024 wraps that key for the organization and each member. Saturn then discards it.'],
+        ['Upstream credentials', 'Access tokens and client secrets are sealed with the gateway’s own ML-KEM-1024 key, so an authorized call can be completed. Agents never receive the secret.'],
+      ],
+      envelopeTitle: 'One envelope for the whole call.',
+      envelopeDesc: 'These fields are sealed together. The algorithm is ML-KEM-1024-HKDF-SHA384-AES-256-GCM.',
+      envelope: [
+        ['Arguments', 'The parameters the agent sent with the tool call.'],
+        ['Upstream request', 'The request Saturn forwarded to the tool.'],
+        ['Upstream response', 'The raw body that came back from the tool.'],
+        ['Downstream result', 'The result Saturn returned to the agent.'],
+      ],
+      holdTitle: 'What Saturn can and cannot open.',
+      cannotTitle: 'Saturn cannot open',
+      cannot: [
+        'Organization or member private keys',
+        'The recovery key',
+        'The password, or the key that wraps a member private key',
+        'A sealed tool payload',
+      ],
+      canTitle: 'Saturn can open',
+      can: [
+        'Who called, which tool, the policy version, and the decision',
+        'An upstream credential, only for the duration of an authorized call',
+        'Whether a secret exists — never its value — on console APIs',
+      ],
+      faqTitle: 'Questions',
+      faq: [
+        ['Can Saturn decrypt an audit payload?', 'No. The data key is wrapped to the organization and member public keys and then discarded. An authorized member decrypts it in the browser after signing in.'],
+        ['Does the sign-in password unlock the private key on the server?', 'No. The value sent at sign-in is a hash. The private key is wrapped with a different key that never leaves the browser.'],
+        ['Do agents see API keys or OAuth tokens?', 'No. Those secrets stay in the credential vault. Agents receive only the result of an authorized call.'],
+        ['What if the organization has no payload key yet?', 'New tool content is not stored. The audit row records that encryption is unavailable, not the plaintext.'],
+      ],
+      ctaTitle: 'See it on your own tools.',
+      ctaBody: 'Connect one MCP server and open an encrypted audit record from the browser.',
+      paperLink: 'Read the whitepaper',
+    },
     pricingPage: {
       title: 'Saturn Pricing — Free Desktop App and MCP Gateway',
       description: 'Saturn App is free and MIT licensed. The MCP gateway adds policies and webhooks on Pro, and group approvals on Team.',
@@ -493,6 +543,7 @@ const messages = {
       home: 'Saturn 首頁',
       mcp: 'Saturn MCP',
       app: 'Saturn App',
+      trust: '信任',
       pricing: '方案與定價',
       start: '開始使用',
       demo: '預約展示',
@@ -715,6 +766,7 @@ const messages = {
       legal: '法律',
       mcp: 'Saturn MCP',
       app: 'Saturn App',
+      trust: '信任',
       pricing: '方案與定價',
       terms: '服務條款',
       privacy: '隱私權政策',
@@ -875,6 +927,54 @@ const messages = {
       ctaTitle: '下載原始碼、自己建置、直接使用。',
       ctaBody: 'Saturn App 對所有人免費。給 repo 一顆星、開一個 issue，或送一個 pull request。',
     },
+    trustPage: {
+      title: '信任 — 金鑰、Payload 與憑證如何被保護',
+      description:
+        'Saturn 以 AES-256-GCM 與 ML-KEM-1024 封存工具 Payload。密碼在送到 Gateway 之前先於瀏覽器雜湊。Saturn 無法解開成員私鑰。',
+      eyebrow: '信任',
+      heading: 'Gateway 可以完成呼叫，但讀不了已封存的 Payload。',
+      lede: '工具參數、上游回應，以及交回給 Agent 的結果，共用一個 AES-256-GCM 信封。資料金鑰以 ML-KEM-1024 封給 Saturn 不持有的公鑰。',
+      layersTitle: '三層保護，彼此分開。',
+      layersDesc: '密碼、成員私鑰與工具 Payload 不共用同一把秘密。',
+      layers: [
+        ['登入', '瀏覽器先把密碼雜湊再送出。Saturn 再用 PBKDF2 雜湊一次，不保存密碼本身。'],
+        ['成員私鑰', '另一把只在瀏覽器衍生的金鑰包住 ML-KEM 私鑰。登入用的雜湊解不開它。'],
+        ['工具 Payload', '一把隨機的 AES-256-GCM 資料金鑰加密請求與回應。ML-KEM-1024 再把這把金鑰封給組織與每位成員。Saturn 隨即丟棄資料金鑰。'],
+        ['上游憑證', 'Access token 與 client secret 用 Gateway 自己的 ML-KEM-1024 金鑰封存，已授權的呼叫才能完成。Agent 拿不到密鑰。'],
+      ],
+      envelopeTitle: '一整筆呼叫，一個信封。',
+      envelopeDesc: '這些欄位一起封存。演算法是 ML-KEM-1024-HKDF-SHA384-AES-256-GCM。',
+      envelope: [
+        ['參數', 'Agent 隨工具呼叫送出的參數。'],
+        ['上游請求', 'Saturn 轉送給工具的請求。'],
+        ['上游回應', '工具回來的原始內容。'],
+        ['下游結果', 'Saturn 交回給 Agent 的結果。'],
+      ],
+      holdTitle: 'Saturn 打得開與打不開的東西。',
+      cannotTitle: 'Saturn 打不開',
+      cannot: [
+        '組織或成員的私鑰',
+        '復原金鑰',
+        '密碼，以及用來包成員私鑰的那把金鑰',
+        '已封存的工具 Payload',
+      ],
+      canTitle: 'Saturn 打得開',
+      can: [
+        '誰呼叫、哪個工具、政策版本，以及決策',
+        '上游憑證，且只在一筆已授權呼叫進行的期間',
+        '主控台 API 只回報密鑰是否存在，不回報內容',
+      ],
+      faqTitle: '常見問題',
+      faq: [
+        ['Saturn 能解密審計 Payload 嗎？', '不能。資料金鑰封給組織與成員的公鑰後即被丟棄。經授權的成員登入後，在瀏覽器裡解密。'],
+        ['登入密碼會在伺服器上解開私鑰嗎？', '不會。登入送出的是雜湊。私鑰用另一把從不離開瀏覽器的金鑰包裝。'],
+        ['Agent 看得到 API Key 或 OAuth Token 嗎？', '看不到。這些密鑰留在憑證金庫。Agent 只拿得到一筆經授權呼叫的結果。'],
+        ['組織還沒有 Payload 金鑰呢？', '新的工具內容不會被保存。審計列只標示尚未加密，不寫入明文。'],
+      ],
+      ctaTitle: '用你自己的工具看一次。',
+      ctaBody: '接上一台 MCP Server，再到瀏覽器打開一筆加密的審計紀錄。',
+      paperLink: '閱讀白皮書',
+    },
     pricingPage: {
       title: '方案與定價 — 免費 Saturn App 與 MCP Gateway',
       description: 'Saturn App 永久免費、MIT 授權。Pro 加上政策與 Webhook，Team 再加上群組核准。',
@@ -934,12 +1034,13 @@ const messages = {
   },
 } as const
 
-export type PageName = 'home' | 'mcp' | 'app' | 'pricing' | 'demo' | 'terms' | 'privacy'
+export type PageName = 'home' | 'mcp' | 'app' | 'trust' | 'pricing' | 'demo' | 'terms' | 'privacy'
 
 export function pageMeta(page: PageName, lang: Locale = locale.value) {
   const m = messages[lang]
   if (page === 'mcp') return { title: m.mcpPage.title, description: m.mcpPage.description }
   if (page === 'app') return { title: m.appPage.title, description: m.appPage.description }
+  if (page === 'trust') return { title: m.trustPage.title, description: m.trustPage.description }
   if (page === 'pricing') return { title: m.pricingPage.title, description: m.pricingPage.description }
   if (page === 'demo') return { title: m.demoPage.title, description: m.demoPage.description }
   if (page === 'terms' || page === 'privacy') {

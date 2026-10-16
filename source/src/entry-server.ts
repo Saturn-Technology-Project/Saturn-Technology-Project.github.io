@@ -25,6 +25,7 @@ export async function render(url: string) {
   const current: PageName =
     page === 'mcp' ||
     page === 'app' ||
+    page === 'trust' ||
     page === 'pricing' ||
     page === 'demo' ||
     page === 'terms' ||

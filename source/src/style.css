@@ -1317,6 +1317,63 @@ main {
   overflow-wrap: anywhere;
 }
 
+.paper-jump {
+  margin-top: 28px;
+}
+
+.paper-jump a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#whitepaper {
+  scroll-margin-top: 88px;
+}
+
+.paper {
+  overflow-wrap: anywhere;
+}
+
+.paper .eyebrow {
+  margin-bottom: 16px;
+}
+
+.paper h2 {
+  max-width: 20em;
+}
+
+.paper .updated {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.paper .lede {
+  margin-top: 20px;
+}
+
+.paper h3 {
+  margin-top: 2.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.paper section p + p,
+.paper section ul + p,
+.paper section p + ul {
+  margin-top: 0.85em;
+}
+
+.paper ul {
+  margin: 0.85em 0 0;
+  padding-left: 1.25em;
+  color: var(--ink-2);
+}
+
+.paper li + li {
+  margin-top: 0.45em;
+}
+
 @media (max-width: 1100px) {
   .plans {
     grid-template-columns: repeat(2, minmax(0, 1fr));

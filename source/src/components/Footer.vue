@@ -12,6 +12,7 @@ const columns = computed(() => [
     links: [
       { label: t.value.footer.mcp, to: localePath('/mcp', locale.value) },
       { label: t.value.footer.app, to: localePath('/app', locale.value) },
+      { label: t.value.footer.trust, to: localePath('/trust', locale.value) },
       { label: t.value.footer.pricing, to: localePath('/pricing', locale.value) },
     ],
   },

@@ -3,6 +3,7 @@ import { createMemoryHistory, createRouter, createWebHistory, type RouteRecordRa
 import HomePage from './pages/HomePage.vue'
 import McpPage from './pages/McpPage.vue'
 import AppPage from './pages/AppPage.vue'
+import TrustPage from './pages/TrustPage.vue'
 import PricingPage from './pages/PricingPage.vue'
 import DemoPage from './pages/DemoPage.vue'
 import LegalPage from './pages/LegalPage.vue'
@@ -19,6 +20,7 @@ const pages: { path: string; page: PageName; component: Component }[] = [
   { path: '/', page: 'home', component: HomePage },
   { path: '/mcp', page: 'mcp', component: McpPage },
   { path: '/app', page: 'app', component: AppPage },
+  { path: '/trust', page: 'trust', component: TrustPage },
   { path: '/pricing', page: 'pricing', component: PricingPage },
   { path: '/demo', page: 'demo', component: DemoPage },
   { path: '/terms', page: 'terms', component: LegalPage },
@@ -40,7 +42,8 @@ export const routes: RouteRecordRaw[] = [
   ...localized('en'),
   ...localized('zh'),
   { path: '/platform', redirect: '/mcp' },
-  { path: '/security', redirect: '/mcp' },
+  { path: '/security', redirect: '/trust' },
+  { path: '/zh/security', redirect: '/zh/trust' },
   { path: '/product', redirect: '/mcp' },
   { path: '/cloud', redirect: '/mcp' },
   { path: '/approach', redirect: '/mcp' },
@@ -52,7 +55,8 @@ export function createAppRouter() {
   const router = createRouter({
     history,
     routes,
-    scrollBehavior() {
+    scrollBehavior(to) {
+      if (to.hash) return { el: to.hash, top: 88 }
       return { top: 0 }
     },
   })

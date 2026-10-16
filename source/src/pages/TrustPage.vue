@@ -17,15 +17,29 @@ function openPaper(event: MouseEvent) {
 </script>
 
 <template>
-  <section class="page-hero">
-    <div class="wrap center">
-      <Breadcrumb :current="t.nav.trust" />
-      <p class="eyebrow accent">{{ t.trustPage.eyebrow }}</p>
-      <h1>{{ t.trustPage.heading }}</h1>
-      <p class="lede">{{ t.trustPage.lede }}</p>
-      <p class="paper-jump">
-        <a href="#whitepaper" @click="openPaper">{{ t.trustPage.paperLink }}</a>
-      </p>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <Breadcrumb :current="t.nav.trust" />
+        <p class="eyebrow accent">{{ t.trustPage.eyebrow }}</p>
+        <h1>{{ t.trustPage.heading }}</h1>
+        <p class="lede">{{ t.trustPage.lede }}</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#whitepaper" @click="openPaper">{{ t.trustPage.paperLink }}</a>
+          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <pre class="code"><span class="k">cipher</span>    <span class="v">AES-256-GCM</span>
+<span class="k">wrap</span>      <span class="v">ML-KEM-1024</span>
+<span class="k">kdf</span>        <span class="v">HKDF-SHA384</span>
+
+<span class="k">sealed</span>    <span class="ok">{{ t.trustPage.envelope[0][0] }}</span>
+<span class="k">sealed</span>    <span class="ok">{{ t.trustPage.envelope[1][0] }}</span>
+<span class="k">sealed</span>    <span class="ok">{{ t.trustPage.envelope[2][0] }}</span>
+<span class="k">sealed</span>    <span class="ok">{{ t.trustPage.envelope[3][0] }}</span></pre>
+        <p class="code-caption">{{ t.trustPage.envelopeDesc }}</p>
+      </div>
     </div>
   </section>
 

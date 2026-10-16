@@ -672,25 +672,9 @@ main {
 
 /* Pricing extras */
 
-.pricing-plans {
-  padding-top: 0;
-}
-
-.pricing-plans + .section {
-  border-top: none;
-  padding-top: 40px;
-}
-
 .price .period {
   font-weight: 400;
   color: var(--ink-2);
-}
-
-.included {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  gap: 48px;
-  align-items: start;
 }
 
 .included-list {
@@ -932,6 +916,10 @@ main {
 
 .code .ok {
   color: #9cc59a;
+}
+
+.code.code-wrap {
+  white-space: pre-wrap;
 }
 
 .code-caption {
@@ -1317,16 +1305,6 @@ main {
   overflow-wrap: anywhere;
 }
 
-.paper-jump {
-  margin-top: 28px;
-}
-
-.paper-jump a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 #whitepaper {
   scroll-margin-top: 88px;
 }
@@ -1445,7 +1423,6 @@ main {
   .plans,
   .vs,
   .compare,
-  .included,
   .feature.has-code,
   .demo-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -1454,10 +1431,6 @@ main {
   .four,
   .console-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-
-  .included {
-    gap: 24px;
   }
 
   .hero-grid {

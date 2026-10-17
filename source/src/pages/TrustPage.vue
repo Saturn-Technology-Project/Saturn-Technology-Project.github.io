@@ -128,6 +128,15 @@ function openPaper(event: MouseEvent) {
     </article>
   </section>
 
+  <section class="section" id="disclosure">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{{ t.trustPage.disclosureTitle }}</h2>
+        <p class="lede">{{ t.trustPage.disclosureBody }}</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap cta">
       <h2>{{ t.trustPage.ctaTitle }}</h2>

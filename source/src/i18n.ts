@@ -475,6 +475,9 @@ const messages = {
       ctaTitle: 'See it on your own tools.',
       ctaBody: 'Connect one MCP server and open an encrypted audit record from the browser.',
       paperLink: 'Read the whitepaper',
+      disclosureTitle: 'Disclosure',
+      disclosureBody:
+        'Vulnerability reporting instructions will be published here. Until then, email security@saturn-core.com.',
     },
     pricingPage: {
       title: 'Saturn Pricing — Free Desktop App and MCP Gateway',
@@ -974,6 +977,8 @@ const messages = {
       ctaTitle: '用你自己的工具看一次。',
       ctaBody: '接上一台 MCP Server，再到瀏覽器打開一筆加密的審計紀錄。',
       paperLink: '閱讀白皮書',
+      disclosureTitle: '漏洞回報',
+      disclosureBody: '漏洞回報方式會寫在這裡。在正式說明公布前，請寄到 security@saturn-core.com。',
     },
     pricingPage: {
       title: '方案與定價 — 免費 Saturn App 與 MCP Gateway',

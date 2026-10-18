@@ -132,7 +132,7 @@ const messages = {
         {
           num: '04',
           code: false,
-          eyebrow: 'Zero-access & post-quantum encryption',
+          eyebrow: 'Enterprise-grade security',
           title: 'Secrets never leave the gateway',
           points: [
             'Upstream tokens stay in a vault sealed with ML-KEM-1024 and AES-256-GCM',
@@ -344,7 +344,7 @@ const messages = {
       secTitle: 'Security built into the request path.',
       secDesc: 'An agent can never obtain more than the result of an authorized call. These are the mechanisms behind that guarantee.',
       sec: [
-        ['Post-quantum credential vault', 'Access tokens, refresh tokens, and client secrets are sealed individually with ML-KEM-1024 key encapsulation and AES-256-GCM, keys derived via HKDF-SHA384 from a per-tenant Cloud KMS MAC seed. The root key never leaves KMS and never enters the database.'],
+        ['Post-quantum credential vault', 'Access tokens, refresh tokens, and client secrets are sealed individually with ML-KEM-1024 key encapsulation and AES-256-GCM, keys derived via HKDF-SHA384. The key seed lives in configuration, never in the database.'],
         ['No plaintext over the API', 'Console and client APIs report whether a secret exists — never its value. Every secret read generates a credential_accessed audit event.'],
         ['Managed upstream OAuth', 'Saturn discovers the authorization server, performs dynamic client registration where supported, uses PKCE, and refreshes tokens automatically when an upstream returns 401.'],
         ['Network boundaries', 'Upstream URLs must use HTTPS (or HTTP on localhost). Private, link-local, and cloud metadata addresses are refused.'],
@@ -422,7 +422,7 @@ const messages = {
       specs: [
         ['Platforms', 'macOS and Windows (x64). Packaged builds include the Runtime — no separate Node install needed.'],
         ['Models', 'OpenAI, Claude, Gemini, LM Studio (local).'],
-        ['Data', 'Stored in ~/.saturn-app by default. Can be overridden via configuration.'],
+        ['Data', 'Stored in ~/.saturn-app by default. Override with SATURN_DATA_DIR.'],
         ['License', 'MIT. Copyright Prism Capital LLC.'],
       ],
       ctaTitle: 'Download the source, build it, run it.',
@@ -438,12 +438,12 @@ const messages = {
       layersTitle: 'Three protections, kept apart.',
       layersDesc: 'A password, a member private key, and a stored audit payload never share one secret.',
       layers: [
-        ['Sign-in', 'The browser hashes the password before sending it. Saturn hashes that value again with Argon2id and never stores the password.'],
+        ['Sign-in', 'The browser hashes the password before sending it. Saturn hashes that value again with PBKDF2 and never stores the password.'],
         ['Member private key', 'A different key, derived only in the browser, wraps the ML-KEM private key. The sign-in hash cannot open it.'],
-        ['Stored audit payloads', 'The gateway processes plaintext in flight to forward the call, then encrypts the audit payload with a random AES-256-GCM data key, wraps it with ML-KEM-1024 to the organization and member keys, and deletes the data key.'],
-        ['Upstream credentials', 'Access tokens and client secrets are sealed with a per-tenant ML-KEM-1024 key derived via Cloud KMS MAC, so an authorized call can be completed. Agents never receive the secret.'],
+        ['Tool payloads', 'The gateway processes plaintext in flight to forward the call, then encrypts the audit payload with a random AES-256-GCM data key, wraps it with ML-KEM-1024 to the organization and member keys, and deletes the data key.'],
+        ['Upstream credentials', 'Access tokens and client secrets are sealed with the gateway’s own ML-KEM-1024 key, so an authorized call can be completed. Agents never receive the secret.'],
       ],
-      envelopeTitle: 'One envelope for the stored audit record.',
+      envelopeTitle: 'One envelope for the whole call.',
       envelopeDesc: 'These fields are sealed with zero-access encryption (ML-KEM-1024-HKDF-SHA384-AES-256-GCM) when archived; pending approvals and active runs use a server-side KMS-derived key for 7 days.',
       envelope: [
         ['Arguments', 'The parameters the agent sent with the tool call.'],
@@ -471,14 +471,14 @@ const messages = {
         ['Can Saturn decrypt an audit payload?', 'Not after it is written to the audit log. Saturn processes plaintext in flight when forwarding a tool call; before archival, the data key is wrapped with ML-KEM-1024 to the organization and member public keys and immediately deleted. In-flight content waiting for approval or execution is encrypted separately with a server-side key for 7 days.'],
         ['Does the sign-in password unlock the private key on the server?', 'No. The value sent at sign-in is a hash. The private key is wrapped with a different key that never leaves the browser.'],
         ['Do agents see API keys or OAuth tokens?', 'No. Those secrets stay in the credential vault. Agents receive only the result of an authorized call.'],
-        ['What if the organization has no payload key yet?', 'New audit content is not stored. The audit row records that encryption is unavailable, not the plaintext.'],
+        ['What if the organization has no payload key yet?', 'New tool content is not stored. The audit row records that encryption is unavailable, not the plaintext.'],
       ],
       ctaTitle: 'See it on your own tools.',
       ctaBody: 'Connect one MCP server and open an encrypted audit record from the browser.',
       paperLink: 'Read the whitepaper',
       disclosureTitle: 'Disclosure',
       disclosureBody:
-        'Report security vulnerabilities to security@saturn-core.com (see also https://saturn-core.com/.well-known/security.txt).',
+        'Vulnerability reporting instructions will be published here. Until then, email security@saturn-core.com.',
     },
     pricingPage: {
       title: 'Saturn Pricing — Free Desktop App and MCP Gateway',
@@ -650,7 +650,7 @@ const messages = {
         {
           num: '04',
           code: false,
-          eyebrow: '零存取與後量子加密',
+          eyebrow: '企業級安全',
           title: '密鑰永遠不離開 Gateway',
           points: [
             '上游 Token 封存在 ML-KEM-1024 與 AES-256-GCM 的金庫裡',
@@ -847,7 +847,7 @@ const messages = {
       secTitle: '安全內建在請求路徑中。',
       secDesc: 'Agent 永遠拿不到比「一筆經授權呼叫的結果」更多的東西。以下是支撐這項保證的機制。',
       sec: [
-        ['後量子憑證金庫', 'Access token、refresh token 與 client secret 逐一封存：ML-KEM-1024 金鑰封裝搭配 AES-256-GCM，金鑰由 Cloud KMS MAC 依租戶推導並經 HKDF-SHA384 衍生。根金鑰不離開 KMS，絕不進資料庫。'],
+        ['後量子憑證金庫', 'Access token、refresh token 與 client secret 逐一封存：ML-KEM-1024 金鑰封裝搭配 AES-256-GCM，金鑰以 HKDF-SHA384 推導。金鑰種子存放在設定中，絕不進資料庫。'],
         ['API 不傳明文', '主控台與用戶端 API 只回報密鑰是否存在，絕不回傳內容。每一次讀取都產生 credential_accessed 審計事件。'],
         ['代管的上游 OAuth', 'Saturn 找到授權伺服器，在支援時進行動態用戶端註冊，使用 PKCE，並在上游回 401 時自動續期 Token。'],
         ['網路邊界', '上游 URL 必須使用 HTTPS（或僅限 localhost 的 HTTP）。私有網段、link-local 與雲端 metadata 位址一律拒絕。'],
@@ -925,7 +925,7 @@ const messages = {
       specs: [
         ['平台', 'macOS 與 Windows（x64）。打包版本內含 Runtime，不需另外安裝 Node。'],
         ['模型', 'OpenAI、Claude、Gemini、LM Studio（本機）。'],
-        ['資料', '預設存放在 ~/.saturn-app，可透過設定覆寫。'],
+        ['資料', '預設存放在 ~/.saturn-app。可用 SATURN_DATA_DIR 覆寫。'],
         ['授權', 'MIT。Copyright Prism Capital LLC。'],
       ],
       ctaTitle: '下載原始碼、自己建置、直接使用。',
@@ -941,12 +941,12 @@ const messages = {
       layersTitle: '三層保護，彼此分開。',
       layersDesc: '密碼、成員私鑰與已封存的稽核內容不共用同一把秘密。',
       layers: [
-        ['登入', '瀏覽器先把密碼雜湊再送出。Saturn 再用 Argon2id 雜湊一次，不保存密碼本身。'],
+        ['登入', '瀏覽器先把密碼雜湊再送出。Saturn 再用 PBKDF2 雜湊一次，不保存密碼本身。'],
         ['成員私鑰', '另一把只在瀏覽器衍生的金鑰包住 ML-KEM 私鑰。登入用的雜湊解不開它。'],
-        ['已封存的稽核內容', 'Gateway 在轉送呼叫時處理明文；寫入稽核紀錄前，以隨機 AES-256-GCM 資料金鑰加密並用 ML-KEM-1024 封給組織與每位成員公鑰，隨即刪除資料金鑰。'],
-        ['上游憑證', 'Access token 與 client secret 以 Cloud KMS MAC 依租戶推導的 ML-KEM-1024 金鑰封存，已授權的呼叫才能完成。Agent 拿不到密鑰。'],
+        ['工具 Payload', 'Gateway 在轉送呼叫時處理明文；寫入稽核紀錄前，以隨機 AES-256-GCM 資料金鑰加密並用 ML-KEM-1024 封給組織與每位成員公鑰，隨即刪除資料金鑰。'],
+        ['上游憑證', 'Access token 與 client secret 用 Gateway 自己的 ML-KEM-1024 金鑰封存，已授權的呼叫才能完成。Agent 拿不到密鑰。'],
       ],
-      envelopeTitle: '已封存稽核紀錄的加密信封。',
+      envelopeTitle: '一整筆呼叫，一個信封。',
       envelopeDesc: '封存寫入時，這些欄位以零存取加密（ML-KEM-1024-HKDF-SHA384-AES-256-GCM）一起封存；等待核准與執行中的處理中內容則另以伺服器端金鑰加密保存 7 天。',
       envelope: [
         ['參數', 'Agent 隨工具呼叫送出的參數。'],
@@ -974,13 +974,13 @@ const messages = {
         ['Saturn 能解密審計 Payload 嗎？', '封存寫入稽核紀錄後不能。Gateway 在轉送工具呼叫當下會處理明文；寫入稽核紀錄前，資料金鑰以 ML-KEM-1024 封給組織與成員公鑰後即刪除，僅授權成員可於瀏覽器解密。等待核准與執行中的處理中內容則另以伺服器端金鑰加密保存 7 天。'],
         ['登入密碼會在伺服器上解開私鑰嗎？', '不會。登入送出的是雜湊。私鑰用另一把從不離開瀏覽器的金鑰包裝。'],
         ['Agent 看得到 API Key 或 OAuth Token 嗎？', '看不到。這些密鑰留在憑證金庫。Agent 只拿得到一筆經授權呼叫的結果。'],
-        ['組織還沒有 Payload 金鑰呢？', '新的稽核內容不會被寫入。審計列只記錄加密不可用，不寫入明文。'],
+        ['組織還沒有 Payload 金鑰呢？', '新的工具內容不會被保存。審計列只標示尚未加密，不寫入明文。'],
       ],
       ctaTitle: '用你自己的工具看一次。',
       ctaBody: '接上一台 MCP Server，再到瀏覽器打開一筆加密的審計紀錄。',
       paperLink: '閱讀白皮書',
       disclosureTitle: '漏洞回報',
-      disclosureBody: '若發現資安漏洞，請寄信至 security@saturn-core.com 通報（另見 https://saturn-core.com/.well-known/security.txt）。',
+      disclosureBody: '漏洞回報方式會寫在這裡。在正式說明公布前，請寄到 security@saturn-core.com。',
     },
     pricingPage: {
       title: '方案與定價 — 免費 Saturn App 與 MCP Gateway',

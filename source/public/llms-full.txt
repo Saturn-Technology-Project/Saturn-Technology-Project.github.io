@@ -37,10 +37,10 @@ No SDK and no agent code changes. Saturn works at the protocol level.
 - Tool sets. Only the chosen tools appear in tools/list. Each tool is Call or Approval.
 - Policy engine. Ordered, versioned rules with conditions on arguments. Every call records the policy id, version, and matched rule.
 - Approval queue. Sensitive calls wait in the console with the agent, the tool, the arguments, and the rule that held them. A rejection is returned to the agent as an explicit decision, not a timeout. A paused agent cannot start a new call.
-- Credential vault. Upstream tokens and secrets are sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Keys are derived per tenant via Cloud KMS MAC and HKDF-SHA384; the root key never leaves KMS and never enters the database. Agents never see the secret. APIs report only whether a secret exists. Every secret read is a credential_accessed audit event.
+- Credential vault. Upstream tokens and secrets are sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Keys are derived with HKDF-SHA384. The key seed lives in configuration, not in the database. Agents never see the secret. APIs report only whether a secret exists. Every secret read is a credential_accessed audit event.
 - Network boundaries. Upstream URLs must use HTTPS, or HTTP on localhost. Private, link-local, and cloud metadata addresses are refused.
 - Denied means never sent. A denied call never leaves Saturn. A held call returns approval_required with a reference id.
-- Audit trail. Requested, evaluated, approval requested, granted or rejected, executed, credential accessed. Each event records the agent, tool, policy version, and reviewer. Stored audit payloads use zero-access encryption (wrapped with ML-KEM-1024 to the organization and member public keys, then the data key is deleted) so the gateway cannot decrypt them after archival; the gateway processes plaintext in flight while forwarding calls, and encrypts in-flight pending approvals with a server-side key for 7 days.
+- Audit trail. Requested, evaluated, approval requested, granted or rejected, executed, credential accessed. Each event records the agent, tool, arguments, policy version, and reviewer. Stored audit payloads use zero-access encryption (wrapped with ML-KEM-1024 to the organization and member public keys, then the data key is deleted) so the gateway cannot decrypt them after archival; the gateway processes plaintext in flight while forwarding calls, and encrypts in-flight pending approvals with a server-side key for 7 days.
 - Cost. Wallets and x402 payments attribute cost to each tool call and each agent.
 - Access control. Preset roles admin, operator, and viewer, or custom permission sets. Editors can be scoped to specific agents. Each employee can be mapped to the MCP servers they may connect.
 
@@ -68,7 +68,7 @@ Data. Analyst agents get read-only warehouse tools. Exporting more than 100000 r
 
 Saturn App is a local agent for macOS and Windows (x64). Packaged builds include the Runtime, so a separate Node install is not required. It is free, open source, MIT licensed, with no paid tier, no usage cap, and no telemetry.
 
-Two processes: Saturn Desktop is the window. Saturn Runtime is the core and listens only on http://127.0.0.1:4700. Desktop talks to Runtime only from local origins. Runtime can also run headless. Data is stored in ~/.saturn-app by default and can be overridden via configuration.
+Two processes: Saturn Desktop is the window. Saturn Runtime is the core and listens only on http://127.0.0.1:4700. Desktop talks to Runtime only from local origins. Runtime can also run headless. Data is stored in ~/.saturn-app by default (override with SATURN_DATA_DIR).
 
 Built-in skills: files (list, read, write, patch inside the workspace), code (run commands in the workspace), web (read public pages; local and private addresses are refused), and mcp / multi_step (call attached MCP tools and keep a step-by-step plan).
 

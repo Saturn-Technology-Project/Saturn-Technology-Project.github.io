@@ -121,7 +121,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
               'tools/list（依 tool set 過濾）：代理人請求工具清單時，gateway 僅回傳該代理人獲派工具集（tool set）內、且該成員獲准存取之 MCP 伺服器上的有效工具；不在工具集內的工具對代理人而言不存在。',
               'tools/call 送出呼叫：代理人針對某個工具送出 tools/call 與參數。若代理人處於暫停狀態，呼叫立即被擋下。',
               'Policy 判定：gateway 取出適用於該代理人的有效 policy（依規則順序比對工具名稱與參數條件）以及工具本身的預設模式（Call 或 Approval），給出「允許（allow）」、「拒絕（deny）」或「需審批（approval required）」三種判定之一；若代理人完全沒有任何適用的 policy，預設判定為拒絕。',
-              '分流處理（允許／拒絕／需審批）：若判定為「允許」，直接進入第 9 步轉送上游；若判定為「拒絕」，呼叫絕不送往上流，立即寫入拒絕稽核紀錄，並回傳結構化錯誤（含錯誤碼、訊息與觸發的 policy ID）。',
+              '分流處理（允許／拒絕／需審批）：若判定為「允許」，直接進入第 9 步轉送上游；若判定為「拒絕」，呼叫絕不送往上流，立即寫入拒絕稽核紀錄，並回傳結構化錯誤（含 reason、policy_id、how_to_allow）。',
               '進入審批佇列（含群組 quorum）：若判定為「需審批」，gateway 產生唯一的 action ID（即 saturnRunId），將當下參數計算正規化 SHA-256 摘要，並將待審參數以每組織 KMS 推導金鑰加密保存（7 天到期）。呼叫進入審批佇列等待單一審核者核准，或等待所有必要審核群組（groups）達到法定門檻人數（quorum），同時回傳含審批連結與原因的結構化回應給代理人。',
               '以同一 action ID 重送並重新檢查：審核者按下核准不會直接觸發工具執行（「審批是許可，不是命令」）。代理人必須帶上同一個 saturnRunId 重新呼叫同一工具；gateway 會重新檢查三件事：核准與重送視窗是否尚未過期、重送當下的有效 policy 是否仍允許、以及重送的參數摘要是否與核准時綁定的參數完全一致。任一項不符即拒絕。',
               '以 vault 憑證轉送上游：通過檢查後，gateway 從後量子憑證庫（vault）解密該上游 MCP 伺服器的憑證（僅在此次呼叫期間於記憶體中開啟），代代理人向上游發送工具呼叫並取得回應；若上游回傳 401 且具備 refresh token，gateway 自動完成續期後重試一次。',
@@ -445,7 +445,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
           },
           {
             type: 'p',
-            text: '【已修正】被擋下或等待審批的呼叫回傳結構化錯誤。當呼叫被拒絕、缺少適用 policy、等待審批或重送參數與核准內容不符時，gateway 會回傳結構化的錯誤資料（包含明確的錯誤代碼 code、原因說明 message、觸發的 policy_id，以及需要審批時的審批請求網址 approval_url）。錯誤回應絕不回傳核准時的原始參數或參數摘要；指引連結僅用於檢視或送出該筆審批請求，不能用來修改 policy。',
+            text: '【已修正】被擋下的呼叫回傳結構化錯誤：`reason`、`policy_id`、`how_to_allow`。不回傳核准時的參數或摘要；`how_to_allow` 只指引送出核准請求，不能用來修改 policy。',
           },
           {
             type: 'h3',
@@ -808,7 +808,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
               'tools/list (Filtered by Tool Set): When the agent requests tools/list, the gateway returns only active tools included in that agent’s assigned tool set and hosted on MCP servers mapped to the acting member; tools outside the set are invisible to the agent.',
               'tools/call Submission: The agent submits tools/call with tool name and arguments. If the agent is paused, the call is rejected immediately.',
               'Policy Evaluation: The gateway evaluates the active policies applicable to the agent (matching tool name and argument conditions in order) together with the tool’s mode (Call or Approval), producing allow, deny, or approval required. If an agent has no applicable policy at all, evaluation defaults to deny.',
-              'Decision Branching (Allow / Deny / Approval Required): If allowed, execution proceeds to Step 9; if denied, the call never leaves Saturn, a denial audit event is written immediately, and the agent receives a structured error containing the error code, message, and matched policy ID.',
+              'Decision Branching (Allow / Deny / Approval Required): If allowed, execution proceeds to Step 9; if denied, the call never leaves Saturn, a denial audit event is written immediately, and the agent receives a structured error containing reason, policy_id, and how_to_allow.',
               'Approval Queue (with Group Quorum): If approval is required, the gateway issues a unique action ID (saturnRunId), computes the canonical SHA-256 digest of the arguments, and encrypts the pending arguments with the per-organization KMS-derived key (7-day TTL). The call enters the approval queue waiting for a single reviewer or until every required group reaches its quorum, and returns a structured response with the approval URL to the agent.',
               'Resubmission with the Same Action ID & Re-Verification: Reviewer approval never executes the tool directly (“approval is permission, not a command”). The agent must resubmit the tool call with the same saturnRunId; the gateway re-verifies that the approval and resubmission windows have not expired, that currently active policies still permit the call, and that the resubmitted argument digest matches the approved arguments. Any mismatch is rejected.',
               'Forwarding Upstream with Vault Credentials: Once verified, the gateway unseals the upstream MCP server’s credential from the post-quantum vault in memory for the duration of the call and forwards the request upstream; if the upstream returns HTTP 401 and a refresh token is available, the gateway refreshes the token automatically and retries once.',
@@ -1132,7 +1132,7 @@ export const trustPaper: Record<Locale, TrustPaper> = {
           },
           {
             type: 'p',
-            text: '[Fixed] Blocked and held calls return structured errors. When a call is denied by policy, lacks any applicable policy, waits for approval, or resubmits mismatched arguments, the gateway returns structured error data (including an explicit error code, human-readable message, triggered policy_id, and approval_url when approval is required). The error response never leaks the approved arguments or argument digests; the approval link only directs to the approval request and cannot be used to modify policies.',
+            text: '[Fixed] Blocked calls return a structured error: `reason`, `policy_id`, and `how_to_allow`. It never returns the approved arguments or argument digests; `how_to_allow` only directs how to submit an approval request and cannot be used to modify policies.',
           },
           {
             type: 'h3',

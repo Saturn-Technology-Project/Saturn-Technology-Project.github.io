@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import Breadcrumb from '../components/Breadcrumb.vue'
 import { localePath, useI18n } from '../i18n'
+import { splitStatusBadges } from '../legal'
 import { trustPaper } from '../trust-paper'
 
 const { locale, t } = useI18n()
@@ -119,10 +120,53 @@ function openPaper(event: MouseEvent) {
       <section v-for="section in paper.sections" :key="section.heading">
         <h3>{{ section.heading }}</h3>
         <template v-for="(block, index) in section.blocks" :key="index">
-          <p v-if="block.type === 'p'">{{ block.text }}</p>
-          <ul v-else>
-            <li v-for="item in block.items" :key="item">{{ item }}</li>
+          <p v-if="block.type === 'p'">
+            <template v-for="(seg, sIdx) in splitStatusBadges(block.text)" :key="sIdx">
+              <span v-if="seg.badge" :class="['status-badge', `status-${seg.kind}`]">{{ seg.text }}</span>
+              <template v-else>{{ seg.text }}</template>
+            </template>
+          </p>
+          <h4 v-else-if="block.type === 'h3'" class="subhead">
+            <template v-for="(seg, sIdx) in splitStatusBadges(block.text)" :key="sIdx">
+              <span v-if="seg.badge" :class="['status-badge', `status-${seg.kind}`]">{{ seg.text }}</span>
+              <template v-else>{{ seg.text }}</template>
+            </template>
+          </h4>
+          <ul v-else-if="block.type === 'ul'">
+            <li v-for="item in block.items" :key="item">
+              <template v-for="(seg, sIdx) in splitStatusBadges(item)" :key="sIdx">
+                <span v-if="seg.badge" :class="['status-badge', `status-${seg.kind}`]">{{ seg.text }}</span>
+                <template v-else>{{ seg.text }}</template>
+              </template>
+            </li>
           </ul>
+          <ol v-else-if="block.type === 'ol'">
+            <li v-for="item in block.items" :key="item">
+              <template v-for="(seg, sIdx) in splitStatusBadges(item)" :key="sIdx">
+                <span v-if="seg.badge" :class="['status-badge', `status-${seg.kind}`]">{{ seg.text }}</span>
+                <template v-else>{{ seg.text }}</template>
+              </template>
+            </li>
+          </ol>
+          <div v-else-if="block.type === 'table'" class="table-wrap">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th v-for="cell in block.head" :key="cell" scope="col">{{ cell }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(row, rIdx) in block.rows" :key="rIdx">
+                  <td v-for="(cell, cIdx) in row" :key="cIdx">
+                    <template v-for="(seg, sIdx) in splitStatusBadges(cell)" :key="sIdx">
+                      <span v-if="seg.badge" :class="['status-badge', `status-${seg.kind}`]">{{ seg.text }}</span>
+                      <template v-else>{{ seg.text }}</template>
+                    </template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </template>
       </section>
     </article>

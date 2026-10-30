@@ -60,10 +60,10 @@ const en = {
   terms: {
     title: 'Terms of Service — Saturn',
     description:
-      'The agreement you accept by using Saturn. The services are provided by Rick Weng. Prism Capital LLC owns the intellectual property.',
+      'The agreement you accept by using Saturn. The services are provided by Rick Weng, who also owns the intellectual property.',
     crumb: 'Terms of Service',
     heading: 'Terms of Service',
-    updated: 'Updated 10 October 2026',
+    updated: 'Updated 31 October 2026',
     relatedPath: '/privacy',
     relatedLabel: 'Privacy Policy',
     sections: [
@@ -93,7 +93,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Prism Capital LLC, a Wyoming limited liability company, owns the Saturn name, software, website, console, and the other intellectual property in the Services. Prism Capital LLC engages Rick Weng to operate, maintain, and develop the Services. Your contract is with Rick Weng, not with Prism Capital LLC.',
+            text: 'Rick Weng owns the Saturn name, software, website, console, and the other intellectual property in the Services, and operates, maintains, and develops the Services. Your contract is with Rick Weng.',
           },
         ],
       },
@@ -182,11 +182,11 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'Prism Capital LLC owns the intellectual property in the Services. Except for the MIT License described below, these terms give you only a limited right to use the Services while you comply with them. You do not receive any ownership of the Services.',
+            text: 'Rick Weng owns the intellectual property in the Services. Except for the MIT License described below, these terms give you only a limited right to use the Services while you comply with them. You do not receive any ownership of the Services.',
           },
           {
             type: 'p',
-            text: 'The source code of Saturn App is offered under the MIT License. The copyright holder is Prism Capital LLC. The MIT License governs your rights in that source code. It does not replace these terms for the Services. When you use Saturn App together with our servers, these terms apply.',
+            text: 'The source code of Saturn App is offered under the MIT License. The copyright holder is Rick Weng. The MIT License governs your rights in that source code. It does not replace these terms for the Services. When you use Saturn App together with our servers, these terms apply.',
           },
           {
             type: 'p',
@@ -283,7 +283,7 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'These terms are governed by the laws of Taiwan. The courts of Taiwan have jurisdiction. This does not remove a forum that the law does not allow you to waive. Prism Capital LLC is not a party to this contract.',
+            text: 'These terms are governed by the laws of Taiwan. The courts of Taiwan have jurisdiction. This does not remove a forum that the law does not allow you to waive.',
           },
         ],
       },
@@ -315,7 +315,7 @@ const en = {
       'How Rick Weng handles personal data when you use the Saturn website, console, MCP backend, Saturn App, and Saturn App backend.',
     crumb: 'Privacy Policy',
     heading: 'Privacy Policy',
-    updated: 'Updated 10 October 2026',
+    updated: 'Updated 31 October 2026',
     relatedPath: '/terms',
     relatedLabel: 'Terms of Service',
     sections: [
@@ -337,7 +337,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Prism Capital LLC, a Wyoming limited liability company, owns the intellectual property and engages Rick Weng to operate, maintain, and develop the Services. Prism Capital LLC is not the party that handles your personal data under this policy.',
+            text: 'Rick Weng owns the intellectual property and operates, maintains, and develops the Services.',
           },
         ],
       },
@@ -465,10 +465,10 @@ const en = {
 const zh = {
   terms: {
     title: '服務條款 — Saturn',
-    description: '你使用 Saturn 時同意的契約。本服務由 Rick Weng 提供。智慧財產由 Prism Capital LLC 所有。',
+    description: '你使用 Saturn 時同意的契約。本服務由 Rick Weng 提供，智慧財產也由 Rick Weng 所有。',
     crumb: '服務條款',
     heading: '服務條款',
-    updated: '更新日期：2026 年 10 月 10 日',
+    updated: '更新日期：2026 年 10 月 31 日',
     relatedPath: '/privacy',
     relatedLabel: '隱私權政策',
     sections: [
@@ -498,7 +498,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: 'Saturn 的名稱、軟體、網站、主控台及其他智慧財產，由 Prism Capital LLC 所有。Prism Capital LLC 是美國懷俄明州的有限責任公司，並委託 Rick Weng 營運、維護與開發本服務。你的契約當事人是 Rick Weng，不是 Prism Capital LLC。',
+            text: 'Saturn 的名稱、軟體、網站、主控台及其他智慧財產，由 Rick Weng 所有，並由 Rick Weng 營運、維護與開發本服務。你的契約當事人是 Rick Weng。',
           },
         ],
       },
@@ -587,11 +587,11 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: '本服務的智慧財產由 Prism Capital LLC 所有。除下列 MIT 授權外，本條款只給你在遵守條款期間使用本服務的有限權利。你不會取得本服務的所有權。',
+            text: '本服務的智慧財產由 Rick Weng 所有。除下列 MIT 授權外，本條款只給你在遵守條款期間使用本服務的有限權利。你不會取得本服務的所有權。',
           },
           {
             type: 'p',
-            text: 'Saturn App 的原始碼另以 MIT 授權提供，著作權人是 Prism Capital LLC。MIT 授權規範你對該原始碼的權利，不取代本條款對本服務的規範。你使用會連上我們伺服器的 Saturn App 時，仍應遵守本條款。',
+            text: 'Saturn App 的原始碼另以 MIT 授權提供，著作權人是 Rick Weng。MIT 授權規範你對該原始碼的權利，不取代本條款對本服務的規範。你使用會連上我們伺服器的 Saturn App 時，仍應遵守本條款。',
           },
           {
             type: 'p',
@@ -688,7 +688,7 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: '本條款以台灣法律為準據法，由台灣法院管轄。法律不允許你拋棄的管轄，不因本條而喪失。Prism Capital LLC 不是本契約的當事人。',
+            text: '本條款以台灣法律為準據法，由台灣法院管轄。法律不允許你拋棄的管轄，不因本條而喪失。',
           },
         ],
       },
@@ -719,7 +719,7 @@ const zh = {
     description: '你使用 Saturn 網站、主控台、MCP 後端、Saturn App 與 Saturn App 後端時，Rick Weng 如何處理個人資料。',
     crumb: '隱私權政策',
     heading: '隱私權政策',
-    updated: '更新日期：2026 年 10 月 10 日',
+    updated: '更新日期：2026 年 10 月 31 日',
     relatedPath: '/terms',
     relatedLabel: '服務條款',
     sections: [
@@ -741,7 +741,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: 'Prism Capital LLC 是美國懷俄明州的有限責任公司，擁有智慧財產，並委託 Rick Weng 營運、維護與開發本服務。依本政策處理你個人資料的當事人不是 Prism Capital LLC。',
+            text: 'Rick Weng 擁有智慧財產，並營運、維護與開發本服務。',
           },
         ],
       },

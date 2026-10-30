@@ -132,7 +132,7 @@ export function jsonLd(page: PageName, lang: Locale) {
       email: CONTACT_ADDRESS,
       description: copy('en').meta.description,
       sameAs: [GITHUB_URL],
-      parentOrganization: { '@type': 'Organization', name: 'Prism Capital LLC' },
+      founder: { '@type': 'Person', name: 'Rick Weng' },
     },
     {
       '@type': 'WebSite',

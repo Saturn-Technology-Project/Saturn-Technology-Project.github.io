@@ -2,7 +2,7 @@
 
 > Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail.
 
-Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, is MIT licensed (copyright Prism Capital LLC). Saturn MCP is the gateway. Rick Weng, an individual in Taiwan, operates the service. Prism Capital LLC, a Wyoming limited liability company, owns the intellectual property. Updated 10 October 2026.
+Saturn Technology Project by Rick Weng. Saturn App, the desktop agent, is MIT licensed (copyright Rick Weng). Saturn MCP is the gateway. Rick Weng, an individual in Taiwan, operates the service and owns the intellectual property. Updated 31 October 2026.
 
 ## English
 

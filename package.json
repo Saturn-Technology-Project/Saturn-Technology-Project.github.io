@@ -1,12 +1,25 @@
 {
+  "name": "saturn-website",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "npm run dev --prefix source",
-    "build": "npm ci --prefix source && npm run build --prefix source",
-    "preview": "npm run preview --prefix source",
-    "deploy": "npm run build && wrangler pages deploy source/dist --project-name=saturn --commit-dirty=true"
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build && vite build --ssr src/entry-server.ts --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=saturn --commit-dirty=true"
+  },
+  "dependencies": {
+    "vue": "^3.5.41",
+    "vue-router": "^5.3.0"
   },
   "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11",
     "wrangler": "^4.149.0"
   }
 }

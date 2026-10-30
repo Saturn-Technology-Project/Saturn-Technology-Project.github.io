@@ -7,10 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 
 node_modules
-source/node_modules
-source/dist
-source/dist-ssr
-source/.vite
+dist
+dist-ssr
+.vite
+.wrangler
 *.local
 
 # Editor

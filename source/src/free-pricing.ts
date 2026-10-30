@@ -102,6 +102,10 @@ const copy = {
   },
 } satisfies Record<Locale, unknown>
 
+export function freePricing(lang: Locale) {
+  return copy[lang]
+}
+
 export function useFreePricing() {
   return computed(() => copy[locale.value])
 }

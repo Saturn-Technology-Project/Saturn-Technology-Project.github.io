@@ -78,11 +78,12 @@ Download: https://github.com/Saturn-Technology-Project/Saturn-App/releases/lates
 
 ## Pricing
 
-- Free, personal, $0 forever. Saturn App for macOS and Windows, your own models and MCP servers, built-in skills, local credential broker, MIT license.
-- Pro, personal, coming soon. Everything in Free, plus Saturn MCP gateway access, tool sets, per-tool approval mode, the versioned policy engine, the approval queue, and the audit trail. Pro is a single user and cannot invite members.
-- Enterprise, organization, Coming Soon. Everything in Pro, plus members, roles, custom permissions, shared team agents with scoped editors, MCP server mapping per employee, and priority support.
+Saturn is free. There are no paid plans, no usage tiers, and no trial.
 
-Enterprise pricing is not published yet. Book a demo at https://saturn-core.com/demo.
+- Saturn App for macOS and Windows, your own models and MCP servers, built-in skills, local credential broker, MIT license.
+- Saturn MCP gateway with unlimited tool sets and audit history, versioned policies, signed webhooks, approvals, groups and multi-person quorum, and encrypted tool payloads, on every account.
+
+Saturn is paid for by sponsors: https://github.com/sponsors/Saturn-Technology-Project
 
 ## Questions worth quoting
 
@@ -99,7 +100,7 @@ Do agents see API keys or OAuth tokens?
 No. Upstream credentials stay in Saturn's vault, sealed with ML-KEM-1024 and AES-256-GCM. Agents receive only the result of an authorized call.
 
 Is Saturn App free?
-Yes. The desktop app and its runtime are MIT licensed. There is no paid tier for the App. The gateway is included in Pro and Enterprise.
+Yes. The desktop app and its runtime are MIT licensed, and the MCP gateway is free too. There are no paid plans.
 
 ## 中文摘要
 
@@ -111,7 +112,7 @@ Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/
 
 憑證封存在金庫中，使用 ML-KEM-1024 後量子金鑰封裝與 AES-256-GCM。Agent 看不到密鑰。被拒絕的呼叫不會送出上游。
 
-方案：Free 永久免費，只有 Saturn App。Pro 與 Enterprise 即將推出，包含 Saturn MCP Gateway。Enterprise 是組織方案，有成員、角色、共用 Agent，以及逐員工的 MCP Server 對應。
+方案：Saturn 完全免費，沒有付費方案。Saturn App 與 Saturn MCP Gateway 的全部功能，包括政策、Webhook、群組與多人核准，每個帳號都能使用，由贊助者支持維持。
 
 中文頁面：
 - https://saturn-core.com/zh

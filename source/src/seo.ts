@@ -1,4 +1,5 @@
 import { CONTACT_ADDRESS, GITHUB_URL, SITE_URL } from './config'
+import { freePricing } from './free-pricing'
 import { copy, pageMeta, type Locale, type PageName } from './i18n'
 import { legalCopy } from './legal'
 
@@ -51,7 +52,7 @@ function faqFor(page: PageName, lang: Locale) {
   const text = copy(lang)
   if (page === 'home') return text.homeFaq.items
   if (page === 'trust') return text.trustPage.faq
-  if (page === 'pricing') return text.pricingPage.faq
+  if (page === 'pricing') return freePricing(lang).page.faq
   return null
 }
 
@@ -78,11 +79,8 @@ function mcpApplication(lang: Locale) {
         ? ['工具集', '參數層級政策', '多人核准', '簽章 Webhook', '加密的原始內容', '審計軌跡']
         : ['Tool sets', 'Argument-level policy', 'Multi-approver quorum', 'Signed webhooks', 'Encrypted raw payloads', 'Audit trail'],
     provider: { '@id': ORG_ID },
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/PreOrder',
-      description: lang === 'zh' ? 'Pro 每月 20 美元。Team 每用戶每月 20 美元。' : 'Pro is $20 per month. Team is $20 per user per month.',
-    },
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   }
 }
 

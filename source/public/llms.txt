@@ -7,11 +7,11 @@ Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, i
 ## English
 
 - [Saturn](https://saturn-core.com/): Secure MCP gateway for AI agents. One endpoint, tool sets, argument-level policy, human approval, and audit.
-- [What Saturn is](https://saturn-core.com/#faq): Definitions of Saturn, an MCP gateway, supported clients, the difference from an API gateway, credential handling, and Saturn App pricing.
+- [What Saturn is](https://saturn-core.com/#faq): Definitions of Saturn, an MCP gateway, supported clients, the difference from an API gateway, credential handling, and whether Saturn is free.
 - [Saturn MCP](https://saturn-core.com/mcp): The MCP server agents talk to. Connect existing MCP servers, build tool sets, write policies, and point every agent at one endpoint.
 - [Saturn App](https://saturn-core.com/app): Free, MIT-licensed desktop AI agent for macOS and Windows. Runs locally with your models, files, and MCP servers.
-- [Pricing](https://saturn-core.com/pricing): Saturn App is free. The MCP gateway is included in Pro and Enterprise, which are coming soon.
-- [Pricing questions](https://saturn-core.com/pricing#faq): What is free, what Pro adds, personal versus organization accounts, and Enterprise pricing.
+- [Pricing](https://saturn-core.com/pricing): Saturn is free. The desktop App and the MCP gateway cost nothing, with every feature on every account. Sponsors keep it free.
+- [Pricing questions](https://saturn-core.com/pricing#faq): Whether Saturn is really free, how it is paid for, and support.
 - [Book a demo](https://saturn-core.com/demo): Request a walkthrough of Saturn with your own tools.
 
 ## 中文
@@ -20,8 +20,8 @@ Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, i
 - [關於 Saturn](https://saturn-core.com/zh#faq): Saturn 的定義、MCP Gateway、支援的用戶端、與 API Gateway 的差別、憑證處理，以及 Saturn App 是否免費。
 - [Saturn MCP](https://saturn-core.com/zh/mcp): Agent 實際連線的 MCP Server。連接既有 MCP Server、組建工具集、撰寫政策。
 - [Saturn App](https://saturn-core.com/zh/app): macOS 與 Windows 上免費、MIT 授權的桌面 AI Agent，在本機運行。
-- [方案與定價](https://saturn-core.com/zh/pricing): Saturn App 永久免費。MCP Gateway 包含在即將推出的 Pro 與 Enterprise。
-- [常見問題](https://saturn-core.com/zh/pricing#faq): 免費範圍、Pro 內容、個人與組織的差別、Enterprise 計價。
+- [方案與定價](https://saturn-core.com/zh/pricing): Saturn 完全免費。桌面 App 與 MCP Gateway 都不收費，每個帳號都能使用全部功能，由贊助者支持。
+- [常見問題](https://saturn-core.com/zh/pricing#faq): 是否真的免費、靠什麼維持、客服支援。
 - [預約展示](https://saturn-core.com/zh/demo): 用你自己的工具預約一次導覽。
 
 ## Facts

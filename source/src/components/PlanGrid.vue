@@ -1,26 +1,30 @@
 <script setup lang="ts">
-import { useI18n } from '../i18n'
+import { CONSOLE_URL, DONATE_URL } from '../config'
+import { useFreePricing } from '../free-pricing'
 
-const SIGNUP_URL = 'https://dashboard.saturn-core.com/'
-const { t } = useI18n()
+const f = useFreePricing()
 </script>
 
 <template>
   <div class="plans">
-    <article
-      v-for="plan in t.plans.items"
-      :key="plan.id"
-      class="card plan"
-      :class="{ featured: plan.id === 'team' }"
-    >
-      <p class="kind">{{ plan.kind }}</p>
-      <h3>{{ plan.name }}</h3>
-      <p class="price">{{ plan.price }} <span v-if="plan.period" class="period">· {{ plan.period }}</span></p>
-      <p class="tagline">{{ plan.tagline }}</p>
+    <article class="card plan featured">
+      <p class="kind">{{ f.free.kind }}</p>
+      <h3>{{ f.free.name }}</h3>
+      <p class="price">{{ f.free.price }} <span class="period">· {{ f.free.period }}</span></p>
+      <p class="tagline">{{ f.free.tagline }}</p>
       <ul class="checks">
-        <li v-for="point in plan.points" :key="point">{{ point }}</li>
+        <li v-for="point in f.free.points" :key="point">{{ point }}</li>
       </ul>
-      <a class="btn btn-primary" :href="SIGNUP_URL">{{ plan.cta }}</a>
+      <a class="btn btn-primary" :href="CONSOLE_URL">{{ f.free.cta }}</a>
+    </article>
+    <article class="card plan">
+      <p class="kind">{{ f.donate.kind }}</p>
+      <h3>{{ f.donate.name }}</h3>
+      <p class="tagline">{{ f.donate.tagline }}</p>
+      <ul class="checks">
+        <li v-for="point in f.donate.points" :key="point">{{ point }}</li>
+      </ul>
+      <a class="btn btn-outline" :href="DONATE_URL" target="_blank" rel="noopener">{{ f.donate.cta }}</a>
     </article>
   </div>
 </template>

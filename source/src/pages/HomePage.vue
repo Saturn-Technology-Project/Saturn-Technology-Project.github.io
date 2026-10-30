@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import PlanGrid from '../components/PlanGrid.vue'
+import { useFreePricing } from '../free-pricing'
 import PolicyCode from '../components/PolicyCode.vue'
 import { localePath, useI18n } from '../i18n'
 import { CONSOLE_URL } from '../config'
 
 const { locale, t } = useI18n()
+const f = useFreePricing()
 </script>
 
 <template>
@@ -147,8 +149,8 @@ const { locale, t } = useI18n()
   <section class="section">
     <div class="wrap">
       <div class="section-head center">
-        <h2>{{ t.plans.title }}</h2>
-        <p class="lede">{{ t.plans.desc }}</p>
+        <h2>{{ f.plansTitle }}</h2>
+        <p class="lede">{{ f.plansDesc }}</p>
       </div>
       <PlanGrid />
     </div>

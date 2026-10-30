@@ -4,6 +4,8 @@ export const CONTACT_ADDRESS = 'hello@saturn-core.com'
 export const DEMO_ADDRESS = 'sales@saturn-core.com'
 export const DEMO_FORM_ENDPOINT = `https://formsubmit.co/ajax/${DEMO_ADDRESS}`
 export const GITHUB_URL = 'https://github.com/Saturn-Technology-Project/Saturn-App'
+// Saturn is free; support goes through GitHub Sponsors on the organization.
+export const DONATE_URL = 'https://github.com/sponsors/Saturn-Technology-Project'
 
 // Desktop downloads. Asset names come from electron-builder's
 // artifactName "Saturn-${os}-${arch}.${ext}" in Saturn App/desktop/package.json.

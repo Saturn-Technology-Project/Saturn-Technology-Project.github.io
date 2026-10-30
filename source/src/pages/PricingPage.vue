@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Breadcrumb from '../components/Breadcrumb.vue'
 import PlanGrid from '../components/PlanGrid.vue'
-import { localePath, useI18n } from '../i18n'
-import { CONSOLE_URL } from '../config'
+import { useI18n } from '../i18n'
+import { CONSOLE_URL, DONATE_URL } from '../config'
+import { useFreePricing } from '../free-pricing'
 
-const { locale, t } = useI18n()
+const { t } = useI18n()
+const f = useFreePricing()
 </script>
 
 <template>
@@ -12,25 +14,22 @@ const { locale, t } = useI18n()
     <div class="wrap hero-grid">
       <div>
         <Breadcrumb :current="t.nav.pricing" />
-        <p class="eyebrow accent">{{ t.pricingPage.eyebrow }}</p>
-        <h1>{{ t.pricingPage.heading }}</h1>
-        <p class="lede">{{ t.pricingPage.lede }}</p>
+        <p class="eyebrow accent">{{ f.page.eyebrow }}</p>
+        <h1>{{ f.page.heading }}</h1>
+        <p class="lede">{{ f.page.lede }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.nav.start }}</a>
-          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
+          <a class="btn btn-outline btn-lg" :href="DONATE_URL" target="_blank" rel="noopener">{{ f.donate.cta }}</a>
         </div>
-        <p class="hero-note">{{ t.plans.desc }}</p>
+        <p class="hero-note">{{ f.plansDesc }}</p>
       </div>
       <div class="hero-aside">
-        <pre class="code code-wrap"><span class="k">{{ t.plans.items[0].id }}</span>    <span class="ok">{{ t.plans.items[0].price }}</span> <span class="k">{{ t.plans.items[0].period }}</span>
-<span class="v">{{ t.plans.items[0].tagline }}</span>
+        <pre class="code code-wrap"><span class="k">saturn</span>    <span class="ok">{{ f.free.price }}</span> <span class="k">{{ f.free.period }}</span>
+<span class="v">{{ f.free.tagline }}</span>
 
-<span class="k">{{ t.plans.items[1].id }}</span>     <span class="a">{{ t.plans.items[1].price }}</span> <span class="k">{{ t.plans.items[1].period }}</span>
-<span class="v">{{ t.plans.items[1].tagline }}</span>
-
-<span class="k">{{ t.plans.items[2].id }}</span>    <span class="a">{{ t.plans.items[2].price }}</span> <span class="k">{{ t.plans.items[2].period }}</span>
-<span class="v">{{ t.plans.items[2].tagline }}</span></pre>
-        <p class="code-caption">{{ t.pricingPage.includedTitle }}</p>
+<span class="k">donate</span>    <span class="a">{{ f.donate.points[0] }}</span>
+<span class="v">{{ f.donate.points[1] }}</span></pre>
+        <p class="code-caption">{{ f.page.includedTitle }}</p>
       </div>
     </div>
   </section>
@@ -44,10 +43,10 @@ const { locale, t } = useI18n()
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>{{ t.pricingPage.includedTitle }}</h2>
+        <h2>{{ f.page.includedTitle }}</h2>
       </div>
       <ul class="checks included-list">
-        <li v-for="item in t.pricingPage.included" :key="item">{{ item }}</li>
+        <li v-for="item in f.page.included" :key="item">{{ item }}</li>
       </ul>
     </div>
   </section>
@@ -55,10 +54,10 @@ const { locale, t } = useI18n()
   <section class="section">
     <div class="wrap">
       <div class="section-head" id="faq">
-        <h2>{{ t.pricingPage.faqTitle }}</h2>
+        <h2>{{ f.page.faqTitle }}</h2>
       </div>
       <dl class="faq">
-        <div v-for="item in t.pricingPage.faq" :key="item[0]">
+        <div v-for="item in f.page.faq" :key="item[0]">
           <dt>{{ item[0] }}</dt>
           <dd>{{ item[1] }}</dd>
         </div>
@@ -68,10 +67,10 @@ const { locale, t } = useI18n()
 
   <section class="section">
     <div class="wrap cta">
-      <h2>{{ t.pricingPage.ctaTitle }}</h2>
-      <p class="lede">{{ t.pricingPage.ctaBody }}</p>
+      <h2>{{ f.page.ctaTitle }}</h2>
+      <p class="lede">{{ f.page.ctaBody }}</p>
       <div class="actions">
-        <RouterLink class="btn btn-primary btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
+        <a class="btn btn-primary btn-lg" :href="DONATE_URL" target="_blank" rel="noopener">{{ f.donate.cta }}</a>
       </div>
     </div>
   </section>

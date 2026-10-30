@@ -15,7 +15,6 @@ const page = computed<PageName>(() => {
     name === 'app' ||
     name === 'trust' ||
     name === 'pricing' ||
-    name === 'demo' ||
     name === 'terms' ||
     name === 'privacy' ||
     name === 'home'

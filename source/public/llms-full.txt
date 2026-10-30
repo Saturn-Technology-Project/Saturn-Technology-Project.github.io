@@ -5,7 +5,6 @@
 Updated 10 October 2026.
 Website: https://saturn-core.com/
 Contact: hello@saturn-core.com
-Demo requests: sales@saturn-core.com
 Console: https://dashboard.saturn-core.com
 Source (Saturn App): https://github.com/Saturn-Technology-Project/Saturn-App
 Saturn Technology Project by Prism Capital LLC. Saturn App is copyright Prism Capital LLC and MIT licensed. Rick Weng, an individual in Taiwan, operates the website, Saturn App distribution, and the hosted gateway. Prism Capital LLC, a Wyoming limited liability company, owns the intellectual property. Terms: https://saturn-core.com/terms Privacy: https://saturn-core.com/privacy
@@ -119,4 +118,3 @@ Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/
 - https://saturn-core.com/zh/mcp
 - https://saturn-core.com/zh/app
 - https://saturn-core.com/zh/pricing
-- https://saturn-core.com/zh/demo

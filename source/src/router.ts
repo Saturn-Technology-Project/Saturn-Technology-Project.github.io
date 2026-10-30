@@ -5,7 +5,6 @@ import McpPage from './pages/McpPage.vue'
 import AppPage from './pages/AppPage.vue'
 import TrustPage from './pages/TrustPage.vue'
 import PricingPage from './pages/PricingPage.vue'
-import DemoPage from './pages/DemoPage.vue'
 import LegalPage from './pages/LegalPage.vue'
 import { locale, type Locale, type PageName } from './i18n'
 
@@ -22,7 +21,6 @@ const pages: { path: string; page: PageName; component: Component }[] = [
   { path: '/app', page: 'app', component: AppPage },
   { path: '/trust', page: 'trust', component: TrustPage },
   { path: '/pricing', page: 'pricing', component: PricingPage },
-  { path: '/demo', page: 'demo', component: DemoPage },
   { path: '/terms', page: 'terms', component: LegalPage },
   { path: '/privacy', page: 'privacy', component: LegalPage },
 ]

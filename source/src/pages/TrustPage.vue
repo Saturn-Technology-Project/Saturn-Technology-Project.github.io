@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import Breadcrumb from '../components/Breadcrumb.vue'
-import { localePath, useI18n } from '../i18n'
+import { CONSOLE_URL } from '../config'
+import { useI18n } from '../i18n'
 import { splitStatusBadges } from '../legal'
 import { trustPaper } from '../trust-paper'
 
@@ -27,7 +28,7 @@ function openPaper(event: MouseEvent) {
         <p class="lede">{{ t.trustPage.lede }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" href="#whitepaper" @click="openPaper">{{ t.trustPage.paperLink }}</a>
-          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
+          <a class="btn btn-outline btn-lg" :href="CONSOLE_URL">{{ t.nav.start }}</a>
         </div>
       </div>
       <div class="hero-aside">
@@ -186,7 +187,7 @@ function openPaper(event: MouseEvent) {
       <h2>{{ t.trustPage.ctaTitle }}</h2>
       <p class="lede">{{ t.trustPage.ctaBody }}</p>
       <div class="actions">
-        <RouterLink class="btn btn-primary btn-lg" :to="localePath('/demo', locale)">{{ t.nav.demo }}</RouterLink>
+        <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.nav.start }}</a>
       </div>
     </div>
   </section>

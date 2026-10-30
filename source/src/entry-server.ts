@@ -27,7 +27,6 @@ export async function render(url: string) {
     page === 'app' ||
     page === 'trust' ||
     page === 'pricing' ||
-    page === 'demo' ||
     page === 'terms' ||
     page === 'privacy' ||
     page === 'home'

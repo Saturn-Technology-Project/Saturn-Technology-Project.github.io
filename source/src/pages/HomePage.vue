@@ -18,7 +18,7 @@ const f = useFreePricing()
         <p class="lede">{{ t.hero.desc }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.hero.primary }}</a>
-          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.hero.secondary }}</RouterLink>
+          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/app', locale)">{{ t.hero.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.hero.note }}</p>
       </div>
@@ -176,7 +176,7 @@ const f = useFreePricing()
       <p class="lede">{{ t.cta.body }}</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.cta.primary }}</a>
-        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.cta.secondary }}</RouterLink>
+        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/app', locale)">{{ t.cta.secondary }}</RouterLink>
       </div>
     </div>
   </section>

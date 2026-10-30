@@ -4,4 +4,6 @@
 /cloud       /mcp    301
 /approach    /mcp    301
 /developers  /app    301
+/demo        /       301
+/zh/demo     /zh     301
 /*    /index.html   200

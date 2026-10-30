@@ -12,7 +12,6 @@ Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, i
 - [Saturn App](https://saturn-core.com/app): Free, MIT-licensed desktop AI agent for macOS and Windows. Runs locally with your models, files, and MCP servers.
 - [Pricing](https://saturn-core.com/pricing): Saturn is free. The desktop App and the MCP gateway cost nothing, with every feature on every account. Sponsors keep it free.
 - [Pricing questions](https://saturn-core.com/pricing#faq): Whether Saturn is really free, how it is paid for, and support.
-- [Book a demo](https://saturn-core.com/demo): Request a walkthrough of Saturn with your own tools.
 
 ## 中文
 
@@ -22,7 +21,6 @@ Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, i
 - [Saturn App](https://saturn-core.com/zh/app): macOS 與 Windows 上免費、MIT 授權的桌面 AI Agent，在本機運行。
 - [方案與定價](https://saturn-core.com/zh/pricing): Saturn 完全免費。桌面 App 與 MCP Gateway 都不收費，每個帳號都能使用全部功能，由贊助者支持。
 - [常見問題](https://saturn-core.com/zh/pricing#faq): 是否真的免費、靠什麼維持、客服支援。
-- [預約展示](https://saturn-core.com/zh/demo): 用你自己的工具預約一次導覽。
 
 ## Facts
 
@@ -36,4 +34,3 @@ Saturn Technology Project by Prism Capital LLC. Saturn App, the desktop agent, i
 - [Terms of Service](https://saturn-core.com/terms): The agreement is with Rick Weng. Traditional Chinese: https://saturn-core.com/zh/terms
 - [Privacy Policy](https://saturn-core.com/privacy): How personal data is handled. Traditional Chinese: https://saturn-core.com/zh/privacy
 - [Contact](mailto:hello@saturn-core.com): General email.
-- [Book a demo by email](mailto:sales@saturn-core.com): Demo requests go to sales.

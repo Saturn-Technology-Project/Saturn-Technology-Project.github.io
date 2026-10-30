@@ -17,7 +17,7 @@ const { locale, t } = useI18n()
         <p class="lede">{{ t.mcpPage.lede }}</p>
         <div class="actions">
           <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.mcpPage.primary }}</a>
-          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.mcpPage.secondary }}</RouterLink>
+          <RouterLink class="btn btn-outline btn-lg" :to="localePath('/trust', locale)">{{ t.mcpPage.secondary }}</RouterLink>
         </div>
         <p class="hero-note">{{ t.mcpPage.note }}</p>
       </div>
@@ -99,7 +99,7 @@ const { locale, t } = useI18n()
       <p class="lede">{{ t.mcpPage.ctaBody }}</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.mcpPage.primary }}</a>
-        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/demo', locale)">{{ t.mcpPage.secondary }}</RouterLink>
+        <RouterLink class="btn btn-outline btn-lg" :to="localePath('/trust', locale)">{{ t.mcpPage.secondary }}</RouterLink>
       </div>
     </div>
   </section>

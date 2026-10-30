@@ -46,7 +46,6 @@ const links = computed(() => [
   { label: t.value.nav.trust, to: localePath('/trust', locale.value) },
   { label: t.value.nav.pricing, to: localePath('/pricing', locale.value) },
 ])
-const demoTo = computed(() => localePath('/demo', locale.value))
 const enTo = computed(() => localePath(route.path, 'en'))
 const zhTo = computed(() => localePath(route.path, 'zh'))
 </script>
@@ -61,7 +60,6 @@ const zhTo = computed(() => localePath(route.path, 'zh'))
       </nav>
 
       <div class="nav-end">
-        <RouterLink class="btn btn-outline btn-sm" :to="demoTo">{{ t.nav.demo }}</RouterLink>
         <a class="btn btn-primary btn-sm" :href="CONSOLE_URL">{{ t.nav.start }}</a>
         <div class="lang" @click.stop>
           <button
@@ -129,7 +127,6 @@ const zhTo = computed(() => localePath(route.path, 'zh'))
 
     <div v-if="menuOpen" class="mobile-menu wrap">
       <RouterLink v-for="link in links" :key="link.to" :to="link.to" :aria-current="route.path === link.to ? 'page' : undefined">{{ link.label }}</RouterLink>
-      <RouterLink :to="demoTo">{{ t.nav.demo }}</RouterLink>
     </div>
   </header>
 </template>

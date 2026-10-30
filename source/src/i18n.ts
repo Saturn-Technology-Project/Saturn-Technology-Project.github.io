@@ -32,7 +32,6 @@ const messages = {
       trust: 'Trust',
       pricing: 'Pricing',
       start: 'Get started',
-      demo: 'Book a demo',
       menu: 'Toggle menu',
     },
     hero: {
@@ -40,7 +39,7 @@ const messages = {
       title: 'Give your AI agents access to tools. Keep control of every action.',
       desc: 'Saturn is a secure MCP gateway that sits between your AI agents and your MCP servers. Centralize access, enforce fine-grained permissions, require human approval for sensitive actions, and keep a complete audit trail — all from one console.',
       primary: 'Get started',
-      secondary: 'Book a demo',
+      secondary: 'Download the App',
       note: 'Works with any Model Context Protocol (MCP) client. No changes to your existing MCP servers.',
       mock: {
         header: 'Approval required',
@@ -223,7 +222,7 @@ const messages = {
       title: 'Ready to bring your AI agents under control?',
       body: 'Connect an MCP server, build a tool set, write your first policy. See the full request path on your first approval.',
       primary: 'Get started',
-      secondary: 'Book a demo',
+      secondary: 'Download the App',
     },
     footer: {
       tagline: 'The secure MCP gateway for enterprise AI agents.',
@@ -255,7 +254,7 @@ const messages = {
       heading: 'The MCP gateway that decides what your agents may do.',
       lede: 'Saturn MCP is the MCP server your agents talk to. Behind it sit your real MCP servers — CRM, payments, databases, cloud consoles. Saturn exposes only the tools you approve, evaluates every call against policy, pauses the sensitive ones for a human, and records everything.',
       primary: 'Get started',
-      secondary: 'Book a demo',
+      secondary: 'Read the whitepaper',
       note: 'Standards-compliant MCP over HTTP. Works with Claude, ChatGPT, Cursor, Saturn App, or any MCP client.',
       howTitle: 'Up and running in four steps.',
       howDesc: 'No SDK, no agent code changes. Saturn works at the protocol level.',
@@ -470,44 +469,6 @@ const messages = {
       title: 'Saturn Pricing — Free Desktop App and MCP Gateway',
       description: 'Saturn is free. The desktop App and the MCP gateway cost nothing, and every account gets every feature. Sponsors keep it that way.',
     },
-    demoPage: {
-      title: 'Book a Demo — Saturn MCP Gateway',
-      description: 'Book a walkthrough of Saturn, the secure MCP gateway for AI agents. Tell us which tools your agents call.',
-      eyebrow: 'Book a demo',
-      heading: 'See Saturn with your own tools.',
-      lede: 'Leave your name, work email, and company site. We will write back to schedule a walkthrough.',
-      name: 'Name',
-      email: 'Email',
-      company: 'Company',
-      website: 'Company website',
-      role: 'Role',
-      message: 'What should we cover?',
-      optional: 'Optional',
-      submit: 'Submit',
-      sending: 'Sending…',
-      successTitle: 'Request received.',
-      successBody: 'Thanks. We will write to the email you left.',
-      back: 'Back to home',
-      error: 'This request did not go through. Email sales@saturn-core.com and we will set up the demo.',
-      legalBefore: 'By submitting, you agree to the ',
-      termsLink: 'Terms of Service',
-      legalMid: ' and the ',
-      privacyLink: 'Privacy Policy',
-      legalAfter: '.',
-      errors: {
-        required: 'This field is required.',
-        email: 'Enter a valid email address.',
-        website: 'Enter a company website, like acme.com.',
-      },
-      placeholders: {
-        name: 'Ada Lovelace',
-        email: 'ada@acme.com',
-        company: 'Acme',
-        website: 'acme.com',
-        role: 'Head of Platform',
-        message: 'The agents, MCP servers, and actions you want to gate.',
-      },
-    },
   },
   zh: {
     meta: {
@@ -522,7 +483,6 @@ const messages = {
       trust: '信任',
       pricing: '方案與定價',
       start: '開始使用',
-      demo: '預約展示',
       menu: '開啟選單',
     },
     hero: {
@@ -530,7 +490,7 @@ const messages = {
       title: '讓 AI Agent 用得上工具，每一個動作仍在你的掌控之中。',
       desc: 'Saturn 是一套安全的 MCP Gateway，部署在 AI Agent 與 MCP Server 之間。集中管理工具存取、落實細緻到參數層級的權限控管、對敏感操作要求人工核准，並保留完整的審計紀錄——全部在同一個主控台完成。',
       primary: '開始使用',
-      secondary: '預約展示',
+      secondary: '下載 App',
       note: '相容任何支援 MCP（Model Context Protocol）的用戶端。現有的 MCP Server 不需要任何修改。',
       mock: {
         header: '待核准',
@@ -698,7 +658,7 @@ const messages = {
       title: '準備好把 AI Agent 納入掌控了嗎？',
       body: '連接一台 MCP Server、組建一個工具集、寫下第一條政策。在第一筆核准請求中，看見完整的請求路徑。',
       primary: '開始使用',
-      secondary: '預約展示',
+      secondary: '下載 App',
     },
     footer: {
       tagline: '企業級 AI Agent 的安全 MCP Gateway。',
@@ -730,7 +690,7 @@ const messages = {
       heading: '決定 Agent 可以做什麼的 MCP Gateway。',
       lede: 'Saturn MCP 是 Agent 實際對話的那台 MCP Server。它後面才是你真正的 MCP Server——CRM、付款、資料庫、雲端主控台。Saturn 只露出你核准的工具，對每一筆呼叫比對政策，把敏感的那幾筆暫停交給人，並記錄一切。',
       primary: '開始使用',
-      secondary: '預約展示',
+      secondary: '閱讀白皮書',
       note: '符合標準的 HTTP MCP。相容 Claude、ChatGPT、Cursor、Saturn App 或任何 MCP 用戶端。',
       howTitle: '四個步驟，開始運作。',
       howDesc: '不需要 SDK，不需要改 Agent 程式碼。Saturn 在協定層運作。',
@@ -944,48 +904,10 @@ const messages = {
       title: '方案與定價 — 免費 Saturn App 與 MCP Gateway',
       description: 'Saturn 完全免費。桌面 App 與 MCP Gateway 都不收費，每個帳號都能使用全部功能，由贊助者支持維持。',
     },
-    demoPage: {
-      title: '預約展示 — Saturn MCP Gateway',
-      description: '預約 Saturn 的導覽。Saturn 是 AI Agent 的安全 MCP Gateway。告訴我們你的 Agent 會呼叫哪些工具。',
-      eyebrow: '預約展示',
-      heading: '用你自己的工具，看一次 Saturn。',
-      lede: '留下姓名、工作 Email 與公司網址。我們會回信安排一次導覽。',
-      name: '姓名',
-      email: 'Email',
-      company: '公司',
-      website: '公司網址',
-      role: '職稱',
-      message: '希望我們示範什麼？',
-      optional: '選填',
-      submit: '送出',
-      sending: '送出中…',
-      successTitle: '已收到你的資料。',
-      successBody: '謝謝。我們會寄信到你留下的 Email。',
-      back: '回到首頁',
-      error: '這筆資料沒有送出。請改寄信到 sales@saturn-core.com，我們會安排展示。',
-      legalBefore: '送出即表示你同意',
-      termsLink: '服務條款',
-      legalMid: '與',
-      privacyLink: '隱私權政策',
-      legalAfter: '。',
-      errors: {
-        required: '此欄必填。',
-        email: '請輸入有效的 Email。',
-        website: '請輸入公司網址，例如 acme.com。',
-      },
-      placeholders: {
-        name: '林小華',
-        email: 'hua@acme.com',
-        company: 'Acme',
-        website: 'acme.com',
-        role: '平台負責人',
-        message: '你的 Agent、MCP Server，以及想控管的操作。',
-      },
-    },
   },
 } as const
 
-export type PageName = 'home' | 'mcp' | 'app' | 'trust' | 'pricing' | 'demo' | 'terms' | 'privacy'
+export type PageName = 'home' | 'mcp' | 'app' | 'trust' | 'pricing' | 'terms' | 'privacy'
 
 export function pageMeta(page: PageName, lang: Locale = locale.value) {
   const m = messages[lang]
@@ -993,7 +915,6 @@ export function pageMeta(page: PageName, lang: Locale = locale.value) {
   if (page === 'app') return { title: m.appPage.title, description: m.appPage.description }
   if (page === 'trust') return { title: m.trustPage.title, description: m.trustPage.description }
   if (page === 'pricing') return { title: m.pricingPage.title, description: m.pricingPage.description }
-  if (page === 'demo') return { title: m.demoPage.title, description: m.demoPage.description }
   if (page === 'terms' || page === 'privacy') {
     const doc = legalCopy[lang][page]
     return { title: doc.title, description: doc.description }

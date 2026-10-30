@@ -1126,107 +1126,6 @@ main {
   font-size: 13px;
 }
 
-/* Demo request */
-
-.demo-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: 64px;
-  align-items: start;
-}
-
-.demo-form {
-  position: relative;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.demo-form .field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.demo-form label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.demo-form .optional {
-  font-weight: 400;
-  color: var(--ink-3);
-}
-
-.demo-form input,
-.demo-form textarea {
-  width: 100%;
-  font: inherit;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  outline: none;
-}
-
-.demo-form input:focus,
-.demo-form textarea:focus {
-  border-color: var(--ink);
-}
-
-.demo-form textarea {
-  min-height: 112px;
-  resize: vertical;
-}
-
-.demo-form .field-error,
-.demo-form .form-error {
-  font-size: 13px;
-  color: var(--accent-ink);
-}
-
-.demo-form .btn {
-  width: 100%;
-}
-
-.demo-form .btn[disabled] {
-  cursor: default;
-  opacity: 0.55;
-}
-
-.form-note {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--ink-3);
-}
-
-.form-note a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.demo-success h2 {
-  font-size: 32px;
-}
-
-.demo-success p {
-  color: var(--ink-2);
-}
-
-.demo-success .btn {
-  width: auto;
-  align-self: flex-start;
-}
-
-.hp {
-  position: absolute;
-  left: -9999px;
-  height: 0;
-  overflow: hidden;
-}
-
 /* Subpage */
 
 .page-hero {
@@ -1586,8 +1485,7 @@ main {
   .plans,
   .vs,
   .compare,
-  .feature.has-code,
-  .demo-layout {
+  .feature.has-code {
     grid-template-columns: minmax(0, 1fr);
   }
 

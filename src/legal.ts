@@ -76,7 +76,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Using the Services includes visiting the website and submitting information, creating or using an account, signing in to the console, connecting to the MCP backend, and using Saturn App when it connects to our servers.',
+            text: 'Using the Services includes visiting the website, creating or using an account, signing in to the console, connecting to the MCP backend, and using Saturn App when it connects to our servers.',
           },
           {
             type: 'p',
@@ -182,11 +182,15 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'Rick Weng owns the intellectual property in the Services. Except for the MIT License described below, these terms give you only a limited right to use the Services while you comply with them. You do not receive any ownership of the Services.',
+            text: 'Rick Weng owns the intellectual property in the Services. Except for the source code licenses described below, these terms give you only a limited right to use the Services while you comply with them. You do not receive any ownership of the Services.',
           },
           {
             type: 'p',
-            text: 'The source code of Saturn App is offered under the MIT License. The copyright holder is Rick Weng. The MIT License governs your rights in that source code. It does not replace these terms for the Services. When you use Saturn App together with our servers, these terms apply.',
+            text: 'The source code of Saturn App and the Saturn SDK is offered under the MIT License. Where we make the source code of the MCP backend and the console available, it is offered under the Functional Source License, Version 1.1, ALv2 Future License (FSL-1.1-ALv2). That license lets you read, audit, modify, and run the code for any purpose except a competing commercial product or service. Each version also becomes available under the Apache License 2.0 two years after we release it. The copyright holder of all of this code is Rick Weng.',
+          },
+          {
+            type: 'p',
+            text: 'Those licenses govern your rights in the source code. They do not replace these terms for the Services we operate. When you use the hosted console, the MCP backend, or Saturn App together with our servers, these terms apply.',
           },
           {
             type: 'p',
@@ -199,7 +203,11 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'Saturn App is free. The website is free to browse. Pro and Enterprise are not yet offered for sale, and these terms do not require you to pay. If we later offer a paid plan, we will show the price, the billing period, and the cancellation terms before you are charged. You owe fees only for a plan you choose to buy.',
+            text: 'The Services are free. Every account, personal or organization, gets every feature, and these terms do not require you to pay. If we later offer a paid plan, we will show the price, the billing period, and the cancellation terms before you are charged. You owe fees only for a plan you choose to buy.',
+          },
+          {
+            type: 'p',
+            text: 'You may support Saturn with a donation through GitHub Sponsors. A donation is voluntary. It does not buy a plan, a feature, support, or any other service, and it does not change these terms. GitHub processes donations under its own terms, and refunds follow GitHub’s rules.',
           },
         ],
       },
@@ -265,7 +273,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Ending access does not revoke the MIT License you already have in Saturn App’s source code. Sections that by their nature should continue, including those on customer data, intellectual property, confidentiality, disclaimers, liability, and indemnity, continue after the contract ends. The Privacy Policy states what happens to personal data when you ask for deletion.',
+            text: 'Ending access does not revoke the MIT License or the FSL-1.1-ALv2 license you already have in Saturn’s source code. Sections that by their nature should continue, including those on customer data, intellectual property, confidentiality, disclaimers, liability, and indemnity, continue after the contract ends. The Privacy Policy states what happens to personal data when you ask for deletion.',
           },
         ],
       },
@@ -350,7 +358,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'On the website at https://saturn-core.com, a demo request includes your name, email address, company, and company website, and any job title or message you add. The page language is part of the address. The website does not use advertising cookies or a separate analytics product.',
+            text: 'The website at https://saturn-core.com has no forms and does not ask you for personal data. The page language is part of the address. The website does not use advertising cookies or a separate analytics product.',
           },
           {
             type: 'p',
@@ -359,7 +367,7 @@ const en = {
           {
             type: 'ul',
             items: [
-              'Identity and account data, including name, email address, organization, role, and sign-in credentials. Signing in from Saturn App uses this same account.',
+              'Identity and account data, including name, email address, organization name if you create an organization account, role, and sign-in credentials. When you sign up, we email a verification code to the address you gave. Signing in from Saturn App uses this same account.',
               'What you configure: members, permissions, agents, tool sets, policies and their versions, and which MCP servers a person may connect.',
               'Each tool call the gateway evaluates: the agent, the tool, the arguments, the policy version, the decision, the reviewer when there is one, and whether the call was executed.',
               'Upstream credentials you store in the vault, sealed so the gateway can make a call you have allowed. The console does not return the secret itself.',
@@ -372,7 +380,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Downloads of Saturn App are served by GitHub. GitHub processes that request under its own terms.',
+            text: 'Downloads of Saturn App and the source code are served by GitHub. If you donate through GitHub Sponsors, GitHub collects your payment details and shares with us what its Sponsors program shows, such as your GitHub username. GitHub processes those requests under its own terms.',
           },
         ],
       },
@@ -394,15 +402,15 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'We keep demo requests only for as long as we need them to reply and to continue that conversation. We keep account data, console data, MCP backend data, and Saturn App backend data while you use the Services. When the purpose ends, or you ask us to delete the data, we delete it or stop using it. We may keep what we still need to finish a request you already made, to resolve a dispute, or to comply with law (Article 11, paragraph 3).',
+            text: 'We keep account data, console data, MCP backend data, and Saturn App backend data while you use the Services. When the purpose ends, or you ask us to delete the data, we delete it or stop using it. We may keep what we still need to finish a request you already made, to resolve a dispute, or to comply with law (Article 11, paragraph 3).',
           },
           {
             type: 'p',
-            text: 'The console, the MCP backend, and the Saturn App backend are hosted on Google Cloud in Taiwan (asia-east1). The website is hosted by Cloudflare. Demo requests are delivered by FormSubmit to sales@saturn-core.com. Saturn App downloads are served by GitHub. A tool call is sent to an upstream MCP server only when your own configuration allows it. People in your organization see what their roles allow.',
+            text: 'The console, the MCP backend, and the Saturn App backend are hosted on Google Cloud in Taiwan (asia-east1). The website is hosted by Cloudflare. Sign-up verification codes and account emails are sent through Resend. Saturn App downloads and donations are handled by GitHub. A tool call is sent to an upstream MCP server only when your own configuration allows it. People in your organization see what their roles allow.',
           },
           {
             type: 'p',
-            text: 'We do not sell personal data. We do not use it for advertising. FormSubmit, Cloudflare, and GitHub may process the data they handle outside Taiwan, because that is how those services deliver the form, the website, or the download. If a competent authority restricts an international transfer under Article 21, we will comply with that restriction.',
+            text: 'We do not sell personal data. We do not use it for advertising. Cloudflare, Resend, and GitHub may process the data they handle outside Taiwan, because that is how those services deliver the website, the email, the download, or the donation. If a competent authority restricts an international transfer under Article 21, we will comply with that restriction.',
           },
         ],
       },
@@ -411,7 +419,7 @@ const en = {
         blocks: [
           {
             type: 'p',
-            text: 'You choose what to provide. If you do not provide the information a demo request needs, we cannot arrange the walkthrough. If you do not provide account information, you cannot use the console, the MCP backend, or the parts of Saturn App that require sign-in. Saturn App can still be used on your computer for functions that do not connect to our servers.',
+            text: 'You choose what to provide. You can browse the website without providing anything. If you do not provide account information, you cannot use the console, the MCP backend, or the parts of Saturn App that require sign-in. Saturn App can still be used on your computer for functions that do not connect to our servers.',
           },
         ],
       },
@@ -481,7 +489,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: '使用本服務，包括瀏覽網站並送出資料、建立或使用帳號、登入主控台、連線 MCP 後端，以及使用會連上我們伺服器的 Saturn App。',
+            text: '使用本服務，包括瀏覽網站、建立或使用帳號、登入主控台、連線 MCP 後端，以及使用會連上我們伺服器的 Saturn App。',
           },
           {
             type: 'p',
@@ -587,11 +595,15 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: '本服務的智慧財產由 Rick Weng 所有。除下列 MIT 授權外，本條款只給你在遵守條款期間使用本服務的有限權利。你不會取得本服務的所有權。',
+            text: '本服務的智慧財產由 Rick Weng 所有。除下列原始碼授權外，本條款只給你在遵守條款期間使用本服務的有限權利。你不會取得本服務的所有權。',
           },
           {
             type: 'p',
-            text: 'Saturn App 的原始碼另以 MIT 授權提供，著作權人是 Rick Weng。MIT 授權規範你對該原始碼的權利，不取代本條款對本服務的規範。你使用會連上我們伺服器的 Saturn App 時，仍應遵守本條款。',
+            text: 'Saturn App 與 Saturn SDK 的原始碼以 MIT 授權提供。MCP 後端與主控台的原始碼，於我們提供時，以 Functional Source License 1.1 版、Apache 2.0 為未來授權（FSL-1.1-ALv2）提供。依該授權，你可以為任何目的閱讀、稽核、修改並執行該程式碼，但不得用於與本服務競爭的商業產品或服務。每個版本自我們發布滿兩年起，另可依 Apache License 2.0 使用。上述程式碼的著作權人均為 Rick Weng。',
+          },
+          {
+            type: 'p',
+            text: '這些授權規範你對原始碼的權利，不取代本條款對我們營運之本服務的規範。你使用我們代管的主控台、MCP 後端，或會連上我們伺服器的 Saturn App 時，仍應遵守本條款。',
           },
           {
             type: 'p',
@@ -604,7 +616,11 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: 'Saturn App 免費。瀏覽網站不收費。Pro 與 Enterprise 尚未開始販售，本條款不產生付款義務。若日後提供付費方案，我們會在收費前載明價格、計費期間與取消方式。只有你選擇購買的方案，才需要付費。',
+            text: '本服務免費。每個帳號，不論個人或組織，都能使用全部功能，本條款不產生付款義務。若日後提供付費方案，我們會在收費前載明價格、計費期間與取消方式。只有你選擇購買的方案，才需要付費。',
+          },
+          {
+            type: 'p',
+            text: '你可以透過 GitHub Sponsors 贊助 Saturn。贊助出於自願，不會換得任何方案、功能、支援或其他服務，也不改變本條款。贊助款項由 GitHub 依其條款處理，退款依 GitHub 的規則辦理。',
           },
         ],
       },
@@ -670,7 +686,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: '終止存取不會撤回你已依 MIT 授權取得的 Saturn App 原始碼權利。依其性質應存續的條款，包括客戶資料、智慧財產、保密、免責、責任與補償，於契約結束後仍然有效。你請求刪除個人資料時如何處理，見隱私權政策。',
+            text: '終止存取不會撤回你已依 MIT 授權或 FSL-1.1-ALv2 授權取得的 Saturn 原始碼權利。依其性質應存續的條款，包括客戶資料、智慧財產、保密、免責、責任與補償，於契約結束後仍然有效。你請求刪除個人資料時如何處理，見隱私權政策。',
           },
         ],
       },
@@ -754,7 +770,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: '在網站 https://saturn-core.com，預約展示會收集姓名、Email、公司與公司網址，以及你自行填寫的職稱或說明。頁面語言寫在網址裡。本網站不使用廣告 cookie，也沒有另外的分析工具。',
+            text: '網站 https://saturn-core.com 沒有表單，不會要求你提供個人資料。頁面語言寫在網址裡。本網站不使用廣告 cookie，也沒有另外的分析工具。',
           },
           {
             type: 'p',
@@ -763,7 +779,7 @@ const zh = {
           {
             type: 'ul',
             items: [
-              '身份與帳號資料，包括姓名、Email、組織、角色與登入憑證。從 Saturn App 登入，使用的是同一組帳號。',
+              '身份與帳號資料，包括姓名、Email、組織名稱（若你建立組織帳號）、角色與登入憑證。註冊時，我們會寄驗證碼到你填寫的 Email。從 Saturn App 登入，使用的是同一組帳號。',
               '你設定的內容：成員、權限、Agent、工具集、政策與其版本，以及某人可以連接哪些 MCP Server。',
               'Gateway 評估的每一筆工具呼叫：Agent、工具、參數、政策版本、判定、審核人員（若有），以及是否已執行。',
               '你存放在金庫中的上游憑證。憑證經封存，以便 Gateway 執行你允許的呼叫。主控台不回傳密鑰本身。',
@@ -776,7 +792,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: 'Saturn App 的下載由 GitHub 提供。GitHub 依它自己的條款處理該請求。',
+            text: 'Saturn App 與原始碼的下載由 GitHub 提供。你若透過 GitHub Sponsors 贊助，付款資料由 GitHub 蒐集，我們只會收到 Sponsors 計畫提供的資訊，例如你的 GitHub 使用者名稱。GitHub 依它自己的條款處理這些請求。',
           },
         ],
       },
@@ -798,15 +814,15 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: '預約展示只在回覆與後續聯絡所需的期間保存。帳號、主控台、MCP 後端與 Saturn App 後端的資料，在你使用本服務期間保存。特定目的消失，或你請求刪除時，我們會刪除或停止利用。為完成你已經提出的請求、解決爭議或遵守法律所仍必要的部分，得依第11條第3項但書繼續保存。',
+            text: '帳號、主控台、MCP 後端與 Saturn App 後端的資料，在你使用本服務期間保存。特定目的消失，或你請求刪除時，我們會刪除或停止利用。為完成你已經提出的請求、解決爭議或遵守法律所仍必要的部分，得依第11條第3項但書繼續保存。',
           },
           {
             type: 'p',
-            text: '主控台、MCP 後端與 Saturn App 後端由 Google Cloud 於台灣區域（asia-east1）代管。網站由 Cloudflare 代管。預約展示由表單服務 FormSubmit 寄至 sales@saturn-core.com。Saturn App 的下載由 GitHub 提供。工具呼叫只有在你自己的設定允許時，才會送到上游 MCP Server。組織內的人依其角色看到對應的內容。',
+            text: '主控台、MCP 後端與 Saturn App 後端由 Google Cloud 於台灣區域（asia-east1）代管。網站由 Cloudflare 代管。註冊驗證碼與帳號通知信透過 Resend 寄送。Saturn App 的下載與贊助由 GitHub 處理。工具呼叫只有在你自己的設定允許時，才會送到上游 MCP Server。組織內的人依其角色看到對應的內容。',
           },
           {
             type: 'p',
-            text: '我們不出售個人資料，也不把它用於廣告。FormSubmit、Cloudflare 與 GitHub 為了寄送表單、提供網站或提供下載，可能在台灣以外處理它們經手的資料。主管機關若依第21條限制特定國際傳輸，我們會遵守該限制。',
+            text: '我們不出售個人資料，也不把它用於廣告。Cloudflare、Resend 與 GitHub 為了提供網站、寄送郵件、提供下載或處理贊助，可能在台灣以外處理它們經手的資料。主管機關若依第21條限制特定國際傳輸，我們會遵守該限制。',
           },
         ],
       },
@@ -815,7 +831,7 @@ const zh = {
         blocks: [
           {
             type: 'p',
-            text: '你可以選擇是否提供。你若不提供預約展示所需的資料，我們無法安排導覽。你若不提供帳號資料，就無法使用主控台、MCP 後端，以及 Saturn App 中需要登入的功能。Saturn App 不連線我們伺服器的功能，仍可在你的電腦上使用。',
+            text: '你可以選擇是否提供。瀏覽網站不需要提供任何資料。你若不提供帳號資料，就無法使用主控台、MCP 後端，以及 Saturn App 中需要登入的功能。Saturn App 不連線我們伺服器的功能，仍可在你的電腦上使用。',
           },
         ],
       },

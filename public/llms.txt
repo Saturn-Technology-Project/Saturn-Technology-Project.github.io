@@ -2,14 +2,14 @@
 
 > Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail.
 
-Saturn Technology Project by Rick Weng. Saturn App, the desktop agent, is MIT licensed (copyright Rick Weng). Saturn MCP is the gateway. Rick Weng, an individual in Taiwan, operates the service and owns the intellectual property. Updated 31 October 2026.
+Saturn Technology Project by Rick Weng. Saturn App, the AI research workbench, is MIT licensed (copyright Rick Weng). Saturn MCP is the gateway. Rick Weng, an individual in Taiwan, operates the service and owns the intellectual property. Updated 31 October 2026.
 
 ## English
 
 - [Saturn](https://saturn-core.com/): Secure MCP gateway for AI agents. One endpoint, tool sets, argument-level policy, human approval, and audit.
 - [What Saturn is](https://saturn-core.com/#faq): Definitions of Saturn, an MCP gateway, supported clients, the difference from an API gateway, credential handling, and whether Saturn is free.
 - [Saturn MCP](https://saturn-core.com/mcp): The MCP server agents talk to. Connect existing MCP servers, build tool sets, write policies, and point every agent at one endpoint.
-- [Saturn App](https://saturn-core.com/app): Free, MIT-licensed desktop AI agent for macOS and Windows. Runs locally with your models, files, and MCP servers.
+- [Saturn App](https://saturn-core.com/app): Free, MIT-licensed desktop workbench for AI research. Runs locally with your models, and keeps research records as plain files in the project.
 - [Pricing](https://saturn-core.com/pricing): Saturn is free. The desktop App and the MCP gateway cost nothing, with every feature on every account. Sponsors keep it free.
 - [Pricing questions](https://saturn-core.com/pricing#faq): Whether Saturn is really free, how it is paid for, and support.
 
@@ -18,7 +18,7 @@ Saturn Technology Project by Rick Weng. Saturn App, the desktop agent, is MIT li
 - [Saturn](https://saturn-core.com/zh): 企業級 AI Agent 的安全 MCP Gateway。
 - [關於 Saturn](https://saturn-core.com/zh#faq): Saturn 的定義、MCP Gateway、支援的用戶端、與 API Gateway 的差別、憑證處理，以及 Saturn App 是否免費。
 - [Saturn MCP](https://saturn-core.com/zh/mcp): Agent 實際連線的 MCP Server。連接既有 MCP Server、組建工具集、撰寫政策。
-- [Saturn App](https://saturn-core.com/zh/app): macOS 與 Windows 上免費、MIT 授權的桌面 AI Agent，在本機運行。
+- [Saturn App](https://saturn-core.com/zh/app): 免費、MIT 授權的桌面 AI 研究工作台，在本機運行，研究紀錄以純文字檔存放在專案裡。
 - [方案與定價](https://saturn-core.com/zh/pricing): Saturn 完全免費。桌面 App 與 MCP Gateway 都不收費，每個帳號都能使用全部功能，由贊助者支持。
 - [常見問題](https://saturn-core.com/zh/pricing#faq): 是否真的免費、靠什麼維持、客服支援。
 

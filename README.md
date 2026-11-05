@@ -29,13 +29,13 @@ Every page exists twice: once at its English path and once under `/zh` in 繁體
 | --- | --- | --- | --- |
 | `/` | `/zh` | `HomePage.vue` | Hero, benefits, why a gateway, features, comparison, the console, the free plan, FAQ (`#faq`) and a call to action |
 | `/mcp` | `/zh/mcp` | `McpPage.vue` | Saturn MCP, the gateway: an example policy, the four setup steps, use cases, capabilities and security |
-| `/app` | `/zh/app` | `AppPage.vue` | Saturn App, the desktop agent: a link to the GitHub repository, a download button for the visitor's platform, features and requirements |
+| `/app` | `/zh/app` | `AppPage.vue` | Saturn App, the AI research workbench: a link to the GitHub repository, a link to its releases, features and requirements. `WORKBENCH_RELEASED` in `src/config.ts` says whether a release contains the workbench yet |
 | `/trust` | `/zh/trust` | `TrustPage.vue` | How keys, payloads and credentials are protected, FAQ, the system whitepaper (`#whitepaper`) and vulnerability disclosure (`#disclosure`) |
 | `/pricing` | `/zh/pricing` | `PricingPage.vue` | Saturn is free; what is included, FAQ (`#faq`) and Donate through GitHub Sponsors |
 | `/terms` | `/zh/terms` | `LegalPage.vue` | Terms of Service |
 | `/privacy` | `/zh/privacy` | `LegalPage.vue` | Privacy Policy |
 
-The download button picks a file from `DOWNLOAD_URLS` in [`src/config.ts`](src/config.ts) after [`src/platform.ts`](src/platform.ts) guesses the operating system: the macOS arm64 zip, the Windows x64 installer, or the latest release page for anything else. The "Get started" buttons go to the console at `dashboard.saturn-core.com`.
+The App page links to the releases at `RELEASES_URL` in [`src/config.ts`](src/config.ts). Saturn App's releases are pre-releases with the version in their file names, so a stable `/releases/latest` address cannot point at one. The "Get started" buttons go to the console at `dashboard.saturn-core.com`.
 
 Old paths are redirected in two places:
 

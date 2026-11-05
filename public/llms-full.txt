@@ -2,7 +2,7 @@
 
 > Saturn is a secure MCP (Model Context Protocol) gateway between AI agents and the tools they call. It centralizes access, enforces argument-level permissions, requires human approval for sensitive actions, and keeps a complete audit trail in one console.
 
-Updated 31 October 2026.
+Updated 5 November 2026.
 Website: https://saturn-core.com/
 Contact: hello@saturn-core.com
 Console: https://dashboard.saturn-core.com
@@ -16,7 +16,7 @@ Saturn sits between AI agents and MCP servers. Agents never connect directly to 
 Saturn has two products:
 
 - Saturn MCP is the gateway. It is a standards-compliant MCP server over HTTP (initialize, tools/list, tools/call) with OAuth 2.1 and PKCE.
-- Saturn App is a free desktop agent for macOS and Windows. It can run on its own, or point at Saturn MCP when you want governance.
+- Saturn App is a free desktop workbench for AI research. It runs on its own, and can use Saturn MCP as an MCP server.
 
 Compatible clients: Claude, ChatGPT, Cursor, Gemini, LM Studio, Saturn App, and any other MCP client. Existing MCP servers do not need code changes.
 
@@ -65,21 +65,25 @@ Data. Analyst agents get read-only warehouse tools. Exporting more than 100000 r
 
 ## Saturn App
 
-Saturn App is a local agent for macOS and Windows (x64). Packaged builds include the Runtime, so a separate Node install is not required. It is free, open source, MIT licensed, with no paid tier, no usage cap, and no telemetry.
+Saturn App is a free, open-source, MIT-licensed desktop workbench for AI research. It has no paid tier and no usage cap. It is organized around questions, code, models, experiments, samples and findings rather than around chats. The workbench arrives with the next release; the release available today, v0.3.1, is the earlier desktop agent.
 
-Two processes: Saturn Desktop is the window. Saturn Runtime is the core and listens only on http://127.0.0.1:4700. Desktop talks to Runtime only from local origins. Runtime can also run headless. Data is stored in ~/.saturn-app by default (override with SATURN_DATA_DIR).
+Platforms: macOS on Apple silicon. Windows x64 builds exist but have not been run since the Rust rewrite, so treat them as untested.
 
-Built-in skills: files (list, read, write, patch inside the workspace), code (run commands in the workspace), web (read public pages; local and private addresses are refused), and mcp / multi_step (call attached MCP tools and keep a step-by-step plan).
+Screens: Home (where the work stopped and what is open), Workspace (code beside its runs, samples, findings and a terminal), Lineage (checkpoints and fine-tuned branches), Experiments (frozen versions, comparisons that list what differs, conclusions), Samples (one sample across models, labels, counterexamples, activations and residual stream patching), Tasks (long work in its own git worktree, merged or discarded after review), Protection (refusals and unexplained changes), and Environment (Python, packages, devices, lock files, optional kits).
 
-Models: OpenAI, Claude, Gemini, or a local model through LM Studio. Keys stay in a local credential broker and are never returned to the UI. File and command access stays inside the workspace directory. Point the App at Saturn MCP to add tool sets, policies, and approvals. The same agent works with or without the gateway.
+AI involvement: each file or folder is Manual, Pair or Delegate. An agent's file tools cannot write a Manual or locked file, and a Pair file always asks. These modes are a workflow constraint, not a security boundary: a shell or Codex can still write a file, which Saturn notices afterwards and records. Verdicts and labels stay with the person.
 
-Download: https://github.com/Saturn-Technology-Project/Saturn-App/releases/latest
+Local operation: the Runtime listens only on 127.0.0.1. Research records are plain files in the project's .saturn/research folder. App data is in ~/.saturn-app by default (override with SATURN_DATA_DIR). Every HTTP request the Runtime sends is in a network log.
+
+Models: Anthropic, OpenAI, Google and DeepSeek with an API key, Claude Code on a Claude plan, Codex on a ChatGPT plan, or an offline model through LM Studio. Saturn App can also use Saturn MCP as an MCP server.
+
+Releases: https://github.com/Saturn-Technology-Project/Saturn-App/releases
 
 ## Pricing
 
 Saturn is free. There are no paid plans, no usage tiers, and no trial.
 
-- Saturn App for macOS and Windows, your own models and MCP servers, built-in skills, local credential broker, MIT license.
+- Saturn App, the AI research workbench, with your own models and MCP servers, MIT license.
 - Saturn MCP gateway with unlimited tool sets and audit history, versioned policies, signed webhooks, approvals, groups and multi-person quorum, and encrypted tool payloads, on every account.
 
 Saturn is paid for by sponsors: https://github.com/sponsors/Saturn-Technology-Project
@@ -99,13 +103,13 @@ Do agents see API keys or OAuth tokens?
 No. Upstream credentials stay in Saturn's vault, sealed with ML-KEM-1024 and AES-256-GCM. Agents receive only the result of an authorized call.
 
 Is Saturn App free?
-Yes. The desktop app and its runtime are MIT licensed, and the MCP gateway is free too. There are no paid plans.
+Yes. The research workbench and its runtime are MIT licensed, and the MCP gateway is free too. There are no paid plans.
 
 ## 中文摘要
 
 Saturn 是部署在 AI Agent 與 MCP Server 之間的安全 MCP Gateway。Agent 只連到同一個 Saturn MCP 端點。Saturn 只露出你核准的工具，對每一筆呼叫比對政策，把敏感呼叫暫停交給人，並記錄完整路徑。
 
-Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/call），連線使用 OAuth 2.1 與 PKCE。Saturn App 是 macOS 與 Windows 上免費、開源、MIT 授權的桌面 Agent，預設在本機運行，Runtime 只監聽 127.0.0.1:4700。需要治理時，再把 App 指向 Saturn MCP。
+Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/call），連線使用 OAuth 2.1 與 PKCE。Saturn App 是免費、開源、MIT 授權的桌面 AI 研究工作台，在本機運行，Runtime 只監聽 127.0.0.1，研究紀錄以純文字檔存放在專案的 .saturn/research。這個工作台會在下一個版本推出，目前可下載的 v0.3.1 是先前的桌面 Agent。
 
 相容 Claude、ChatGPT、Cursor、Gemini、LM Studio、Saturn App，以及任何 MCP 用戶端。現有 MCP Server 不需要修改程式碼。
 

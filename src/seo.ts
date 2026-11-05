@@ -1,4 +1,4 @@
-import { CONTACT_ADDRESS, GITHUB_URL, SITE_URL } from './config'
+import { CONTACT_ADDRESS, GITHUB_URL, RELEASES_URL, SITE_URL } from './config'
 import { freePricing } from './free-pricing'
 import { copy, pageMeta, type Locale, type PageName } from './i18n'
 import { legalCopy } from './legal'
@@ -90,17 +90,17 @@ function desktopApplication(lang: Locale) {
     '@id': `${SITE_URL}/#saturn-app`,
     name: 'Saturn App',
     applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'macOS, Windows',
+    operatingSystem: 'macOS',
     url: canonicalUrl('app', lang),
     description: text.appPage.description,
-    downloadUrl: `${GITHUB_URL}/releases/latest`,
+    downloadUrl: RELEASES_URL,
     codeRepository: GITHUB_URL,
     license: 'https://opensource.org/licenses/MIT',
     isAccessibleForFree: true,
     featureList:
       lang === 'zh'
-        ? ['本機 Runtime，只監聽 127.0.0.1', '檔案、程式碼、網頁與 MCP 技能', '自帶模型', 'MIT 授權']
-        : ['Local runtime on 127.0.0.1', 'Files, code, web, and MCP skills', 'Bring your own model', 'MIT license'],
+        ? ['問題、假說、實驗、樣本與結論都是專案裡的純文字檔', '每個檔案可設定 AI 參與程度', '本機 Runtime，只監聽 127.0.0.1', '自帶模型', 'MIT 授權']
+        : ['Questions, hypotheses, experiments, samples and findings as plain files in the project', 'Per-file AI involvement', 'Local runtime on 127.0.0.1', 'Bring your own model', 'MIT license'],
     provider: { '@id': ORG_ID },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   }

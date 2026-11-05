@@ -14,7 +14,7 @@ const copy = {
       period: 'forever',
       tagline: 'The desktop App and the MCP gateway, with nothing held back.',
       points: [
-        'Saturn App for macOS and Windows, MIT licensed',
+        'Saturn App, the AI research workbench, MIT licensed',
         'MCP gateway with unlimited tool sets and audit history',
         'Versioned policies and signed webhooks',
         'Approvals, groups and multi-person quorum',
@@ -35,7 +35,7 @@ const copy = {
       lede: 'The desktop App and the MCP gateway cost nothing, and every account gets every feature: policies, webhooks, group approvals, and full audit history.',
       includedTitle: 'Included for everyone',
       included: [
-        'Saturn App for macOS and Windows',
+        'Saturn App, the AI research workbench',
         'Your own models and MCP servers',
         'MCP gateway with policies, approvals and audit',
         'Open-source runtime, MIT licensed',
@@ -62,7 +62,7 @@ const copy = {
       period: '永久',
       tagline: '桌面 App 與 MCP Gateway，全部功能都不保留。',
       points: [
-        'macOS 與 Windows 的 Saturn App，MIT 授權',
+        'Saturn App AI 研究工作台，MIT 授權',
         'MCP Gateway，工具集與審計紀錄無上限',
         '版本化政策與簽章 Webhook',
         '核准、群組與多人門檻',
@@ -83,7 +83,7 @@ const copy = {
       lede: '桌面 App 與 MCP Gateway 都不收費，每個帳號都能使用全部功能：政策、Webhook、群組核准，以及完整的審計紀錄。',
       includedTitle: '所有人都包含',
       included: [
-        'macOS 與 Windows 的 Saturn App',
+        'Saturn App AI 研究工作台',
         '使用自己的模型與 MCP Server',
         'MCP Gateway：政策、核准與審計',
         '開源 Runtime，MIT 授權',

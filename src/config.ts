@@ -5,10 +5,7 @@ export const GITHUB_URL = 'https://github.com/Saturn-Technology-Project/Saturn-A
 // Saturn is free; support goes through GitHub Sponsors on the organization.
 export const DONATE_URL = 'https://github.com/sponsors/Saturn-Technology-Project'
 
-// Desktop downloads. Asset names come from electron-builder's
-// artifactName "Saturn-${os}-${arch}.${ext}" in Saturn App/desktop/package.json.
-export const DOWNLOAD_URLS = {
-  mac: `${GITHUB_URL}/releases/latest/download/Saturn-mac-arm64.zip`,
-  win: `${GITHUB_URL}/releases/latest/download/Saturn-win-x64.exe`,
-  other: `${GITHUB_URL}/releases/latest`,
-} as const
+// Saturn App's releases. They are pre-releases, which GitHub's /releases/latest skips, and their file names carry the version.
+export const RELEASES_URL = `${GITHUB_URL}/releases`
+// Turn on when a release containing the research workbench is published: the App page then stops saying it is still to come.
+export const WORKBENCH_RELEASED = false

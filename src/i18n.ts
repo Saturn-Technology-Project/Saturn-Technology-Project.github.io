@@ -375,7 +375,7 @@ const messages = {
           eyebrow: 'Assistant and Tasks',
           title: 'Help that knows the workbench, and long work kept apart',
           points: [
-            'A research assistant on every screen does what you set at the top of its chat: it only reads in Manual and proposes in Pair',
+            'A research assistant on every screen does what you set in its chat: it only reads in Manual and proposes in Pair',
             'Ask how to do something and it walks you through it, boxing each place while you do the work',
             'Hand long work to a task, which runs in its own git worktree and shows what it may touch',
             'Review a task’s diff, then merge or discard it; nothing reaches the project before that',
@@ -812,7 +812,7 @@ const messages = {
           eyebrow: '助理與 Tasks',
           title: '懂工作台的助理，長任務另外放',
           points: [
-            '每個畫面都有研究助理，能做什麼由對話上方的設定決定：Manual 只讀，Pair 只提案',
+            '每個畫面都有研究助理，能做什麼由對話裡的設定決定：Manual 只讀，Pair 只提案',
             '問它怎麼操作，它會一步步帶你走，框出每個位置，動手的是你',
             '長任務交給 Task，在自己的 git worktree 裡執行，並顯示它能動哪些檔案',
             '審閱 Task 的 diff 後再合併或捨棄，在那之前不會碰到專案',

@@ -99,8 +99,8 @@ function desktopApplication(lang: Locale) {
     isAccessibleForFree: true,
     featureList:
       lang === 'zh'
-        ? ['問題、假說、實驗、樣本與結論都是專案裡的純文字檔', '每個檔案可設定 AI 參與程度', '本機 Runtime，只監聽 127.0.0.1', '自帶模型', 'MIT 授權']
-        : ['Questions, hypotheses, experiments, samples and findings as plain files in the project', 'Per-file AI involvement', 'Local runtime on 127.0.0.1', 'Bring your own model', 'MIT license'],
+        ? ['問題、假說、實驗、樣本與結論都是專案裡的純文字檔', '每個對話可設定 AI 參與程度', '本機 Runtime，只監聽 127.0.0.1', '自帶模型', 'MIT 授權']
+        : ['Questions, hypotheses, experiments, samples and findings as plain files in the project', 'Per-chat AI involvement', 'Local runtime on 127.0.0.1', 'Bring your own model', 'MIT license'],
     provider: { '@id': ORG_ID },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   }

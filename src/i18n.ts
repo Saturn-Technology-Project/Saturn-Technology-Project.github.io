@@ -319,10 +319,10 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — A free, open-source workbench for AI research',
-      description: 'Saturn App is a free, MIT-licensed desktop workbench for AI research. Write the code yourself, run experiments on your own computer, inspect every sample, and choose how much AI each file gets.',
+      description: 'Saturn App is a free, MIT-licensed desktop workbench for AI research. Write the code yourself, run experiments on your own computer, inspect every sample, and choose how much AI each chat gets.',
       eyebrow: 'Saturn App · Open source · Free',
       heading: 'A workbench for AI research, on your own computer.',
-      lede: 'Read the method, write the code yourself, run the experiment and inspect every sample. Saturn is organized around your questions, models, experiments and findings rather than around chats, and you decide how much AI each file gets.',
+      lede: 'Read the method, write the code yourself, run the experiment and inspect every sample. Saturn is organized around your questions, models, experiments and findings rather than around chats, and you decide how much the assistant may do.',
       primary: 'View on GitHub',
       secondary: 'Connect to Saturn MCP',
       download: 'See releases',
@@ -331,7 +331,7 @@ const messages = {
       asideCaption: 'A project’s research records are plain files in its own folder.',
       highlights: [
         ['Your research, not a chat', 'Questions, hypotheses, code, runs, samples and conclusions each have a place. Reopen a project and Home says where the work stopped and what is still open.'],
-        ['You set how much AI', 'Each file or folder is Manual (you write it), Pair (the assistant proposes, you approve) or Delegate (an agent may change it). Verdicts and labels stay yours.'],
+        ['You set how much AI', 'In each chat, choose Manual (it only reads and explains), Pair (it proposes, you approve) or Delegate (each message starts a task). Verdicts and labels stay yours.'],
         ['Your computer, your models', 'The runtime listens only on 127.0.0.1, records are files you can read, and every request it sends is in a network log. Use API keys, your Claude or ChatGPT plan, or an offline model.'],
       ],
       featTitle: 'From a question to a conclusion you can defend.',
@@ -375,7 +375,7 @@ const messages = {
           eyebrow: 'Assistant and Tasks',
           title: 'Help that knows the workbench, and long work kept apart',
           points: [
-            'A research assistant on every screen follows the open file’s mode: it only reads in Manual and proposes in Pair',
+            'A research assistant on every screen does what you set at the top of its chat: it only reads in Manual and proposes in Pair',
             'Ask how to do something and it walks you through it, boxing each place while you do the work',
             'Hand long work to a task, which runs in its own git worktree and shows what it may touch',
             'Review a task’s diff, then merge or discard it; nothing reaches the project before that',
@@ -386,8 +386,8 @@ const messages = {
           eyebrow: 'Protection',
           title: 'Clear about what it can enforce',
           points: [
-            'An agent’s file tools cannot write a Manual or locked file, and a Pair file always asks you',
-            'A shell or Codex can still write a file: Saturn notices afterwards and records it, because modes are a workflow constraint and not a security boundary',
+            'A Manual chat only reads, a Pair chat asks before each change or command, and no file tool can write a locked file',
+            'In a task, a shell or Codex can still write a locked file: Saturn notices afterwards and records it, because modes and locks are a workflow constraint and not a security boundary',
             'Agents work only in folders you grant, and every edit is checkpointed and can be reverted',
             'Refusals and unexplained changes wait on one screen for you to decide',
           ],
@@ -756,10 +756,10 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — 免費、開源的 AI 研究工作台',
-      description: 'Saturn App 是免費、MIT 授權的桌面 AI 研究工作台。親手寫程式、在自己的電腦上跑實驗、檢視每一個樣本，並決定每個檔案要讓 AI 參與多少。',
+      description: 'Saturn App 是免費、MIT 授權的桌面 AI 研究工作台。親手寫程式、在自己的電腦上跑實驗、檢視每一個樣本，並決定每個對話要讓 AI 參與多少。',
       eyebrow: 'Saturn App · 開源 · 免費',
       heading: '你的 AI 研究工作台，就在自己的電腦上。',
-      lede: '讀方法、親手寫程式、跑實驗、檢視每一個樣本。Saturn 圍繞你的問題、模型、實驗與結論來組織，而不是對話，每個檔案要讓 AI 參與多少也由你決定。',
+      lede: '讀方法、親手寫程式、跑實驗、檢視每一個樣本。Saturn 圍繞你的問題、模型、實驗與結論來組織，而不是對話，助理能做到什麼程度也由你決定。',
       primary: '前往 GitHub',
       secondary: '連接 Saturn MCP',
       download: '查看發行版本',
@@ -768,7 +768,7 @@ const messages = {
       asideCaption: '專案的研究紀錄都是純文字檔，就放在專案自己的資料夾裡。',
       highlights: [
         ['是你的研究，不是對話', '問題、假說、程式、執行、樣本與結論都有自己的位置。重新打開專案，Home 會告訴你工作停在哪裡、還有什麼沒解決。'],
-        ['AI 參與多少由你決定', '每個檔案或資料夾可設為 Manual（你自己寫）、Pair（助理提案、你核准）或 Delegate（Agent 可以修改）。判定與標註永遠由你決定。'],
+        ['AI 參與多少由你決定', '每個對話可選 Manual（只讀與解釋）、Pair（助理提案、你核准）或 Delegate（每則訊息開一個任務）。判定與標註永遠由你決定。'],
         ['你的電腦、你的模型', 'Runtime 只監聽 127.0.0.1，紀錄都是你讀得懂的檔案，每一個對外請求都會記在網路日誌裡。可用 API 金鑰、Claude 或 ChatGPT 方案，或離線模型。'],
       ],
       featTitle: '從一個問題，到你能說明依據的結論。',
@@ -812,7 +812,7 @@ const messages = {
           eyebrow: '助理與 Tasks',
           title: '懂工作台的助理，長任務另外放',
           points: [
-            '每個畫面都有研究助理，並遵守目前檔案的模式：Manual 只讀，Pair 只提案',
+            '每個畫面都有研究助理，能做什麼由對話上方的設定決定：Manual 只讀，Pair 只提案',
             '問它怎麼操作，它會一步步帶你走，框出每個位置，動手的是你',
             '長任務交給 Task，在自己的 git worktree 裡執行，並顯示它能動哪些檔案',
             '審閱 Task 的 diff 後再合併或捨棄，在那之前不會碰到專案',
@@ -823,8 +823,8 @@ const messages = {
           eyebrow: 'Protection',
           title: '清楚說明能防什麼、不能防什麼',
           points: [
-            'Agent 的檔案工具無法寫入 Manual 或已鎖定的檔案，Pair 檔案一定會先問你',
-            'Shell 或 Codex 仍可能寫入檔案：Saturn 會在事後發現並記錄，因為模式是工作流程的約束，不是資安邊界',
+            'Manual 對話只讀，Pair 對話在每次修改或執行指令前都會問你，檔案工具也無法寫入已鎖定的檔案',
+            '在任務裡，Shell 或 Codex 仍可能寫入已鎖定的檔案：Saturn 會在事後發現並記錄，因為模式與鎖定是工作流程的約束，不是資安邊界',
             'Agent 只在你授權的資料夾裡工作，每次編輯都有檢查點，可以還原',
             '被拒絕的動作和來源不明的變更，都集中在同一個畫面等你決定',
           ],

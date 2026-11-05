@@ -71,7 +71,7 @@ Platforms: macOS on Apple silicon. Windows x64 builds exist but have not been ru
 
 Screens: Home (where the work stopped and what is open), Workspace (code beside its runs, samples, findings and a terminal), Lineage (checkpoints and fine-tuned branches), Experiments (frozen versions, comparisons that list what differs, conclusions), Samples (one sample across models, labels, counterexamples, activations and residual stream patching), Tasks (long work in its own git worktree, merged or discarded after review), Protection (refusals and unexplained changes), and Environment (Python, packages, devices, lock files, optional kits).
 
-AI involvement: each file or folder is Manual, Pair or Delegate. An agent's file tools cannot write a Manual or locked file, and a Pair file always asks. These modes are a workflow constraint, not a security boundary: a shell or Codex can still write a file, which Saturn notices afterwards and records. Verdicts and labels stay with the person.
+AI involvement: each chat is Manual (only reads), Pair (asks before each change or command) or Delegate (each message starts a task in its own git worktree). An agent's file tools cannot write a locked file. These modes and locks are a workflow constraint, not a security boundary: in a task, a shell or Codex can still write a locked file, which Saturn notices afterwards and records. Codex cannot ask before it writes, so in a Pair chat it only reads. Verdicts and labels stay with the person.
 
 Local operation: the Runtime listens only on 127.0.0.1. Research records are plain files in the project's .saturn/research folder. App data is in ~/.saturn-app by default (override with SATURN_DATA_DIR). Every HTTP request the Runtime sends is in a network log.
 

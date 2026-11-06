@@ -29,7 +29,7 @@ Every page exists twice: once at its English path and once under `/zh` in 繁體
 | --- | --- | --- | --- |
 | `/` | `/zh` | `HomePage.vue` | Hero, benefits, why a gateway, features, comparison, the console, the free plan, FAQ (`#faq`) and a call to action |
 | `/mcp` | `/zh/mcp` | `McpPage.vue` | Saturn MCP, the gateway: an example policy, the four setup steps, use cases, capabilities and security |
-| `/app` | `/zh/app` | `AppPage.vue` | Saturn App, the AI research workbench: a link to the GitHub repository, a link to its releases, features and requirements. `WORKBENCH_RELEASED` in `src/config.ts` says whether a release contains the workbench yet |
+| `/app` | `/zh/app` | `AppPage.vue` | Saturn App, the AI research workbench: a link to the GitHub repository, a link to its releases, features and requirements |
 | `/trust` | `/zh/trust` | `TrustPage.vue` | How keys, payloads and credentials are protected, FAQ, the system whitepaper (`#whitepaper`) and vulnerability disclosure (`#disclosure`) |
 | `/pricing` | `/zh/pricing` | `PricingPage.vue` | Saturn is free; what is included, FAQ (`#faq`) and Donate through GitHub Sponsors |
 | `/terms` | `/zh/terms` | `LegalPage.vue` | Terms of Service |

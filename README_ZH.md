@@ -29,7 +29,7 @@
 | --- | --- | --- | --- |
 | `/` | `/zh` | `HomePage.vue` | 主視覺、效益、為什麼需要 Gateway、功能、比較、主控台、免費方案、常見問題（`#faq`）與行動呼籲 |
 | `/mcp` | `/zh/mcp` | `McpPage.vue` | Saturn MCP，也就是 Gateway：政策範例、四個設定步驟、使用情境、功能與安全 |
-| `/app` | `/zh/app` | `AppPage.vue` | Saturn App，AI 研究工作台：GitHub 儲存庫連結、發行版本連結、功能與系統需求。`src/config.ts` 的 `WORKBENCH_RELEASED` 表示發行版本是否已包含工作台 |
+| `/app` | `/zh/app` | `AppPage.vue` | Saturn App，AI 研究工作台：GitHub 儲存庫連結、發行版本連結、功能與系統需求 |
 | `/trust` | `/zh/trust` | `TrustPage.vue` | 金鑰、原始內容與憑證如何受到保護、常見問題、系統白皮書（`#whitepaper`）與漏洞回報（`#disclosure`） |
 | `/pricing` | `/zh/pricing` | `PricingPage.vue` | Saturn 完全免費；包含的內容、常見問題（`#faq`），以及透過 GitHub Sponsors 贊助 |
 | `/terms` | `/zh/terms` | `LegalPage.vue` | 服務條款 |

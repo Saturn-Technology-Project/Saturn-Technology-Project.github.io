@@ -7,5 +7,3 @@ export const DONATE_URL = 'https://github.com/sponsors/Saturn-Technology-Project
 
 // Saturn App's releases. They are pre-releases, which GitHub's /releases/latest skips, and their file names carry the version.
 export const RELEASES_URL = `${GITHUB_URL}/releases`
-// Turn on when a release containing the research workbench is published: the App page then stops saying it is still to come.
-export const WORKBENCH_RELEASED = false

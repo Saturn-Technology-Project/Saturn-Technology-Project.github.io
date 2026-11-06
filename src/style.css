@@ -1371,288 +1371,25 @@ main {
   border-left-color: rgba(240, 238, 230, 0.28);
 }
 
-.appwin {
-  --win-bg: #191919;
-  --win-panel: #222120;
-  --win-card: #262524;
-  --win-line: #303030;
-  --win-fg: #eeeeee;
-  --win-muted: #9c9c9c;
-  --win-blue: #4d8ae6;
-  --win-green: #6cc287;
-  --win-amber: #e0a85a;
-  margin-top: 64px;
-  background:
-    radial-gradient(60% 50% at 30% 0%, rgba(77, 138, 230, 0.12), transparent 70%),
-    radial-gradient(40% 40% at 90% 100%, rgba(217, 119, 87, 0.08), transparent 70%),
-    var(--win-bg);
-  color: var(--win-fg);
-  border: 1px solid #000;
-  border-radius: 14px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 30px 80px -30px rgba(20, 20, 19, 0.55), 0 12px 24px -12px rgba(20, 20, 19, 0.3);
-  overflow: hidden;
-  font-size: 13px;
-  line-height: 1.5;
+.app-shot {
+  margin: 64px 0 0;
 }
 
-.appwin-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  height: 44px;
-  padding: 0 16px;
-  border-bottom: 1px solid var(--win-line);
-  white-space: nowrap;
-}
-
-.appwin-lights {
-  display: inline-flex;
-  gap: 8px;
-  margin-right: 6px;
-}
-
-.appwin-lights i {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #4a4a4a;
-}
-
-.appwin-project {
-  background: var(--win-card);
-  border-radius: 7px;
-  padding: 4px 10px;
-  min-width: 150px;
-}
-
-.appwin-project .caret,
-.appwin-screen,
-.appwin-muted {
-  color: var(--win-muted);
-}
-
-.appwin-spacer {
-  flex: 1;
-}
-
-.appwin-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 2px 10px;
-  border-radius: 999px;
-  background: rgba(108, 194, 135, 0.14);
-  color: var(--win-green);
-  font-size: 12px;
-}
-
-.appwin-pill i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.appwin-body {
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 300px;
-  min-height: 420px;
-}
-
-.appwin-rail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 0;
-  border-right: 1px solid var(--win-line);
-}
-
-.appwin-rail span {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 30px;
-  border-radius: 7px;
-  color: #d8d8d8;
-}
-
-.appwin-rail span.on {
-  background: #474645;
-  color: #fff;
-}
-
-.appwin-rail svg,
-.screens svg {
-  width: 17px;
-  height: 17px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.appwin-main {
-  padding: 24px 28px;
-  min-width: 0;
-}
-
-.appwin-title {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.appwin-meta,
-.appwin-label {
-  color: var(--win-muted);
-  font-size: 12px;
-}
-
-.appwin-card {
-  margin-top: 16px;
-  padding: 14px 16px 10px;
-  border: 1px solid var(--win-line);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.appwin-chart {
+.app-shot img {
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 8px;
+  border-radius: 14px;
+  border: 1px solid #000;
+  background: #191919;
+  box-shadow: 0 30px 80px -30px rgba(20, 20, 19, 0.55), 0 12px 24px -12px rgba(20, 20, 19, 0.3);
 }
 
-.appwin-chart .grid {
-  stroke: var(--win-line);
-  stroke-width: 1;
-}
-
-.appwin-chart .tick,
-.appwin-chart .legend {
-  fill: var(--win-muted);
-  font-size: 9px;
-  font-family: var(--sans);
-}
-
-.appwin-chart .series {
-  fill: none;
-  stroke: var(--win-blue);
-  stroke-width: 2;
-}
-
-.appwin-chart .series.branch,
-.appwin-chart .whisker.branch {
-  stroke: var(--win-amber);
-  stroke-dasharray: 4 4;
-}
-
-.appwin-chart .whisker {
-  stroke: var(--win-blue);
-  stroke-width: 2;
-  stroke-linecap: round;
-  opacity: 0.55;
-}
-
-.appwin-chart .dot {
-  fill: var(--win-blue);
-  stroke: var(--win-bg);
-  stroke-width: 2;
-}
-
-.appwin-chart .dot.branch {
-  fill: var(--win-amber);
-}
-
-.appwin-notice {
+.app-shot figcaption {
   margin-top: 14px;
-  padding: 9px 12px;
-  border-radius: 8px;
-  background: rgba(224, 168, 90, 0.1);
-  color: #e9c48f;
-  font-size: 12px;
-}
-
-.appwin-verdict {
-  margin-top: 12px;
-  color: var(--win-muted);
-  font-size: 12px;
-}
-
-.appwin-verdict span {
-  margin-right: 8px;
-  color: var(--win-fg);
-  font-weight: 600;
-}
-
-.appwin-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  border-left: 1px solid var(--win-line);
-  background: var(--win-panel);
-}
-
-.appwin-panel-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: 600;
-}
-
-.appwin-mode {
-  font-weight: 500;
-  font-size: 12px;
-  color: var(--win-muted);
-  padding: 1px 8px;
-  border-radius: 6px;
-  background: var(--win-card);
-}
-
-.appwin-bubble {
-  align-self: flex-end;
-  max-width: 88%;
-  padding: 8px 11px;
-  border-radius: 10px;
-  background: #343332;
-}
-
-.appwin-answer {
-  color: #d6d6d6;
-}
-
-.appwin-request {
-  margin-top: auto;
-  padding: 12px;
-  border: 1px solid var(--win-line);
-  border-radius: 10px;
-  background: var(--win-card);
-}
-
-.appwin-buttons {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.appwin-buttons b,
-.appwin-buttons em {
-  padding: 4px 12px;
-  border-radius: 7px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-}
-
-.appwin-buttons b {
-  background: var(--win-fg);
-  color: var(--win-bg);
-}
-
-.appwin-buttons em {
-  border: 1px solid #444;
+  max-width: 48rem;
+  font-size: 14px;
+  color: var(--ink-2);
 }
 
 .screens {
@@ -1673,6 +1410,11 @@ main {
   width: 20px;
   height: 20px;
   color: var(--accent-ink);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .screens h3 {
@@ -1748,9 +1490,6 @@ main {
 }
 
 @media (max-width: 1100px) {
-  .appwin-body {
-    grid-template-columns: 56px minmax(0, 1fr) 260px;
-  }
 
   .screens {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1762,14 +1501,7 @@ main {
 }
 
 @media (max-width: 860px) {
-  .appwin-body {
-    grid-template-columns: 52px minmax(0, 1fr);
-  }
 
-  .appwin-panel,
-  .appwin-muted {
-    display: none;
-  }
 
   .screens {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1782,32 +1514,11 @@ main {
 }
 
 @media (max-width: 520px) {
-  .appwin {
-    margin-top: 40px;
-  }
 
-  .appwin-rail,
-  .appwin-screen {
-    display: none;
-  }
 
-  .appwin-body {
-    grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
-  }
 
-  .appwin-main {
-    padding: 18px 16px;
-  }
 
-  .appwin-chart .tick,
-  .appwin-chart .legend {
-    font-size: 15px;
-  }
 
-  .appwin-project {
-    min-width: 0;
-  }
 
   .screens,
   .modes {

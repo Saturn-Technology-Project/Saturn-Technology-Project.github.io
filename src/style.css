@@ -1815,6 +1815,186 @@ main {
   }
 }
 
+/* Home: Saturn's mission, then its two products */
+
+.home-hero {
+  padding: 120px 0 96px;
+}
+
+.home-hero h1 {
+  max-width: 14em;
+  font-size: clamp(42px, 5.6vw, 72px);
+}
+
+html[lang="zh-Hant"] .home-hero h1 {
+  font-size: clamp(36px, 5.6vw, 64px);
+}
+
+.home-hero .lede {
+  max-width: 40rem;
+}
+
+.hero-products {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 28px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.hero-product:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.hero-product strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.hero-product span:not(.eyebrow):not(.arrow) {
+  color: var(--ink-2);
+  padding-right: 32px;
+}
+
+.hero-product .arrow {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  font-size: 20px;
+  color: var(--accent-ink);
+}
+
+.hero-product.dark {
+  background: radial-gradient(70% 80% at 20% 0%, rgba(77, 138, 230, 0.16), transparent 70%), #191919;
+  border-color: #000;
+  color: #eeeeee;
+}
+
+.hero-product.dark .eyebrow,
+.hero-product.dark span:not(.eyebrow):not(.arrow) {
+  color: #a3a3a3;
+}
+
+.hero-product.dark .arrow {
+  color: #8fb4f0;
+}
+
+.product {
+  scroll-margin-top: 72px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.product-text .lede {
+  margin-top: 20px;
+}
+
+.product-text .eyebrow {
+  margin-bottom: 16px;
+}
+
+.product-text .checks {
+  margin-top: 28px;
+}
+
+.product-text .actions {
+  margin-top: 32px;
+}
+
+#saturn-app .product-grid .product-text + .product-text {
+  padding-top: 44px;
+}
+
+#saturn-app .product-grid .product-text + .product-text .checks {
+  margin-top: 0;
+}
+
+.product .mock {
+  max-width: none;
+}
+
+.product-logos {
+  margin-top: 28px;
+}
+
+.product-logos ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.principles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.principles li {
+  padding-top: 20px;
+  border-top: 2px solid var(--ink);
+}
+
+.principles h3 {
+  font-size: 20px;
+}
+
+.principles p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+@media (max-width: 1100px) {
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .home-hero {
+    padding: 72px 0 56px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  #saturn-app .product-grid .product-text + .product-text {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .principles {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .status-current {
     background: #2b2a27;

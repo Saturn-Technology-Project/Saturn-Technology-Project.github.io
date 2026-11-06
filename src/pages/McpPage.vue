@@ -94,6 +94,38 @@ const { locale, t } = useI18n()
   </section>
 
   <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{{ t.compare.title }}</h2>
+        <p class="lede">{{ t.compare.desc }}</p>
+      </div>
+      <div class="compare">
+        <article v-for="col in t.compare.columns" :key="col.name" class="compare-col" :class="{ ours: col.ours }">
+          <h3>{{ col.name }}</h3>
+          <ul :class="col.ours ? 'plus' : 'minus'">
+            <li v-for="item in col.items" :key="item">{{ item }}</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{{ t.console.title }}</h2>
+        <p class="lede">{{ t.console.desc }}</p>
+      </div>
+      <div class="console-grid">
+        <article v-for="item in t.console.items" :key="item[0]" class="card pad">
+          <h3>{{ item[0] }}</h3>
+          <p>{{ item[1] }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="wrap cta">
       <h2>{{ t.mcpPage.ctaTitle }}</h2>
       <p class="lede">{{ t.mcpPage.ctaBody }}</p>

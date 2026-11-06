@@ -21,9 +21,9 @@ export function localePath(path: string, lang: Locale): string {
 const messages = {
   en: {
     meta: {
-      title: 'Saturn — Secure MCP Gateway for AI Agents',
+      title: 'Saturn — Tools for secure, accountable AI',
       description:
-        'Saturn is a secure MCP gateway between AI agents and your tools. It enforces argument-level permissions, human approval, and a complete audit trail.',
+        'Saturn builds free tools for AI security: Saturn MCP, a gateway that puts every agent action under policy, approval and audit, and Saturn App, an open-source workbench for studying what models actually do.',
     },
     nav: {
       home: 'Saturn home',
@@ -35,12 +35,18 @@ const messages = {
       menu: 'Toggle menu',
     },
     hero: {
-      eyebrow: 'MCP Gateway for enterprise AI agents',
-      title: 'Give your AI agents access to tools. Keep control of every action.',
-      desc: 'Saturn is a secure MCP gateway that sits between your AI agents and your MCP servers. Centralize access, enforce fine-grained permissions, require human approval for sensitive actions, and keep a complete audit trail — all from one console.',
-      primary: 'Get started',
-      secondary: 'Explore Saturn App',
-      note: 'Works with any Model Context Protocol (MCP) client. No changes to your existing MCP servers.',
+      eyebrow: 'Saturn · AI security',
+      title: 'AI you can control, and understand.',
+      desc: 'Saturn works on AI security: keeping what agents do inside rules people set, and showing what models actually do before anyone relies on them. Two free products, one for each side of the problem.',
+      mcp: 'Explore Saturn MCP',
+      app: 'Explore Saturn App',
+      note: 'Both are free. Saturn App is open source under the MIT license.',
+      cards: {
+        mcpKind: 'For teams running agents',
+        mcp: 'Every tool call under policy, approval and audit.',
+        appKind: 'For people studying models',
+        app: 'Experiments, samples and the model’s insides, on your computer.',
+      },
       mock: {
         header: 'Approval required',
         agent: 'Agent',
@@ -57,35 +63,51 @@ const messages = {
       },
     },
     logos: {
-      label: 'Compatible with',
+      label: 'Works with',
       items: ['Claude', 'ChatGPT', 'Cursor', 'Gemini', 'LM Studio', 'Any MCP client'],
     },
-    benefits: {
-      title: 'Connect once. Control precisely. Prove compliance.',
+    mission: {
+      title: 'Two sides of one problem.',
+      desc: 'An AI system is safe to rely on only when you can say what it is allowed to do, and what it actually does.',
       items: [
-        ['Connect once', 'One MCP endpoint for every agent and every MCP server in your organization. Register a server, and its tools are available to govern immediately.'],
-        ['Control precisely', 'Decide which tools each agent can see and under which conditions it may call them — down to individual arguments like amount, environment, or recipient.'],
-        ['Prove compliance', 'Every request, policy decision, approval, and execution is recorded. Answer who did what, when, why it was allowed, and who approved it.'],
+        ['Control what agents do', 'Every tool call an agent makes passes through rules you wrote, a person where it matters, and an audit trail.'],
+        ['Understand what models do', 'Read every sample, look inside the model, and compare only results that were measured the same way.'],
+        ['Keep the evidence yours', 'Stored audit payloads are encrypted so the gateway cannot read them after archival, and research records are plain files on your own computer.'],
       ],
     },
-    vs: {
-      title: 'AI agents are powerful. Without a gateway, they are also unaccountable.',
-      desc: 'Most teams connect agents directly to MCP servers. It works in a demo. It does not hold up in production.',
-      withoutLabel: 'Without Saturn',
-      without: [
-        'Every agent holds its own API keys and OAuth tokens',
-        'Tool access is all-or-nothing per MCP server',
-        'No way to pause a sensitive action for human review',
-        'Logs are scattered across servers, if they exist at all',
-        'Revoking one agent means rotating credentials everywhere',
+    mcpProduct: {
+      eyebrow: 'Saturn MCP · For teams running AI agents',
+      title: 'A gateway that decides what your agents may do.',
+      desc: 'Agents talk to Saturn instead of your MCP servers. Saturn exposes only the tools you choose, checks every call against policy down to its arguments, pauses sensitive calls for a person, and records every decision.',
+      points: [
+        'One MCP endpoint for every agent and every MCP server',
+        'Argument-level policies, versioned and evaluated on every call',
+        'Approval by one reviewer or a group quorum, with the full context',
+        'Credentials sealed in a post-quantum vault; agents never see them',
       ],
-      withLabel: 'With Saturn',
-      with: [
-        'Credentials stay in a post-quantum encrypted vault; agents never see them',
-        'Curated tool sets per agent, with argument-level policy rules',
-        'Built-in approval queue for sensitive calls, with full context',
-        'One audit trail, with stored payloads under zero-access encryption so the gateway cannot read them after archival (while processing plaintext in flight)',
-        'Pause an agent or reject a call instantly from the console',
+      primary: 'Get started',
+      secondary: 'Learn about Saturn MCP',
+    },
+    appProduct: {
+      eyebrow: 'Saturn App · For people studying AI',
+      title: 'A workbench for AI research, on your own computer.',
+      desc: 'Write the code yourself, run experiments locally or on your own SSH host, read every sample and look inside the model. The assistant does as much as you allow in each chat.',
+      points: [
+        'Experiments that compare only runs measured the same way',
+        'Every sample across every model, with your label beside the scorer’s',
+        'Activation patching and sparse-autoencoder features in Inspect',
+        'Ask, Approve, Auto or Agent: you set how much the assistant does',
+      ],
+      primary: 'Download for macOS',
+      secondary: 'Learn about Saturn App',
+    },
+    principles: {
+      title: 'How we build.',
+      items: [
+        ['Free', 'Both products cost nothing, with every feature on every account.'],
+        ['Open', 'Saturn App is open source, and every release carries a checksum and signed build provenance.'],
+        ['Verifiable', 'The system whitepaper says how keys, payloads and credentials are protected, and what Saturn cannot see.'],
+        ['Honest about limits', 'Each product says what it cannot enforce: the gateway processes plaintext in flight, and the App’s modes are a workflow constraint, not a security boundary.'],
       ],
     },
     features: {
@@ -219,13 +241,13 @@ const messages = {
       ],
     },
     cta: {
-      title: 'Ready to bring your AI agents under control?',
-      body: 'Connect an MCP server, build a tool set, write your first policy. See the full request path on your first approval.',
-      primary: 'Get started',
-      secondary: 'Explore Saturn App',
+      title: 'Start with the side you need.',
+      body: 'Put Saturn MCP in front of your first MCP server, or download Saturn App and run your first experiment. Both are free.',
+      primary: 'Get started with Saturn MCP',
+      secondary: 'Download Saturn App',
     },
     footer: {
-      tagline: 'The secure MCP gateway for enterprise AI agents.',
+      tagline: 'Tools for secure, accountable AI.',
       product: 'Product',
       legal: 'Legal',
       mcp: 'Saturn MCP',
@@ -239,12 +261,12 @@ const messages = {
     homeFaq: {
       title: 'Questions about Saturn',
       items: [
-        ['What is Saturn?', 'Saturn is a secure MCP gateway between AI agents and the tools they call. It centralizes access, enforces fine-grained permissions, requires a person to approve sensitive actions, and keeps a complete audit trail in one console.'],
+        ['What is Saturn?', 'Saturn builds tools for AI security. Saturn MCP is a gateway that puts every tool call an AI agent makes under policy, human approval and audit. Saturn App is a desktop workbench for AI research, for studying what models actually do.'],
         ['What is an MCP gateway?', 'MCP (Model Context Protocol) is the standard AI agents use to call tools. An MCP gateway sits in front of your MCP servers. Agents talk only to Saturn, which exposes the tools you choose, evaluates every call against policy, and forwards only the calls that are allowed.'],
-        ['Which AI clients work with Saturn?', 'Any MCP client, including Claude, ChatGPT, Cursor, Gemini, LM Studio, and Saturn App. Every agent uses one Saturn MCP endpoint. Existing MCP servers do not need code changes.'],
-        ['How is Saturn different from an API gateway?', 'An API gateway governs services by route and HTTP method. Saturn governs agents. It understands tools and arguments, can hold a call for human approval, and records which policy and which reviewer allowed it.'],
+        ['Which AI clients work with Saturn MCP?', 'Any MCP client, including Claude, ChatGPT, Cursor, Gemini, LM Studio, and Saturn App. Every agent uses one Saturn MCP endpoint. Existing MCP servers do not need code changes.'],
         ['Do agents see API keys or OAuth tokens?', 'No. Upstream credentials stay in Saturn’s vault, sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Agents receive only the result of an authorized call. APIs report whether a secret exists, never the secret itself.'],
-        ['Is Saturn App free?', 'Yes. Saturn App is a free, open-source desktop workbench for AI research, MIT licensed. It runs on your computer with your models and files. The MCP gateway is free too, with policies, webhooks, and group approvals on every account.'],
+        ['What does Saturn App run on?', 'macOS on Apple silicon, with your own API keys, your Claude or ChatGPT plan, or local models through LM Studio. Experiments run on your computer or on an SSH host you choose, and research records stay in the project’s folder.'],
+        ['Is Saturn free?', 'Yes. Saturn MCP and Saturn App are both free, with every feature on every account. Saturn App is open source under the MIT license.'],
       ],
     },
     mcpPage: {
@@ -544,9 +566,9 @@ const messages = {
   },
   zh: {
     meta: {
-      title: 'Saturn — 企業級 AI Agent 的安全 MCP Gateway',
+      title: 'Saturn — 打造安全、可問責的 AI 工具',
       description:
-        'Saturn 是介於 AI Agent 與工具之間的安全 MCP（Model Context Protocol）Gateway，提供參數層級權限、人工核准與完整審計紀錄。',
+        'Saturn 打造免費的 AI 安全工具：Saturn MCP 讓 AI Agent 的每個動作都經過政策、核准與審計；Saturn App 是開源的研究工作台，用來研究模型實際上做了什麼。',
     },
     nav: {
       home: 'Saturn 首頁',
@@ -558,12 +580,18 @@ const messages = {
       menu: '開啟選單',
     },
     hero: {
-      eyebrow: '企業級 AI Agent 的 MCP Gateway',
-      title: '讓 AI Agent 用得上工具，每一個動作仍在你的掌控之中。',
-      desc: 'Saturn 是一套安全的 MCP Gateway，部署在 AI Agent 與 MCP Server 之間。集中管理工具存取、落實細緻到參數層級的權限控管、對敏感操作要求人工核准，並保留完整的審計紀錄——全部在同一個主控台完成。',
-      primary: '開始使用',
-      secondary: '認識 Saturn App',
-      note: '相容任何支援 MCP（Model Context Protocol）的用戶端。現有的 MCP Server 不需要任何修改。',
+      eyebrow: 'Saturn · AI 安全',
+      title: '能掌控、也能理解的 AI。',
+      desc: 'Saturn 致力於 AI 安全：讓 Agent 的行為留在人所訂的規則之內，並在任何人依賴模型之前，看清它實際上做了什麼。兩個免費產品，各自處理問題的一面。',
+      mcp: '認識 Saturn MCP',
+      app: '認識 Saturn App',
+      note: '兩者皆免費。Saturn App 以 MIT 授權開源。',
+      cards: {
+        mcpKind: '給運行 Agent 的團隊',
+        mcp: '每一次工具呼叫都經過政策、核准與審計。',
+        appKind: '給研究模型的人',
+        app: '實驗、樣本與模型內部，都在你的電腦上。',
+      },
       mock: {
         header: '待核准',
         agent: 'Agent',
@@ -583,32 +611,48 @@ const messages = {
       label: '相容',
       items: ['Claude', 'ChatGPT', 'Cursor', 'Gemini', 'LM Studio', '任何 MCP 用戶端'],
     },
-    benefits: {
-      title: '一次接入、精準控管、可稽核可證明。',
+    mission: {
+      title: '同一個問題的兩面。',
+      desc: '只有當你說得出一個 AI 系統被允許做什麼、以及它實際上做了什麼，才能放心依賴它。',
       items: [
-        ['一次接入', '組織內所有 Agent 與所有 MCP Server 共用一個 MCP 端點。註冊 Server 後，其工具即可立即納入治理。'],
-        ['精準控管', '決定每個 Agent 看得到哪些工具、在什麼條件下可以呼叫——細緻到金額、環境、收款對象等個別參數。'],
-        ['可稽核可證明', '每一筆請求、政策判定、核准與執行都有紀錄。隨時回答誰做了什麼、何時做的、為何放行、由誰核准。'],
+        ['掌控 Agent 做什麼', 'Agent 的每一次工具呼叫，都要經過你寫的規則、必要時經過人的核准，並留下審計紀錄。'],
+        ['理解模型做什麼', '讀過每一個樣本、看進模型內部，而且只比較用相同方式量測的結果。'],
+        ['證據留在你手上', '儲存的審計內容經過加密，歸檔後 Gateway 也無法讀取；研究紀錄則是你電腦上的一般檔案。'],
       ],
     },
-    vs: {
-      title: 'AI Agent 很強大。少了 Gateway，它也難以問責。',
-      desc: '多數團隊把 Agent 直接接到 MCP Server。展示時沒問題，上了正式環境就撐不住。',
-      withoutLabel: '沒有 Saturn',
-      without: [
-        '每個 Agent 各自持有 API Key 與 OAuth Token',
-        '工具存取以整台 MCP Server 為單位，要嘛全開、要嘛全關',
-        '敏感操作無法暫停等待人工審核',
-        '日誌散落在各個 Server，甚至根本沒有',
-        '撤銷一個 Agent 的權限，得到處輪換憑證',
+    mcpProduct: {
+      eyebrow: 'Saturn MCP · 給運行 AI Agent 的團隊',
+      title: '決定 Agent 能做什麼的 Gateway。',
+      desc: 'Agent 連到 Saturn，而不是直接連到你的 MCP Server。Saturn 只露出你選擇的工具，逐一比對每筆呼叫與政策、細緻到參數，把敏感呼叫暫停交給人核准，並記錄每一個決定。',
+      points: [
+        '所有 Agent 與所有 MCP Server 共用一個 MCP 端點',
+        '參數層級的政策，有版本紀錄，每一筆呼叫都會比對',
+        '由一位審核人員或群組法定人數核准，並附上完整脈絡',
+        '憑證封存在後量子金庫，Agent 永遠看不到',
       ],
-      withLabel: '有了 Saturn',
-      with: [
-        '憑證封存在後量子加密金庫中，Agent 從頭到尾看不到',
-        '為每個 Agent 配置專屬工具集，並以參數層級的政策規則控管',
-        '內建核准佇列，敏感呼叫附完整脈絡等待審核',
-        '一份審計軌跡，已儲存的原始內容採零存取加密，Gateway 封存寫入後無法讀取（轉送呼叫當下會處理明文）',
-        '在主控台即時暫停 Agent 或駁回單筆呼叫',
+      primary: '開始使用',
+      secondary: '認識 Saturn MCP',
+    },
+    appProduct: {
+      eyebrow: 'Saturn App · 給研究 AI 的人',
+      title: '在你自己的電腦上做 AI 研究的工作台。',
+      desc: '親手寫程式，在本機或你自己的 SSH 主機上跑實驗，讀過每一個樣本並看進模型內部。每個對話裡，研究助理只做你允許的事。',
+      points: [
+        '實驗只比較用相同方式量測的執行',
+        '每個樣本在每個模型上的表現，你的標註就在評分器旁邊',
+        '在「檢視」中做激活值修補與稀疏自編碼器特徵分析',
+        'Ask、Approve、Auto 或 Agent：研究助理做多少由你決定',
+      ],
+      primary: '下載 macOS 版',
+      secondary: '認識 Saturn App',
+    },
+    principles: {
+      title: '我們怎麼做。',
+      items: [
+        ['免費', '兩個產品都不收費，每個帳號都有全部功能。'],
+        ['開放', 'Saturn App 開源，每個發行版本都附有校驗碼與簽署的建置來源證明。'],
+        ['可驗證', '系統白皮書說明金鑰、內容與憑證如何受保護，以及 Saturn 看不到什麼。'],
+        ['誠實面對限制', '每個產品都說明自己無法強制的部分：Gateway 在傳輸中會處理明文，App 的模式是工作流程約束，不是安全邊界。'],
       ],
     },
     features: {
@@ -727,13 +771,13 @@ const messages = {
       ],
     },
     cta: {
-      title: '準備好把 AI Agent 納入掌控了嗎？',
-      body: '連接一台 MCP Server、組建一個工具集、寫下第一條政策。在第一筆核准請求中，看見完整的請求路徑。',
-      primary: '開始使用',
-      secondary: '認識 Saturn App',
+      title: '從你需要的那一面開始。',
+      body: '把 Saturn MCP 放在你的第一台 MCP Server 前面，或下載 Saturn App 跑你的第一個實驗。兩者都免費。',
+      primary: '開始使用 Saturn MCP',
+      secondary: '下載 Saturn App',
     },
     footer: {
-      tagline: '企業級 AI Agent 的安全 MCP Gateway。',
+      tagline: '打造安全、可問責的 AI 工具。',
       product: '產品',
       legal: '法律',
       mcp: 'Saturn MCP',
@@ -747,12 +791,12 @@ const messages = {
     homeFaq: {
       title: '關於 Saturn',
       items: [
-        ['Saturn 是什麼？', 'Saturn 是部署在 AI Agent 與工具之間的安全 MCP Gateway。它集中管理工具存取、落實細緻到參數層級的權限控管、對敏感操作要求人工核准，並在同一個主控台保留完整的審計紀錄。'],
+        ['Saturn 是什麼？', 'Saturn 打造 AI 安全工具。Saturn MCP 是一個 Gateway，讓 AI Agent 的每一次工具呼叫都經過政策、人工核准與審計。Saturn App 是桌面 AI 研究工作台，用來研究模型實際上做了什麼。'],
         ['什麼是 MCP Gateway？', 'MCP（Model Context Protocol）是 AI Agent 呼叫工具的標準協定。MCP Gateway 放在你的 MCP Server 前面，Agent 只跟 Gateway 對話。Saturn 只露出你選擇的工具，對每一筆呼叫比對政策，並且只轉送被允許的呼叫。'],
-        ['哪些 AI 用戶端可以用 Saturn？', '任何 MCP 用戶端，包括 Claude、ChatGPT、Cursor、Gemini、LM Studio 與 Saturn App。所有 Agent 使用同一個 Saturn MCP 端點。現有的 MCP Server 不需要修改程式碼。'],
-        ['Saturn 和 API Gateway 有什麼不同？', 'API Gateway 依路徑與 HTTP 方法治理服務。Saturn 治理的是 Agent：它理解工具與參數，可以把一筆呼叫暫停等待人工核准，並記錄是哪條政策、哪位審核人員放行。'],
+        ['哪些 AI 用戶端可以用 Saturn MCP？', '任何 MCP 用戶端，包括 Claude、ChatGPT、Cursor、Gemini、LM Studio 與 Saturn App。所有 Agent 使用同一個 Saturn MCP 端點。現有的 MCP Server 不需要修改程式碼。'],
         ['Agent 看得到 API Key 或 OAuth Token 嗎？', '看不到。上游憑證封存在 Saturn 的金庫中，以 ML-KEM-1024 後量子金鑰封裝搭配 AES-256-GCM 加密。Agent 只拿得到一筆經授權呼叫的結果。API 只回報密鑰是否存在，絕不回傳內容。'],
-        ['Saturn App 是免費的嗎？', '是的。Saturn App 是免費、開源的桌面 AI 研究工作台，採 MIT 授權，在你的電腦上用你的模型與檔案運行。MCP Gateway 同樣免費，每個帳號都能使用政策、Webhook 與群組核准。'],
+        ['Saturn App 在什麼環境執行？', 'Apple silicon 的 macOS，可用你自己的 API 金鑰、Claude 或 ChatGPT 方案，或透過 LM Studio 使用本機模型。實驗在你的電腦或你選的 SSH 主機上執行，研究紀錄留在專案資料夾中。'],
+        ['Saturn 是免費的嗎？', '是的。Saturn MCP 與 Saturn App 都免費，每個帳號都有全部功能。Saturn App 以 MIT 授權開源。'],
       ],
     },
     mcpPage: {

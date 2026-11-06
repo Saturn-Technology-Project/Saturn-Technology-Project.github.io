@@ -27,8 +27,8 @@
 
 | 英文 | 中文 | 元件 | 內容 |
 | --- | --- | --- | --- |
-| `/` | `/zh` | `HomePage.vue` | 主視覺、效益、為什麼需要 Gateway、功能、比較、主控台、免費方案、常見問題（`#faq`）與行動呼籲 |
-| `/mcp` | `/zh/mcp` | `McpPage.vue` | Saturn MCP，也就是 Gateway：政策範例、四個設定步驟、使用情境、功能與安全 |
+| `/` | `/zh` | `HomePage.vue` | Saturn 致力的方向（AI 安全）、並列的兩個產品（`#saturn-mcp`、`#saturn-app`）、我們怎麼做、免費方案、常見問題（`#faq`）與行動呼籲 |
+| `/mcp` | `/zh/mcp` | `McpPage.vue` | Saturn MCP，也就是 Gateway：政策範例、四個設定步驟、使用情境、功能、安全、為什麼需要專屬 Gateway 與主控台 |
 | `/app` | `/zh/app` | `AppPage.vue` | Saturn App，AI 研究工作台：GitHub 儲存庫連結、發行版本連結、功能與系統需求 |
 | `/trust` | `/zh/trust` | `TrustPage.vue` | 金鑰、原始內容與憑證如何受到保護、常見問題、系統白皮書（`#whitepaper`）與漏洞回報（`#disclosure`） |
 | `/pricing` | `/zh/pricing` | `PricingPage.vue` | Saturn 完全免費；包含的內容、常見問題（`#faq`），以及透過 GitHub Sponsors 贊助 |

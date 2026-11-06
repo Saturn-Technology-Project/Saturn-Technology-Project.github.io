@@ -7,7 +7,7 @@ Website: https://saturn-core.com/
 Contact: hello@saturn-core.com
 Console: https://dashboard.saturn-core.com
 Source (Saturn App): https://github.com/Saturn-Technology-Project/Saturn-App
-Saturn Technology Project by Rick Weng. Saturn App is copyright Rick Weng and MIT licensed. Rick Weng, an individual in Taiwan, operates the website, Saturn App distribution, and the hosted gateway, and owns the intellectual property. Terms: https://saturn-core.com/terms Privacy: https://saturn-core.com/privacy
+Saturn Technology Project by Rick Weng. Saturn App is copyright Rick Weng and licensed under the Apache License 2.0. Rick Weng, an individual in Taiwan, operates the website, Saturn App distribution, and the hosted gateway, and owns the intellectual property. Terms: https://saturn-core.com/terms Privacy: https://saturn-core.com/privacy
 
 ## What Saturn is
 
@@ -65,7 +65,7 @@ Data. Analyst agents get read-only warehouse tools. Exporting more than 100000 r
 
 ## Saturn App
 
-Saturn App is a free, open-source, MIT-licensed desktop workbench for AI research. It has no paid tier and no usage cap. It is organized around questions, code, models, experiments, samples and findings rather than around chats. The workbench arrives with the next release; the release available today, v0.3.1, is the earlier desktop agent.
+Saturn App is a free, open-source, Apache 2.0-licensed desktop workbench for AI research. It has no paid tier and no usage cap. It is organized around questions, code, models, experiments, samples and findings rather than around chats. The workbench arrives with the next release; the release available today, v0.3.1, is the earlier desktop agent.
 
 Platforms: macOS on Apple silicon. Windows x64 builds exist but have not been run since the Rust rewrite, so treat them as untested.
 
@@ -83,7 +83,7 @@ Releases: https://github.com/Saturn-Technology-Project/Saturn-App/releases
 
 Saturn is free. There are no paid plans, no usage tiers, and no trial.
 
-- Saturn App, the AI research workbench, with your own models and MCP servers, MIT license.
+- Saturn App, the AI research workbench, with your own models and MCP servers, Apache 2.0 license.
 - Saturn MCP gateway with unlimited tool sets and audit history, versioned policies, signed webhooks, approvals, groups and multi-person quorum, and encrypted tool payloads, on every account.
 
 Saturn is paid for by sponsors: https://github.com/sponsors/Saturn-Technology-Project
@@ -103,13 +103,13 @@ Do agents see API keys or OAuth tokens?
 No. Upstream credentials stay in Saturn's vault, sealed with ML-KEM-1024 and AES-256-GCM. Agents receive only the result of an authorized call.
 
 Is Saturn App free?
-Yes. The research workbench and its runtime are MIT licensed, and the MCP gateway is free too. There are no paid plans.
+Yes. The research workbench and its runtime are licensed under Apache 2.0, and the MCP gateway is free too. There are no paid plans.
 
 ## 中文摘要
 
 Saturn 是部署在 AI Agent 與 MCP Server 之間的安全 MCP Gateway。Agent 只連到同一個 Saturn MCP 端點。Saturn 只露出你核准的工具，對每一筆呼叫比對政策，把敏感呼叫暫停交給人，並記錄完整路徑。
 
-Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/call），連線使用 OAuth 2.1 與 PKCE。Saturn App 是免費、開源、MIT 授權的桌面 AI 研究工作台，在本機運行，Runtime 只監聽 127.0.0.1，研究紀錄以純文字檔存放在專案的 .saturn/research。這個工作台會在下一個版本推出，目前可下載的 v0.3.1 是先前的桌面 Agent。
+Saturn MCP 是符合標準的 HTTP MCP Server（initialize、tools/list、tools/call），連線使用 OAuth 2.1 與 PKCE。Saturn App 是免費、開源、Apache 2.0 授權的桌面 AI 研究工作台，在本機運行，Runtime 只監聽 127.0.0.1，研究紀錄以純文字檔存放在專案的 .saturn/research。這個工作台會在下一個版本推出，目前可下載的 v0.3.1 是先前的桌面 Agent。
 
 相容 Claude、ChatGPT、Cursor、Gemini、LM Studio、Saturn App，以及任何 MCP 用戶端。現有 MCP Server 不需要修改程式碼。
 

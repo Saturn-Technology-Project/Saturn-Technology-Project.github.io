@@ -40,7 +40,7 @@ const messages = {
       desc: 'Saturn works on AI security: keeping what agents do inside rules people set, and showing what models actually do before anyone relies on them. Two free products, one for each side of the problem.',
       mcp: 'Explore Saturn MCP',
       app: 'Explore Saturn App',
-      note: 'Both are free. Saturn App is open source under the MIT license.',
+      note: 'Both are free. Saturn App is open source under the Apache License 2.0.',
       cards: {
         mcpKind: 'For teams running agents',
         mcp: 'Every tool call under policy, approval and audit.',
@@ -266,7 +266,7 @@ const messages = {
         ['Which AI clients work with Saturn MCP?', 'Any MCP client, including Claude, ChatGPT, Cursor, Gemini, LM Studio, and Saturn App. Every agent uses one Saturn MCP endpoint. Existing MCP servers do not need code changes.'],
         ['Do agents see API keys or OAuth tokens?', 'No. Upstream credentials stay in Saturn’s vault, sealed with ML-KEM-1024 post-quantum key encapsulation and AES-256-GCM. Agents receive only the result of an authorized call. APIs report whether a secret exists, never the secret itself.'],
         ['What does Saturn App run on?', 'macOS on Apple silicon, with your own API keys, your Claude or ChatGPT plan, or local models through LM Studio. Experiments run on your computer or on an SSH host you choose, and research records stay in the project’s folder.'],
-        ['Is Saturn free?', 'Yes. Saturn MCP and Saturn App are both free, with every feature on every account. Saturn App is open source under the MIT license.'],
+        ['Is Saturn free?', 'Yes. Saturn MCP and Saturn App are both free, with every feature on every account. Saturn App is open source under the Apache License 2.0.'],
       ],
     },
     mcpPage: {
@@ -341,7 +341,7 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — A free, open-source workbench for AI research',
-      description: 'Saturn App is a free, MIT-licensed desktop workbench for AI research. Run experiments on your own computer or an SSH host, read every sample, look inside the model, and choose how much the assistant may do.',
+      description: 'Saturn App is a free, Apache 2.0-licensed desktop workbench for AI research. Run experiments on your own computer or an SSH host, read every sample, look inside the model, and choose how much the assistant may do.',
       eyebrow: 'Saturn App · Available now · Open source',
       heading: 'A workbench for AI research, on your own computer.',
       lede: 'Read the method, write the code yourself, run the experiment and read every sample. Saturn is organized around your questions, models, experiments and findings rather than around chats, and you decide how much the assistant may do.',
@@ -349,7 +349,7 @@ const messages = {
       downloadNote: 'Apple silicon · Free',
       github: 'View on GitHub',
       secondary: 'Connect to Saturn MCP',
-      note: 'Preview release, MIT licensed. The macOS build is not signed with an Apple Developer ID yet: approve the first launch in System Settings → Privacy & Security. Works offline with local models.',
+      note: 'Preview release, licensed under Apache 2.0. The macOS build is not signed with an Apple Developer ID yet: approve the first launch in System Settings → Privacy & Security. Works offline with local models.',
       shot: {
         alt: 'Saturn App’s Experiments screen: mean IOI accuracy of five Pythia-160m checkpoints, from 0.37 at step 1k to 0.96 at step 143k',
         caption: 'A real screenshot. Indirect object identification on five Pythia-160m checkpoints, 200 prompts each, run in Saturn App; the hypothesis stays undecided until you judge it.',
@@ -484,7 +484,7 @@ const messages = {
         ['Remote runs', 'Any Linux or macOS host you can reach over SSH, with the same Saturn version installed on it.'],
         ['Data', 'Research records are in the project’s .saturn/research folder. App data is in ~/.saturn-app. API keys are encrypted at rest, with the key in the macOS Keychain.'],
         ['Languages', 'English and Traditional Chinese.'],
-        ['License', 'MIT. Copyright Rick Weng.'],
+        ['License', 'Apache License 2.0. Copyright Rick Weng.'],
       ],
       ctaTitle: 'Built in the open.',
       ctaBody: 'Saturn App is free for everyone. Download it, star the repository, open an issue, or send a pull request.',
@@ -567,7 +567,7 @@ const messages = {
       desc: 'Saturn 致力於 AI 安全：讓 Agent 的行為留在人所訂的規則之內，並在任何人依賴模型之前，看清它實際上做了什麼。兩個免費產品，各自處理問題的一面。',
       mcp: '認識 Saturn MCP',
       app: '認識 Saturn App',
-      note: '兩者皆免費。Saturn App 以 MIT 授權開源。',
+      note: '兩者皆免費。Saturn App 以 Apache License 2.0 授權開源。',
       cards: {
         mcpKind: '給運行 Agent 的團隊',
         mcp: '每一次工具呼叫都經過政策、核准與審計。',
@@ -778,7 +778,7 @@ const messages = {
         ['哪些 AI 用戶端可以用 Saturn MCP？', '任何 MCP 用戶端，包括 Claude、ChatGPT、Cursor、Gemini、LM Studio 與 Saturn App。所有 Agent 使用同一個 Saturn MCP 端點。現有的 MCP Server 不需要修改程式碼。'],
         ['Agent 看得到 API Key 或 OAuth Token 嗎？', '看不到。上游憑證封存在 Saturn 的金庫中，以 ML-KEM-1024 後量子金鑰封裝搭配 AES-256-GCM 加密。Agent 只拿得到一筆經授權呼叫的結果。API 只回報密鑰是否存在，絕不回傳內容。'],
         ['Saturn App 在什麼環境執行？', 'Apple silicon 的 macOS，可用你自己的 API 金鑰、Claude 或 ChatGPT 方案，或透過 LM Studio 使用本機模型。實驗在你的電腦或你選的 SSH 主機上執行，研究紀錄留在專案資料夾中。'],
-        ['Saturn 是免費的嗎？', '是的。Saturn MCP 與 Saturn App 都免費，每個帳號都有全部功能。Saturn App 以 MIT 授權開源。'],
+        ['Saturn 是免費的嗎？', '是的。Saturn MCP 與 Saturn App 都免費，每個帳號都有全部功能。Saturn App 以 Apache License 2.0 授權開源。'],
       ],
     },
     mcpPage: {
@@ -853,7 +853,7 @@ const messages = {
     },
     appPage: {
       title: 'Saturn App — 免費、開源的 AI 研究工作台',
-      description: 'Saturn App 是免費、MIT 授權的桌面 AI 研究工作台。在自己的電腦或 SSH 主機上跑實驗、讀每一個樣本、檢視模型內部，並決定研究助理可以做多少。',
+      description: 'Saturn App 是免費、Apache 2.0 授權的桌面 AI 研究工作台。在自己的電腦或 SSH 主機上跑實驗、讀每一個樣本、檢視模型內部，並決定研究助理可以做多少。',
       eyebrow: 'Saturn App · 現已推出 · 開源',
       heading: '在你自己的電腦上做 AI 研究的工作台。',
       lede: '讀懂方法、親手寫程式、執行實驗並讀過每一個樣本。Saturn 圍繞你的問題、模型、實驗與發現來組織，而不是圍繞對話；研究助理可以做多少，由你決定。',
@@ -861,7 +861,7 @@ const messages = {
       downloadNote: 'Apple silicon · 免費',
       github: '在 GitHub 上查看',
       secondary: '連接 Saturn MCP',
-      note: '預覽版，MIT 授權。macOS 版尚未以 Apple Developer ID 簽署：第一次開啟時請到「系統設定 → 隱私權與安全性」允許。搭配本機模型可離線使用。',
+      note: '預覽版，以 Apache 2.0 授權。macOS 版尚未以 Apple Developer ID 簽署：第一次開啟時請到「系統設定 → 隱私權與安全性」允許。搭配本機模型可離線使用。',
       shot: {
         alt: 'Saturn App 的「實驗」畫面：五個 Pythia-160m 檢查點的 IOI 平均準確率，從 step 1k 的 0.37 到 step 143k 的 0.96',
         caption: '真實截圖。在 Saturn App 中對五個 Pythia-160m 檢查點各跑 200 個間接受詞辨識提示；假說在你判定之前維持未判定。',
@@ -996,7 +996,7 @@ const messages = {
         ['遠端執行', '任何你能透過 SSH 連上的 Linux 或 macOS 主機，並安裝相同版本的 Saturn。'],
         ['資料', '研究紀錄在專案的 .saturn/research 資料夾。App 資料在 ~/.saturn-app。API 金鑰加密儲存，金鑰放在 macOS 鑰匙圈。'],
         ['語言', 'English 與繁體中文。'],
-        ['授權', 'MIT。著作權人 Rick Weng。'],
+        ['授權', 'Apache License 2.0。著作權人 Rick Weng。'],
       ],
       ctaTitle: '公開開發。',
       ctaBody: 'Saturn App 對所有人免費。下載它、為儲存庫加星、開 issue，或送出 pull request。',

@@ -63,7 +63,7 @@ const en = {
       'The agreement you accept by using Saturn. The services are provided by Rick Weng, who also owns the intellectual property.',
     crumb: 'Terms of Service',
     heading: 'Terms of Service',
-    updated: 'Updated 31 October 2026',
+    updated: 'Updated 6 November 2026',
     relatedPath: '/privacy',
     relatedLabel: 'Privacy Policy',
     sections: [
@@ -186,7 +186,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'The source code of Saturn App and the Saturn SDK is offered under the MIT License. Where we make the source code of the MCP backend and the console available, it is offered under the Functional Source License, Version 1.1, ALv2 Future License (FSL-1.1-ALv2). That license lets you read, audit, modify, and run the code for any purpose except a competing commercial product or service. Each version also becomes available under the Apache License 2.0 two years after we release it. The copyright holder of all of this code is Rick Weng.',
+            text: 'The source code of Saturn App is offered under the Apache License, Version 2.0, and the source code of the Saturn SDK under the MIT License. Where we make the source code of the MCP backend and the console available, it is offered under the Functional Source License, Version 1.1, ALv2 Future License (FSL-1.1-ALv2). That license lets you read, audit, modify, and run the code for any purpose except a competing commercial product or service. Each version also becomes available under the Apache License 2.0 two years after we release it. The copyright holder of all of this code is Rick Weng.',
           },
           {
             type: 'p',
@@ -273,7 +273,7 @@ const en = {
           },
           {
             type: 'p',
-            text: 'Ending access does not revoke the MIT License or the FSL-1.1-ALv2 license you already have in Saturn’s source code. Sections that by their nature should continue, including those on customer data, intellectual property, confidentiality, disclaimers, liability, and indemnity, continue after the contract ends. The Privacy Policy states what happens to personal data when you ask for deletion.',
+            text: 'Ending access does not revoke the Apache License 2.0, the MIT License or the FSL-1.1-ALv2 license you already have in Saturn’s source code. Sections that by their nature should continue, including those on customer data, intellectual property, confidentiality, disclaimers, liability, and indemnity, continue after the contract ends. The Privacy Policy states what happens to personal data when you ask for deletion.',
           },
         ],
       },
@@ -476,7 +476,7 @@ const zh = {
     description: '你使用 Saturn 時同意的契約。本服務由 Rick Weng 提供，智慧財產也由 Rick Weng 所有。',
     crumb: '服務條款',
     heading: '服務條款',
-    updated: '更新日期：2026 年 10 月 31 日',
+    updated: '更新日期：2026 年 11 月 6 日',
     relatedPath: '/privacy',
     relatedLabel: '隱私權政策',
     sections: [
@@ -599,7 +599,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: 'Saturn App 與 Saturn SDK 的原始碼以 MIT 授權提供。MCP 後端與主控台的原始碼，於我們提供時，以 Functional Source License 1.1 版、Apache 2.0 為未來授權（FSL-1.1-ALv2）提供。依該授權，你可以為任何目的閱讀、稽核、修改並執行該程式碼，但不得用於與本服務競爭的商業產品或服務。每個版本自我們發布滿兩年起，另可依 Apache License 2.0 使用。上述程式碼的著作權人均為 Rick Weng。',
+            text: 'Saturn App 的原始碼以 Apache License 2.0 版授權提供，Saturn SDK 的原始碼以 MIT 授權提供。MCP 後端與主控台的原始碼，於我們提供時，以 Functional Source License 1.1 版、Apache 2.0 為未來授權（FSL-1.1-ALv2）提供。依該授權，你可以為任何目的閱讀、稽核、修改並執行該程式碼，但不得用於與本服務競爭的商業產品或服務。每個版本自我們發布滿兩年起，另可依 Apache License 2.0 使用。上述程式碼的著作權人均為 Rick Weng。',
           },
           {
             type: 'p',
@@ -686,7 +686,7 @@ const zh = {
           },
           {
             type: 'p',
-            text: '終止存取不會撤回你已依 MIT 授權或 FSL-1.1-ALv2 授權取得的 Saturn 原始碼權利。依其性質應存續的條款，包括客戶資料、智慧財產、保密、免責、責任與補償，於契約結束後仍然有效。你請求刪除個人資料時如何處理，見隱私權政策。',
+            text: '終止存取不會撤回你已依 Apache License 2.0、MIT 授權或 FSL-1.1-ALv2 授權取得的 Saturn 原始碼權利。依其性質應存續的條款，包括客戶資料、智慧財產、保密、免責、責任與補償，於契約結束後仍然有效。你請求刪除個人資料時如何處理，見隱私權政策。',
           },
         ],
       },

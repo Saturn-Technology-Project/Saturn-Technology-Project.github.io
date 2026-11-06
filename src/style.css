@@ -7,22 +7,26 @@
 }
 
 :root {
-  --bg: #f0eee6;
-  --bg-raised: #faf9f5;
+  /* An ivory page, oat panels and slate ink; clay is the one accent, used sparingly. */
+  --bg: #faf9f5;
+  --bg-raised: #f0eee6;
+  --oat: #e3dacc;
+  --slate: #141413;
+  --slate-2: #262624;
   --ink: #141413;
   --ink-2: #5e5d59;
-  --ink-3: #8a8982;
-  --line: #dddbd1;
-  --line-strong: #c9c7bb;
+  --ink-3: #87867f;
+  --line: #e8e6dc;
+  --line-strong: #d1cfc5;
   --accent: #d97757;
   --accent-ink: #b85c3d;
   --sans: ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
   --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif TC", serif;
   --mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --max: 1120px;
-  --measure: 36rem;
-  --radius: 12px;
-  --radius-sm: 8px;
+  --max: 1200px;
+  --measure: 38rem;
+  --radius: 16px;
+  --radius-sm: 10px;
 }
 
 html {
@@ -1889,4 +1893,242 @@ html[lang="zh-Hant"] .home-hero h1 {
     grid-template-columns: 1fr;
     gap: 2px;
   }
+}
+
+
+/* Editorial layout: large serif headlines, generous space, quiet labels, and full-width bands that change the
+   page's color instead of boxing its content. */
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.footer-heading {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+h1 {
+  font-size: clamp(44px, 6.4vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.section {
+  padding: 136px 0;
+}
+
+.section + .section {
+  border-top: 0;
+}
+
+.section-head {
+  margin-bottom: 64px;
+}
+
+.btn {
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  height: 52px;
+  padding: 0 28px;
+}
+
+.btn-primary:hover {
+  background: var(--slate-2);
+}
+
+.btn-outline {
+  border-color: var(--ink);
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.card {
+  border-color: transparent;
+}
+
+.site-header {
+  border-bottom-color: transparent;
+}
+
+/* Bands */
+
+.band-oat {
+  background: var(--bg-raised);
+}
+
+.band-dark {
+  --ink: #faf9f5;
+  --ink-2: #c2c0b6;
+  --ink-3: #9a9890;
+  --line: #3a3936;
+  --line-strong: #4a4945;
+  --bg-raised: var(--slate-2);
+  --accent-ink: #e3926f;
+  background: var(--slate);
+  color: var(--ink);
+}
+
+.band-dark .btn-primary {
+  background: #faf9f5;
+  color: var(--slate);
+}
+
+.band-dark .btn-primary:hover {
+  background: #e8e6dc;
+}
+
+.band-dark .btn-outline {
+  border-color: #faf9f5;
+}
+
+.band-dark .btn-outline:hover {
+  background: #faf9f5;
+  color: var(--slate);
+}
+
+/* The footer is a dark band of its own. */
+
+.site-footer {
+  --ink: #faf9f5;
+  --ink-2: #c2c0b6;
+  --ink-3: #9a9890;
+  --line: #3a3936;
+  background: var(--slate);
+  color: var(--ink);
+  border-top: 0;
+  padding: 88px 0 48px;
+}
+
+.site-footer .brand img {
+  filter: invert(1);
+}
+
+/* Home: the two products as colored tiles, each with a line drawing. */
+
+.hero-products {
+  gap: 20px;
+}
+
+.hero-product {
+  min-height: 228px;
+  padding: 28px 30px 30px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--oat);
+}
+
+.hero-product:hover {
+  transform: translateY(-3px);
+}
+
+.hero-product .art {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+
+.hero-product .art path,
+.hero-product .art circle,
+.hero-product .art rect,
+.hero-product .art line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-product .art .fill {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.hero-product.dark {
+  background: var(--slate);
+}
+
+.hero-product.dark .art {
+  color: #faf9f5;
+}
+
+.principles li {
+  border-top-color: var(--accent);
+}
+
+.home-hero {
+  padding: 136px 0 120px;
+}
+
+.home-hero h1 {
+  max-width: 11em;
+}
+
+.mission-quote {
+  max-width: 54rem;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+html[lang="zh-Hant"] .mission-quote {
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding: 88px 0;
+  }
+
+  .home-hero {
+    padding: 72px 0 64px;
+  }
+}
+
+.band-dark .btn-primary.btn-download .btn-sub {
+  color: #5e5d59;
+  border-left-color: #c2c0b6;
+}
+
+.band-dark .app-shot img {
+  border-color: #3a3936;
+}
+
+/* On an oat band, panels turn ivory so they still stand apart. */
+.band-oat .card,
+.band-oat .plan,
+.band-oat .mock,
+.band-oat .modes li {
+  background: var(--bg);
+}
+
+/* Every page ends on an oat band before the dark footer. */
+.section:has(> .wrap.cta) {
+  background: var(--bg-raised);
+}
+
+.band-dark .code {
+  background: #0d0d0c;
 }

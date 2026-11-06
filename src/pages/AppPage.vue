@@ -46,7 +46,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.appPage.screensTitle }}</h2>
@@ -62,7 +62,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-dark">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.appPage.modesTitle }}</h2>
@@ -99,7 +99,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap files-grid">
       <div>
         <h2>{{ t.appPage.filesTitle }}</h2>

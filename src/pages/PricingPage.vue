@@ -40,7 +40,7 @@ const f = useFreePricing()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ f.page.includedTitle }}</h2>

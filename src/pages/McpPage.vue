@@ -28,7 +28,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.mcpPage.howTitle }}</h2>
@@ -78,7 +78,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-dark">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.mcpPage.secTitle }}</h2>
@@ -93,7 +93,7 @@ const { locale, t } = useI18n()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.compare.title }}</h2>

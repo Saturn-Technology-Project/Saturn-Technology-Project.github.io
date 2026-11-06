@@ -24,12 +24,26 @@ const f = useFreePricing()
       </div>
       <div class="hero-products">
         <a class="hero-product" href="#saturn-mcp">
+          <svg class="art" viewBox="0 0 72 72" aria-hidden="true">
+            <path d="M12 62V22a24 24 0 0 1 48 0v40" />
+            <path d="M24 62V26a12 12 0 0 1 24 0v36" />
+            <line x1="6" y1="62" x2="66" y2="62" />
+            <circle class="fill" cx="36" cy="44" r="5" />
+          </svg>
           <span class="eyebrow">{{ t.hero.cards.mcpKind }}</span>
           <strong>Saturn MCP</strong>
           <span>{{ t.hero.cards.mcp }}</span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="hero-product dark" href="#saturn-app">
+          <svg class="art" viewBox="0 0 72 72" aria-hidden="true">
+            <line x1="10" y1="58" x2="10" y2="46" />
+            <line x1="20" y1="58" x2="20" y2="36" />
+            <line x1="30" y1="58" x2="30" y2="40" />
+            <circle cx="46" cy="28" r="16" />
+            <line x1="57" y1="40" x2="66" y2="50" />
+            <circle class="fill" cx="46" cy="28" r="5" />
+          </svg>
           <span class="eyebrow">{{ t.hero.cards.appKind }}</span>
           <strong>Saturn App</strong>
           <span>{{ t.hero.cards.app }}</span>
@@ -39,7 +53,7 @@ const f = useFreePricing()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.mission.title }}</h2>
@@ -98,7 +112,7 @@ const f = useFreePricing()
     </div>
   </section>
 
-  <section id="saturn-app" class="section product">
+  <section id="saturn-app" class="section product band-dark">
     <div class="wrap">
       <div class="product-grid">
         <div class="product-text">
@@ -137,7 +151,7 @@ const f = useFreePricing()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head center">
         <h2>{{ f.plansTitle }}</h2>
@@ -161,7 +175,7 @@ const f = useFreePricing()
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap cta">
       <h2>{{ t.cta.title }}</h2>
       <p class="lede">{{ t.cta.body }}</p>

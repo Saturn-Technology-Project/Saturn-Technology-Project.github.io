@@ -45,7 +45,7 @@ function openPaper(event: MouseEvent) {
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-oat">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.trustPage.layersTitle }}</h2>
@@ -76,7 +76,7 @@ function openPaper(event: MouseEvent) {
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-dark">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.trustPage.holdTitle }}</h2>
@@ -173,7 +173,7 @@ function openPaper(event: MouseEvent) {
     </article>
   </section>
 
-  <section class="section" id="disclosure">
+  <section class="section band-oat" id="disclosure">
     <div class="wrap">
       <div class="section-head">
         <h2>{{ t.trustPage.disclosureTitle }}</h2>

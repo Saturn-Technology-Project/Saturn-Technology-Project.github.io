@@ -6,6 +6,9 @@ import { localePath, useI18n } from '../i18n'
 import { GITHUB_URL, RELEASES_URL } from '../config'
 
 const { locale, t } = useI18n()
+
+/** Each screen's screenshot, in the order of `t.appPage.screens`. */
+const screenFiles = ['home', 'workspace', 'lineage', 'experiments', 'samples', 'data', 'inspect', 'tasks', 'protection', 'environment']
 </script>
 
 <template>
@@ -54,6 +57,16 @@ const { locale, t } = useI18n()
       </div>
       <ul class="screens">
         <li v-for="(item, i) in t.appPage.screens" :key="item[0]">
+          <a class="screen-shot" :href="`/screens/screen-${screenFiles[i]}-${locale}.webp`" target="_blank" rel="noopener">
+            <img
+              :src="`/screens/screen-${screenFiles[i]}-${locale}.webp`"
+              :alt="t.appPage.screenAlt.replace('{screen}', item[0])"
+              width="1280"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="railIcons[i]" /></svg>
           <h3>{{ item[0] }}</h3>
           <p>{{ item[1] }}</p>

@@ -360,7 +360,8 @@ const messages = {
         ['In English and 繁體中文', 'The whole interface is available in English and Traditional Chinese. Saturn follows the system’s language, or you choose in Settings.'],
       ],
       screensTitle: 'Ten screens around one project.',
-      screensDesc: 'Each screen holds one part of the work, and the assistant on every screen knows which one you are on.',
+      screensDesc: 'Each screen holds one part of the work, and the assistant on every screen knows which one you are on. The screenshots show an example project.',
+      screenAlt: 'Saturn App’s {screen} screen, in an example project',
       screens: [
         ['Home', 'Where the work stopped, what changed since you last looked, and what still needs a decision.'],
         ['Workspace', 'Your code, with the run, its cost, samples, findings and a terminal underneath. Notebooks open as cells.'],
@@ -872,7 +873,8 @@ const messages = {
         ['English 與繁體中文', '整個介面提供英文與繁體中文。Saturn 會跟隨系統語言，也可以在設定中選擇。'],
       ],
       screensTitle: '十個畫面，圍繞同一個專案。',
-      screensDesc: '每個畫面負責工作的一部分，而每個畫面上的研究助理都知道你正在哪一個畫面。',
+      screensDesc: '每個畫面負責工作的一部分，而每個畫面上的研究助理都知道你正在哪一個畫面。截圖為示範專案。',
+      screenAlt: 'Saturn App 的「{screen}」畫面（示範專案）',
       screens: [
         ['首頁', '工作停在哪裡、上次看過之後有什麼改變，以及還有什麼需要你決定。'],
         ['工作區', '你的程式碼，下方是執行、花費、樣本、發現與終端機。筆記本以儲存格開啟。'],

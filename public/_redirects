@@ -1,5 +1,6 @@
 /platform    /mcp    301
-/security    /mcp    301
+/security    /trust  301
+/zh/security /zh/trust 301
 /product     /mcp    301
 /cloud       /mcp    301
 /approach    /mcp    301

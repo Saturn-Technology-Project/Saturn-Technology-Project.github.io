@@ -79,7 +79,7 @@ npm run dev
    - 以記憶體歷程的路由器、依路徑決定的語系，用 `renderToString` 渲染頁面；
    - 以 `src/seo.ts` 的 `headTags()` 產生的 head 標籤取代 `<!--seo-->` 區塊；
    - 把 `<html lang>` 設為 `en` 或 `zh-Hant`，並以渲染出的 HTML 取代 `<!--app-html-->`；
-   - `/` 寫到 `dist/index.html`，其他路徑寫到 `dist/<路徑>/index.html`；
+   - `/` 寫到 `dist/index.html`，其他路徑寫到 `dist/<路徑>.html`（`dist/mcp.html`、`dist/zh/trust.html`），讓 Cloudflare Pages 直接以 `/mcp` 提供頁面，不轉址到 `/mcp/`，canonical 網址也就不需要轉址；
    - 以 [Turndown](https://github.com/mixmark-io/turndown) 把頁面的 `<main>` 轉成 Markdown，寫到頁面網址加上 `.md` 的位置（`/mcp.md`、`/zh/trust.md`），首頁則是 `index.md`。
 4. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，並以 [`src/llms.ts`](src/llms.ts) 的 `llmsIndex()` 與 `llmsFull()` 寫出 `dist/llms.txt` 與 `dist/llms-full.txt`。
 

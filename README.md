@@ -79,7 +79,7 @@ npm run dev
    - renders the page with `renderToString` on a router in memory history, with the locale taken from the path;
    - replaces the `<!--seo-->` block with the page's head tags from `headTags()` in `src/seo.ts`;
    - sets `<html lang>` to `en` or `zh-Hant`, and puts the rendered HTML in place of `<!--app-html-->`;
-   - writes `dist/index.html` for `/`, and `dist/<path>/index.html` for every other path;
+   - writes `dist/index.html` for `/`, and `dist/<path>.html` for every other path (`dist/mcp.html`, `dist/zh/trust.html`), so Cloudflare Pages serves `/mcp` as it is instead of redirecting to `/mcp/`, and the canonical URLs need no redirect;
    - converts the page's `<main>` to Markdown with [Turndown](https://github.com/mixmark-io/turndown) and writes it to the page's URL plus `.md` (`/mcp.md`, `/zh/trust.md`), or `index.md` for a home page.
 4. It writes `dist/sitemap.xml` from `sitemapXml()`, and `dist/llms.txt` and `dist/llms-full.txt` from `llmsIndex()` and `llmsFull()` in [`src/llms.ts`](src/llms.ts).
 

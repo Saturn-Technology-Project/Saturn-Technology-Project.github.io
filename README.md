@@ -79,10 +79,11 @@ npm run dev
    - renders the page with `renderToString` on a router in memory history, with the locale taken from the path;
    - replaces the `<!--seo-->` block with the page's head tags from `headTags()` in `src/seo.ts`;
    - sets `<html lang>` to `en` or `zh-Hant`, and puts the rendered HTML in place of `<!--app-html-->`;
-   - writes `dist/index.html` for `/`, and `dist/<path>/index.html` for every other path.
-4. It writes `dist/sitemap.xml` from `sitemapXml()`, replacing the copy Vite took from `public/`.
+   - writes `dist/index.html` for `/`, and `dist/<path>/index.html` for every other path;
+   - converts the page's `<main>` to Markdown with [Turndown](https://github.com/mixmark-io/turndown) and writes it to the page's URL plus `.md` (`/mcp.md`, `/zh/trust.md`), or `index.md` for a home page.
+4. It writes `dist/sitemap.xml` from `sitemapXml()`, and `dist/llms.txt` and `dist/llms-full.txt` from `llmsIndex()` and `llmsFull()` in [`src/llms.ts`](src/llms.ts).
 
-The script stops with an error if the template lacks either marker, or if a rendered page has no `<h1>`.
+The script stops with an error if the template lacks either marker, if a rendered page has no `<h1>`, or if a page's Markdown has no title, is shorter than 500 characters, or still contains HTML.
 
 In the browser, [`src/main.ts`](src/main.ts) uses `createSSRApp` in production, so Vue hydrates the prerendered HTML instead of drawing it again; the development server uses `createApp`. From then on the site navigates as a single-page app, and [`src/App.vue`](src/App.vue) calls `applyHead()` on every route or language change to keep the title, meta tags, canonical link and structured data in step.
 
@@ -121,7 +122,7 @@ const { t } = useI18n()
 3. Create the component in `src/pages/`, and add `{ path, page, component }` to `pages` in `src/router.ts`. The `/zh` route is generated from it.
 4. Add the name to `PAGES` in `src/seo.ts`, a priority in `sitemapXml()`, and, if it should appear in breadcrumbs, a label in `crumbLabel()`.
 5. Add the name to the checks in `src/App.vue` and `src/entry-server.ts`. They fall back to `home` for an unknown name, so a missing entry gives the page the home page's head tags without any error.
-6. Link it from `src/components/NavBar.vue` or `src/components/Footer.vue` with `localePath()`, and list it in `public/llms.txt` if language models should find it.
+6. Link it from `src/components/NavBar.vue` or `src/components/Footer.vue` with `localePath()`, and `llms.txt` and `llms-full.txt` pick it up from `PAGES`.
 
 Chinese copy uses Taiwan terms and full-width punctuation, as the existing text does.
 
@@ -135,17 +136,18 @@ Chinese copy uses Taiwan terms and full-width punctuation, as the existing text 
 - **JSON-LD.** One `@graph` per page with the `Organization` and `WebSite`, the page's `WebPage` (with a `BreadcrumbList` on every page but home), `FAQPage` on Home, Trust and Pricing built from the FAQ copy, and `SoftwareApplication` entries for Saturn MCP (Home, MCP, Pricing) and Saturn App (Home, App, Pricing).
 - **Sitemap.** `sitemapXml()` lists all fourteen URLs with their alternates, a priority per page, and the build date as `lastmod`.
 
-Files in [`public/`](public) that serve crawlers and language models:
+Files that serve crawlers and language models:
 
 | File | Purpose |
 | --- | --- |
-| `robots.txt` | Allows every crawler, names the AI crawlers explicitly, and points to the sitemap and `llms.txt` |
-| `llms.txt` | A short summary of the site with links, in English and 中文 |
-| `llms-full.txt` | The full product brief for language models |
-| `site.webmanifest` | Name, colours and icon |
-| `.well-known/security.txt` | Where to report a vulnerability |
+| `public/robots.txt` | Allows every crawler, names the AI crawlers explicitly, and points to the sitemap, `llms.txt` and the Markdown copies |
+| `llms.txt` (generated) | A summary of Saturn, key facts, and a link to every page's Markdown copy in English and 中文 |
+| `llms-full.txt` (generated) | Every page's Markdown in one file, including the whitepaper, Terms and Privacy |
+| `<page>.md` (generated) | A Markdown copy of each page, linked from its HTML with `<link rel="alternate" type="text/markdown">` |
+| `public/site.webmanifest` | Name, colours and icon |
+| `public/.well-known/security.txt` | Where to report a vulnerability |
 
-`llms.txt` and `llms-full.txt` are written by hand. When page copy changes, check that they still agree.
+The Markdown copies, `llms.txt` and `llms-full.txt` are built from the rendered pages, so they change with the page copy. Only the summary and the facts at the top of `llms.txt` and `llms-full.txt` are written by hand, in [`src/llms.ts`](src/llms.ts).
 
 ### The OG image
 
@@ -170,7 +172,7 @@ The text on the image is set in the script.
 | `Referrer-Policy` | `no-referrer` |
 | `Permissions-Policy` | Accelerometer, camera, geolocation, gyroscope, microphone, payment and USB turned off |
 
-It also sets a `charset=utf-8` content type on `llms.txt`, `llms-full.txt`, `robots.txt`, `sitemap.xml` and `.well-known/security.txt`.
+It also sets a `charset=utf-8` content type on `llms.txt`, `llms-full.txt`, `robots.txt`, `sitemap.xml` and `.well-known/security.txt`, and `text/markdown` on the `.md` copies.
 
 The Content Security Policy allows scripts only from the site itself (`script-src 'self'`), styles from the site and Google Fonts, fonts from the site and `fonts.gstatic.com`, images from the site and `data:` URLs, and no frames, plugins or embedding in other sites. `connect-src` also allows `https://formsubmit.co`, which no current page uses.
 
@@ -227,11 +229,12 @@ The `gh-pages` branch serves saturn-technology-project.github.io, which only red
 | `src/trust-paper.ts` | The system whitepaper shown on the Trust page |
 | `src/legal.ts` | Terms of Service and Privacy Policy |
 | `src/seo.ts` | Canonical URLs, structured data and the sitemap |
+| `src/llms.ts` | The summary and facts for language models, and how `llms.txt` and `llms-full.txt` are put together |
 | `src/config.ts` | Site, console, contact, GitHub, download and Donate links |
 | `src/platform.ts` | Guesses the visitor's operating system for the download button |
 | `src/style.css` | The site's styles |
-| `public/` | Files served as-is: `_headers`, `_redirects`, `llms.txt`, `llms-full.txt`, `robots.txt`, `.well-known/security.txt`, the web manifest, icons and `og.png` |
-| `scripts/prerender.mjs` | Writes the prerendered pages and the sitemap |
+| `public/` | Files served as-is: `_headers`, `_redirects`, `robots.txt`, `.well-known/security.txt`, the web manifest, icons and `og.png` |
+| `scripts/prerender.mjs` | Writes the prerendered pages, their Markdown copies, the sitemap, `llms.txt` and `llms-full.txt` |
 | `scripts/og.swift` | Draws `public/og.png` |
 
 ## License

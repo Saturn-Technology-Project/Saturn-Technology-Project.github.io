@@ -79,10 +79,11 @@ npm run dev
    - 以記憶體歷程的路由器、依路徑決定的語系，用 `renderToString` 渲染頁面；
    - 以 `src/seo.ts` 的 `headTags()` 產生的 head 標籤取代 `<!--seo-->` 區塊；
    - 把 `<html lang>` 設為 `en` 或 `zh-Hant`，並以渲染出的 HTML 取代 `<!--app-html-->`；
-   - `/` 寫到 `dist/index.html`，其他路徑寫到 `dist/<路徑>/index.html`。
-4. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，取代 Vite 從 `public/` 複製過來的那份。
+   - `/` 寫到 `dist/index.html`，其他路徑寫到 `dist/<路徑>/index.html`；
+   - 以 [Turndown](https://github.com/mixmark-io/turndown) 把頁面的 `<main>` 轉成 Markdown，寫到頁面網址加上 `.md` 的位置（`/mcp.md`、`/zh/trust.md`），首頁則是 `index.md`。
+4. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，並以 [`src/llms.ts`](src/llms.ts) 的 `llmsIndex()` 與 `llmsFull()` 寫出 `dist/llms.txt` 與 `dist/llms-full.txt`。
 
-範本缺少任一標記，或渲染出的頁面沒有 `<h1>`，指令碼都會報錯停止。
+範本缺少任一標記、渲染出的頁面沒有 `<h1>`，或頁面的 Markdown 沒有標題、少於 500 個字元、仍含有 HTML，指令碼都會報錯停止。
 
 在瀏覽器裡，[`src/main.ts`](src/main.ts) 在正式環境使用 `createSSRApp`，因此 Vue 會 hydrate 預先渲染的 HTML，而不是重新繪製；開發伺服器則用 `createApp`。之後網站以單頁應用程式的方式切換頁面，[`src/App.vue`](src/App.vue) 在每次路由或語言改變時呼叫 `applyHead()`，讓標題、meta 標籤、canonical 連結與結構化資料保持一致。
 
@@ -121,7 +122,7 @@ const { t } = useI18n()
 3. 在 `src/pages/` 建立元件，並在 `src/router.ts` 的 `pages` 加上 `{ path, page, component }`。`/zh` 路由會自動產生。
 4. 在 `src/seo.ts` 的 `PAGES` 加上名稱、在 `sitemapXml()` 設定優先順序；若要出現在麵包屑，再在 `crumbLabel()` 加上標籤。
 5. 在 `src/App.vue` 與 `src/entry-server.ts` 的檢查裡加上名稱。遇到不認得的名稱時它們會退回 `home`，所以漏掉時頁面會拿到首頁的 head 標籤，而且不會報錯。
-6. 以 `localePath()` 從 `src/components/NavBar.vue` 或 `src/components/Footer.vue` 連過去；若希望語言模型找得到，也列進 `public/llms.txt`。
+6. 以 `localePath()` 從 `src/components/NavBar.vue` 或 `src/components/Footer.vue` 連過去；`llms.txt` 與 `llms-full.txt` 會從 `PAGES` 自動收錄。
 
 中文文案沿用現有用法：台灣用語、全形標點。
 
@@ -135,17 +136,18 @@ const { t } = useI18n()
 - **JSON-LD。** 每頁一個 `@graph`，包含 `Organization` 與 `WebSite`、該頁的 `WebPage`（首頁以外都附 `BreadcrumbList`）、首頁、Trust 與方案頁由常見問題文案產生的 `FAQPage`，以及 Saturn MCP（首頁、MCP、方案頁）與 Saturn App（首頁、App、方案頁）的 `SoftwareApplication`。
 - **Sitemap。** `sitemapXml()` 列出全部十四個網址及其替代語言、每頁的優先順序，並以建置日期作為 `lastmod`。
 
-[`public/`](public) 裡提供給搜尋引擎爬蟲與語言模型的檔案：
+提供給搜尋引擎爬蟲與語言模型的檔案：
 
 | 檔案 | 用途 |
 | --- | --- |
-| `robots.txt` | 允許所有爬蟲、逐一列出 AI 爬蟲，並指向 sitemap 與 `llms.txt` |
-| `llms.txt` | 網站的簡短摘要與連結，英文與中文 |
-| `llms-full.txt` | 給語言模型的完整產品說明 |
-| `site.webmanifest` | 名稱、顏色與圖示 |
-| `.well-known/security.txt` | 漏洞回報的聯絡方式 |
+| `public/robots.txt` | 允許所有爬蟲、逐一列出 AI 爬蟲，並指向 sitemap、`llms.txt` 與 Markdown 版本 |
+| `llms.txt`（建置產生） | Saturn 的摘要、重要資訊，以及每個頁面中英文 Markdown 版本的連結 |
+| `llms-full.txt`（建置產生） | 所有頁面的 Markdown 合併成一個檔案，包含白皮書、服務條款與隱私權政策 |
+| `<頁面>.md`（建置產生） | 每個頁面的 Markdown 版本，HTML 以 `<link rel="alternate" type="text/markdown">` 指向它 |
+| `public/site.webmanifest` | 名稱、顏色與圖示 |
+| `public/.well-known/security.txt` | 漏洞回報的聯絡方式 |
 
-`llms.txt` 與 `llms-full.txt` 是手寫的。頁面文案改動時，請確認兩者仍然一致。
+Markdown 版本、`llms.txt` 與 `llms-full.txt` 都由渲染出的頁面產生，會跟著頁面文案一起更新。只有 `llms.txt` 與 `llms-full.txt` 開頭的摘要與重要資訊是手寫的，放在 [`src/llms.ts`](src/llms.ts)。
 
 ### OG 圖片
 
@@ -170,7 +172,7 @@ swift scripts/og.swift public/og.png public/favicon.png
 | `Referrer-Policy` | `no-referrer` |
 | `Permissions-Policy` | 關閉加速度計、相機、定位、陀螺儀、麥克風、付款與 USB |
 
-它也為 `llms.txt`、`llms-full.txt`、`robots.txt`、`sitemap.xml` 與 `.well-known/security.txt` 設定 `charset=utf-8` 的內容類型。
+它也為 `llms.txt`、`llms-full.txt`、`robots.txt`、`sitemap.xml` 與 `.well-known/security.txt` 設定 `charset=utf-8` 的內容類型，並為 `.md` 版本設定 `text/markdown`。
 
 Content Security Policy 只允許來自網站本身的指令碼（`script-src 'self'`）、來自網站本身與 Google Fonts 的樣式、來自網站本身與 `fonts.gstatic.com` 的字型、來自網站本身與 `data:` 網址的圖片，並禁止 frame、外掛，以及被其他網站嵌入。`connect-src` 另外允許 `https://formsubmit.co`，目前沒有任何頁面使用。
 
@@ -227,11 +229,12 @@ npm run deploy
 | `src/trust-paper.ts` | Trust 頁面上的系統白皮書 |
 | `src/legal.ts` | 服務條款與隱私權政策 |
 | `src/seo.ts` | Canonical URL、結構化資料與 sitemap |
+| `src/llms.ts` | 給語言模型的摘要與重要資訊，以及 `llms.txt` 與 `llms-full.txt` 的組成方式 |
 | `src/config.ts` | 網站、主控台、聯絡信箱、GitHub、下載與贊助連結 |
 | `src/platform.ts` | 為下載按鈕判斷訪客的作業系統 |
 | `src/style.css` | 網站樣式 |
-| `public/` | 原樣提供的檔案：`_headers`、`_redirects`、`llms.txt`、`llms-full.txt`、`robots.txt`、`.well-known/security.txt`、web manifest、圖示與 `og.png` |
-| `scripts/prerender.mjs` | 寫出預先渲染的頁面與 sitemap |
+| `public/` | 原樣提供的檔案：`_headers`、`_redirects`、`robots.txt`、`.well-known/security.txt`、web manifest、圖示與 `og.png` |
+| `scripts/prerender.mjs` | 寫出預先渲染的頁面、各頁的 Markdown 版本、sitemap、`llms.txt` 與 `llms-full.txt` |
 | `scripts/og.swift` | 繪製 `public/og.png` |
 
 ## 授權

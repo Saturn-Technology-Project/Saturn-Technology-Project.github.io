@@ -5,7 +5,8 @@ import { locale, type Locale, type PageName } from './i18n'
 import { createAppRouter } from './router'
 import { headTags } from './seo'
 
-export { prerenderPaths, sitemapXml } from './seo'
+export { markdownPath, prerenderPaths, sitemapXml } from './seo'
+export { documentHeader, llmsFull, llmsIndex } from './llms'
 
 function localeFromUrl(url: string): Locale {
   const path = url.split('?')[0] ?? '/'
@@ -32,5 +33,5 @@ export async function render(url: string) {
     page === 'home'
       ? page
       : 'home'
-  return { html, head: headTags(current, lang), lang }
+  return { html, head: headTags(current, lang), lang, page: current }
 }

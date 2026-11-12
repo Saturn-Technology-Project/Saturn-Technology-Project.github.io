@@ -6,12 +6,14 @@ import AppPage from './pages/AppPage.vue'
 import TrustPage from './pages/TrustPage.vue'
 import PricingPage from './pages/PricingPage.vue'
 import LegalPage from './pages/LegalPage.vue'
+import NotFoundPage from './pages/NotFoundPage.vue'
 import { locale, type Locale, type PageName } from './i18n'
 
 declare module 'vue-router' {
   interface RouteMeta {
     locale?: Locale
     page?: PageName
+    notFound?: boolean
   }
 }
 
@@ -46,6 +48,9 @@ export const routes: RouteRecordRaw[] = [
   { path: '/cloud', redirect: '/mcp' },
   { path: '/approach', redirect: '/mcp' },
   { path: '/developers', redirect: '/app' },
+  // Any other path is a 404. The build prerenders these to 404.html and zh/404.html, which Cloudflare Pages serves with status 404.
+  { path: '/zh/:pathMatch(.*)*', name: 'zh-not-found', component: NotFoundPage, meta: { locale: 'zh', notFound: true } },
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage, meta: { locale: 'en', notFound: true } },
 ]
 
 export function createAppRouter() {

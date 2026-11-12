@@ -222,6 +222,28 @@ export function headTags(page: PageName, lang: Locale): string {
   ].join('\n    ')
 }
 
+/** Head tags for the 404 page: its own title, and noindex so the page is never listed. No canonical URL, alternates or structured data. */
+export function notFoundHeadTags(lang: Locale): string {
+  const text = copy(lang).notFound
+  return [
+    `<title>${esc(text.title)}</title>`,
+    `<meta name="description" content="${esc(text.description)}" />`,
+    `<meta name="robots" content="noindex" />`,
+  ].join('\n    ')
+}
+
+export function applyNotFoundHead(lang: Locale) {
+  if (typeof document === 'undefined') return
+  const text = copy(lang).notFound
+  document.documentElement.lang = htmlLang(lang)
+  document.title = text.title
+  upsertMeta('name', 'description', text.description)
+  upsertMeta('name', 'robots', 'noindex')
+  document.head
+    .querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang], link[rel="alternate"][type="text/markdown"], #seo-jsonld')
+    .forEach((el) => el.remove())
+}
+
 export function sitemapXml(): string {
   const priorities: Record<PageName, string> = {
     home: '1.0',

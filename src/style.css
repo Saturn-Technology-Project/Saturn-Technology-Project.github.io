@@ -635,6 +635,53 @@ main {
   }
 }
 
+/* 404 */
+
+.not-found {
+  padding-bottom: 120px;
+}
+
+.not-found-links {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  max-width: 880px;
+  margin-top: 72px;
+}
+
+.not-found-links a {
+  display: block;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-strong);
+  color: inherit;
+  text-decoration: none;
+}
+
+.not-found-links strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.not-found-links span {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.not-found-links a:hover strong {
+  color: var(--accent-ink);
+}
+
+@media (max-width: 640px) {
+  .not-found-links {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+}
+
 /* Use cases */
 
 .usecase {

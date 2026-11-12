@@ -43,11 +43,13 @@ Old paths are redirected in two places:
 | --- | --- | --- |
 | `/platform`, `/product`, `/cloud`, `/approach` | `/mcp` | `/mcp` |
 | `/developers` | `/app` | `/app` |
-| `/security` | `/mcp` | `/trust` |
-| `/zh/security` | none | `/zh/trust` |
+| `/security` | `/trust` | `/trust` |
+| `/zh/security` | `/zh/trust` | `/zh/trust` |
 | `/demo`, `/zh/demo` | `/`, `/zh` | none |
 
-The two disagree on `/security`. A visitor who types the address gets Cloudflare's answer, `/mcp`.
+Keep the two in step: a visitor who types an address gets Cloudflare's answer, and the router's only applies to links followed inside the site.
+
+Any other path is a 404. The build prerenders [`NotFoundPage.vue`](src/pages/NotFoundPage.vue) to `dist/404.html` and `dist/zh/404.html`. Cloudflare Pages serves the nearest `404.html` with status 404, so `/zh/anything` gets the Chinese page. `_redirects` has no `/* /index.html 200` fallback, because that rule would answer every unknown path with 200 and the home page. The 404 page has `noindex` and no canonical URL, and is not in the sitemap or `llms.txt`. In the browser, the router's catch-all routes show the same page.
 
 ## Quick start
 
@@ -66,7 +68,7 @@ npm run dev
 | --- | --- |
 | `npm run dev` | Starts the Vite dev server |
 | `npm run build` | Type-checks (`vue-tsc -b`), builds the client into `dist/`, builds a server bundle from `src/entry-server.ts` into `dist-ssr/`, then runs `scripts/prerender.mjs`, which writes every page and `sitemap.xml` into `dist/` |
-| `npm run preview` | Serves `dist/` locally with `vite preview`. Cloudflare's `_headers` and `_redirects` are not applied there |
+| `npm run preview` | Serves `dist/` locally with `vite preview`. Cloudflare's `_headers`, `_redirects` and 404 handling are not applied there; `npx wrangler pages dev dist` applies all three |
 | `npm run deploy` | Runs `npm run build`, then `wrangler pages deploy dist --project-name=saturn --commit-dirty=true` |
 
 `dist/` and `dist-ssr/` are build output and are ignored by git.
@@ -81,7 +83,8 @@ npm run dev
    - sets `<html lang>` to `en` or `zh-Hant`, and puts the rendered HTML in place of `<!--app-html-->`;
    - writes `dist/index.html` for `/`, and `dist/<path>.html` for every other path (`dist/mcp.html`, `dist/zh/trust.html`), so Cloudflare Pages serves `/mcp` as it is instead of redirecting to `/mcp/`, and the canonical URLs need no redirect;
    - converts the page's `<main>` to Markdown with [Turndown](https://github.com/mixmark-io/turndown) and writes it to the page's URL plus `.md` (`/mcp.md`, `/zh/trust.md`), or `index.md` for a home page.
-4. It writes `dist/sitemap.xml` from `sitemapXml()`, and `dist/llms.txt` and `dist/llms-full.txt` from `llmsIndex()` and `llmsFull()` in [`src/llms.ts`](src/llms.ts).
+4. It renders the 404 page in both languages to `dist/404.html` and `dist/zh/404.html`.
+5. It writes `dist/sitemap.xml` from `sitemapXml()`, and `dist/llms.txt` and `dist/llms-full.txt` from `llmsIndex()` and `llmsFull()` in [`src/llms.ts`](src/llms.ts).
 
 The script stops with an error if the template lacks either marker, if a rendered page has no `<h1>`, or if a page's Markdown has no title, is shorter than 500 characters, still contains HTML, or names a Saturn App release version such as `v1.2.3` (Saturn App ships often, so the site links to the releases page instead).
 

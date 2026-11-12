@@ -83,7 +83,7 @@ npm run dev
    - converts the page's `<main>` to Markdown with [Turndown](https://github.com/mixmark-io/turndown) and writes it to the page's URL plus `.md` (`/mcp.md`, `/zh/trust.md`), or `index.md` for a home page.
 4. It writes `dist/sitemap.xml` from `sitemapXml()`, and `dist/llms.txt` and `dist/llms-full.txt` from `llmsIndex()` and `llmsFull()` in [`src/llms.ts`](src/llms.ts).
 
-The script stops with an error if the template lacks either marker, if a rendered page has no `<h1>`, or if a page's Markdown has no title, is shorter than 500 characters, or still contains HTML.
+The script stops with an error if the template lacks either marker, if a rendered page has no `<h1>`, or if a page's Markdown has no title, is shorter than 500 characters, still contains HTML, or names a Saturn App release version such as `v1.2.3` (Saturn App ships often, so the site links to the releases page instead).
 
 In the browser, [`src/main.ts`](src/main.ts) uses `createSSRApp` in production, so Vue hydrates the prerendered HTML instead of drawing it again; the development server uses `createApp`. From then on the site navigates as a single-page app, and [`src/App.vue`](src/App.vue) calls `applyHead()` on every route or language change to keep the title, meta tags, canonical link and structured data in step.
 

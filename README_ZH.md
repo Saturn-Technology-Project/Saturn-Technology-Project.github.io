@@ -83,7 +83,7 @@ npm run dev
    - 以 [Turndown](https://github.com/mixmark-io/turndown) 把頁面的 `<main>` 轉成 Markdown，寫到頁面網址加上 `.md` 的位置（`/mcp.md`、`/zh/trust.md`），首頁則是 `index.md`。
 4. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，並以 [`src/llms.ts`](src/llms.ts) 的 `llmsIndex()` 與 `llmsFull()` 寫出 `dist/llms.txt` 與 `dist/llms-full.txt`。
 
-範本缺少任一標記、渲染出的頁面沒有 `<h1>`，或頁面的 Markdown 沒有標題、少於 500 個字元、仍含有 HTML，指令碼都會報錯停止。
+範本缺少任一標記、渲染出的頁面沒有 `<h1>`，或頁面的 Markdown 沒有標題、少於 500 個字元、仍含有 HTML，或寫出 `v1.2.3` 這類 Saturn App 版號（App 經常更新，網站一律連到 releases 頁面），指令碼都會報錯停止。
 
 在瀏覽器裡，[`src/main.ts`](src/main.ts) 在正式環境使用 `createSSRApp`，因此 Vue 會 hydrate 預先渲染的 HTML，而不是重新繪製；開發伺服器則用 `createApp`。之後網站以單頁應用程式的方式切換頁面，[`src/App.vue`](src/App.vue) 在每次路由或語言改變時呼叫 `applyHead()`，讓標題、meta 標籤、canonical 連結與結構化資料保持一致。
 

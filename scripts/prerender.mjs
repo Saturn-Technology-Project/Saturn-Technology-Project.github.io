@@ -70,6 +70,9 @@ function toMarkdown(html, url) {
   if (!markdown.startsWith('# ') && !/\n# /.test(markdown)) throw new Error(`Markdown for ${url} has no title`)
   if (markdown.length < 500) throw new Error(`Markdown for ${url} is only ${markdown.length} characters`)
   if (/<[a-z][^>]*>/i.test(markdown.replace(/```[\s\S]*?```/g, ''))) throw new Error(`Markdown for ${url} still contains HTML`)
+  // Saturn App ships often: the site links to the releases page and never names a version.
+  const version = markdown.match(/\bv\d+\.\d+(\.\d+)?\b/)
+  if (version) throw new Error(`Markdown for ${url} names a release version (${version[0]}); link to the releases page instead`)
   return markdown
 }
 

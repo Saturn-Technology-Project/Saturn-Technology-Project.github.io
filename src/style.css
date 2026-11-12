@@ -616,6 +616,25 @@ main {
   border-left: 1px solid var(--line-strong);
 }
 
+.btn-download > span {
+  white-space: nowrap;
+}
+
+/* On a phone the platform note sits under the label instead of beside it. */
+@media (max-width: 520px) {
+  .btn-download {
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .btn-download .btn-sub {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
 /* Use cases */
 
 .usecase {

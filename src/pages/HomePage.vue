@@ -17,8 +17,8 @@ const f = useFreePricing()
         <h1>{{ t.hero.title }}</h1>
         <p class="lede">{{ t.hero.desc }}</p>
         <div class="actions">
-          <a class="btn btn-primary btn-lg" href="#saturn-mcp">{{ t.hero.mcp }}</a>
-          <a class="btn btn-outline btn-lg" href="#saturn-app">{{ t.hero.app }}</a>
+          <a class="btn btn-primary btn-lg" :href="CONSOLE_URL">{{ t.hero.mcp }}</a>
+          <a class="btn btn-outline btn-lg" :href="RELEASES_URL" target="_blank" rel="noopener noreferrer">{{ t.hero.app }}</a>
         </div>
         <p class="hero-note">{{ t.hero.note }}</p>
       </div>
@@ -88,19 +88,19 @@ const f = useFreePricing()
         <div class="mock" aria-hidden="true">
           <div class="mock-head">
             <span class="dot" />
-            <span>{{ t.hero.mock.header }}</span>
+            <span>{{ t.mcpProduct.mock.header }}</span>
           </div>
           <dl class="mock-body">
-            <div><dt>{{ t.hero.mock.agent }}</dt><dd>{{ t.hero.mock.agentValue }}</dd></div>
-            <div><dt>{{ t.hero.mock.tool }}</dt><dd class="mono">{{ t.hero.mock.toolValue }}</dd></div>
-            <div><dt>{{ t.hero.mock.args }}</dt><dd class="mono">{{ t.hero.mock.argsValue }}</dd></div>
-            <div><dt>{{ t.hero.mock.rule }}</dt><dd>{{ t.hero.mock.ruleValue }}</dd></div>
+            <div><dt>{{ t.mcpProduct.mock.agent }}</dt><dd>{{ t.mcpProduct.mock.agentValue }}</dd></div>
+            <div><dt>{{ t.mcpProduct.mock.tool }}</dt><dd class="mono">{{ t.mcpProduct.mock.toolValue }}</dd></div>
+            <div><dt>{{ t.mcpProduct.mock.args }}</dt><dd class="mono">{{ t.mcpProduct.mock.argsValue }}</dd></div>
+            <div><dt>{{ t.mcpProduct.mock.rule }}</dt><dd>{{ t.mcpProduct.mock.ruleValue }}</dd></div>
           </dl>
           <div class="mock-actions">
-            <span class="btn btn-primary btn-sm">{{ t.hero.mock.approve }}</span>
-            <span class="btn btn-outline btn-sm">{{ t.hero.mock.reject }}</span>
+            <span class="btn btn-primary btn-sm">{{ t.mcpProduct.mock.approve }}</span>
+            <span class="btn btn-outline btn-sm">{{ t.mcpProduct.mock.reject }}</span>
           </div>
-          <p class="mock-foot">{{ t.hero.mock.footer }}</p>
+          <p class="mock-foot">{{ t.mcpProduct.mock.footer }}</p>
         </div>
         <div class="product-logos">
           <span class="eyebrow">{{ t.logos.label }}</span>

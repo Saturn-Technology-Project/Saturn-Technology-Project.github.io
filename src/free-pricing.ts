@@ -24,10 +24,10 @@ const copy = {
     },
     donate: {
       kind: 'Support',
-      name: 'Donate us',
+      name: 'Sponsor Saturn',
       tagline: 'Saturn is built in the open and paid for by the people who use it. Sponsorship keeps it free.',
       points: ['Monthly or one-time, any amount', 'Through GitHub Sponsors'],
-      cta: 'Donate us',
+      cta: 'Sponsor Saturn',
     },
     page: {
       eyebrow: 'Pricing',

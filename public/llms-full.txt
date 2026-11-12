@@ -67,7 +67,7 @@ Data. Analyst agents get read-only warehouse tools. Exporting more than 100000 r
 
 Saturn App is a free, open-source, Apache 2.0-licensed desktop workbench for AI research. It has no paid tier and no usage cap. It is organized around questions, code, models, experiments, samples and findings rather than around chats. The workbench arrives with the next release; the release available today, v0.3.1, is the earlier desktop agent.
 
-Platforms: macOS on Apple silicon. Windows x64 builds exist but have not been run since the Rust rewrite, so treat them as untested.
+Platforms: macOS 12 or later on Apple silicon, and Windows 10 or later on x64.
 
 Screens: Home (where the work stopped and what is open), Workspace (code beside its runs, samples, findings and a terminal), Lineage (checkpoints and fine-tuned branches), Experiments (frozen versions, comparisons that list what differs, conclusions), Samples (one sample across models, labels, counterexamples, activations and residual stream patching), Tasks (long work in its own git worktree, merged or discarded after review), Protection (refusals and unexplained changes), and Environment (Python, packages, devices, lock files, optional kits).
 

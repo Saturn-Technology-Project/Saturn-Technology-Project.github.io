@@ -90,7 +90,7 @@ function desktopApplication(lang: Locale) {
     '@id': `${SITE_URL}/#saturn-app`,
     name: 'Saturn App',
     applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'macOS',
+    operatingSystem: 'macOS, Windows',
     url: canonicalUrl('app', lang),
     description: text.appPage.description,
     downloadUrl: RELEASES_URL,

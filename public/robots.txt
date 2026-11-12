@@ -1,6 +1,7 @@
 # Saturn welcomes search engines and generative-engine crawlers.
 # A concise brief for language models: https://saturn-core.com/llms.txt
-# Full product brief: https://saturn-core.com/llms-full.txt
+# Every page in one file: https://saturn-core.com/llms-full.txt
+# Each page also has a Markdown copy at its URL plus .md, such as https://saturn-core.com/mcp.md
 
 User-agent: *
 Allow: /

@@ -19,6 +19,18 @@ export function canonicalUrl(page: PageName, lang: Locale): string {
   return new URL(pagePath(page, lang), SITE_URL).href
 }
 
+/** The path a page's Markdown copy is served at: the page's URL with .md, and index.md for a locale's home. */
+export function markdownPath(page: PageName, lang: Locale): string {
+  const path = pagePath(page, lang)
+  if (path === '/') return '/index.md'
+  if (path === '/zh') return '/zh/index.md'
+  return `${path}.md`
+}
+
+export function markdownUrl(page: PageName, lang: Locale): string {
+  return new URL(markdownPath(page, lang), SITE_URL).href
+}
+
 export function prerenderPaths(): string[] {
   return PAGES.flatMap((page) => LOCALES.map((lang) => pagePath(page, lang)))
 }
@@ -33,8 +45,8 @@ function ogLocale(lang: Locale): string {
 
 function imageAlt(lang: Locale): string {
   return lang === 'zh'
-    ? 'Saturn，企業級 AI Agent 的安全 MCP Gateway'
-    : 'Saturn, the secure MCP gateway for AI agents'
+    ? 'Saturn，打造安全、可問責的 AI 工具'
+    : 'Saturn, tools for secure, accountable AI'
 }
 
 function crumbLabel(page: PageName, lang: Locale): string {
@@ -189,6 +201,7 @@ export function headTags(page: PageName, lang: Locale): string {
     `<meta name="robots" content="index, follow, max-image-preview:large" />`,
     `<link rel="canonical" href="${url}" />`,
     ...alternates,
+    `<link rel="alternate" type="text/markdown" href="${markdownUrl(page, lang)}" title="${lang === 'zh' ? 'Markdown 版本' : 'Markdown version'}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="Saturn" />`,
     `<meta property="og:locale" content="${ogLocale(lang)}" />`,

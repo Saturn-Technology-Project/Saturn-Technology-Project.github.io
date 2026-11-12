@@ -91,7 +91,8 @@ for (const url of server.prerenderPaths()) {
     .replace(/<!--seo-->[\s\S]*?<!--\/seo-->/, `<!--seo-->\n    ${head}\n    <!--/seo-->`)
     .replace('<html lang="en">', `<html lang="${lang === 'zh' ? 'zh-Hant' : 'en'}">`)
     .replace('<!--app-html-->', html)
-  write(url === '/' ? '/index.html' : `${url}/index.html`, document)
+  // /mcp is written to mcp.html, not mcp/index.html, so Cloudflare Pages serves it at /mcp instead of redirecting to /mcp/.
+  write(url === '/' ? '/index.html' : `${url}.html`, document)
 
   const markdown = `${server.documentHeader(page, lang, built)}\n\n${toMarkdown(html, url)}\n`
   write(server.markdownPath(page, lang), markdown)

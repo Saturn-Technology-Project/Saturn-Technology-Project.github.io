@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
 import { locale, type PageName } from './i18n'
-import { applyHead } from './seo'
+import { applyHead, applyNotFoundHead } from './seo'
 
 const route = useRoute()
 
@@ -24,9 +24,10 @@ const page = computed<PageName>(() => {
 })
 
 watch(
-  [locale, page],
+  [locale, page, () => route.meta.notFound],
   () => {
-    applyHead(page.value, locale.value)
+    if (route.meta.notFound) applyNotFoundHead(locale.value)
+    else applyHead(page.value, locale.value)
   },
   { immediate: true },
 )

@@ -3,7 +3,7 @@ import { renderToString } from 'vue/server-renderer'
 import App from './App.vue'
 import { locale, type Locale, type PageName } from './i18n'
 import { createAppRouter } from './router'
-import { headTags } from './seo'
+import { headTags, notFoundHeadTags } from './seo'
 
 export { markdownPath, prerenderPaths, sitemapXml } from './seo'
 export { documentHeader, llmsFull, llmsIndex } from './llms'
@@ -22,7 +22,9 @@ export async function render(url: string) {
   await appRouter.push(url)
   await appRouter.isReady()
   const html = await renderToString(app)
-  const page = appRouter.currentRoute.value.meta.page
+  const meta = appRouter.currentRoute.value.meta
+  if (meta.notFound) return { html, head: notFoundHeadTags(lang), lang, page: null }
+  const page = meta.page
   const current: PageName =
     page === 'mcp' ||
     page === 'app' ||

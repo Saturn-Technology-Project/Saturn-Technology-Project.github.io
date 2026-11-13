@@ -43,11 +43,13 @@ App 頁連到 [`src/config.ts`](src/config.ts) 的 `RELEASES_URL`。Saturn App �
 | --- | --- | --- |
 | `/platform`、`/product`、`/cloud`、`/approach` | `/mcp` | `/mcp` |
 | `/developers` | `/app` | `/app` |
-| `/security` | `/mcp` | `/trust` |
-| `/zh/security` | 無 | `/zh/trust` |
+| `/security` | `/trust` | `/trust` |
+| `/zh/security` | `/zh/trust` | `/zh/trust` |
 | `/demo`、`/zh/demo` | `/`、`/zh` | 無 |
 
-兩邊對 `/security` 的處理不一致。直接輸入網址的訪客會得到 Cloudflare 的結果，也就是 `/mcp`。
+兩邊要保持一致：直接輸入網址的訪客會得到 Cloudflare 的結果，路由器的設定只在站內點連結時生效。
+
+其他任何路徑都是 404。建置時會把 [`NotFoundPage.vue`](src/pages/NotFoundPage.vue) 預先渲染成 `dist/404.html` 與 `dist/zh/404.html`。Cloudflare Pages 會以狀態碼 404 提供最近的 `404.html`，所以 `/zh/任何路徑` 會拿到中文頁。`_redirects` 沒有 `/* /index.html 200` 這條後備規則，因為它會讓每個不存在的路徑都回 200 和首頁。404 頁設有 `noindex`、沒有 canonical 網址，也不在 sitemap 與 `llms.txt` 裡。在瀏覽器裡，路由器的萬用路由會顯示同一個頁面。
 
 ## 快速開始
 
@@ -66,7 +68,7 @@ npm run dev
 | --- | --- |
 | `npm run dev` | 啟動 Vite 開發伺服器 |
 | `npm run build` | 型別檢查（`vue-tsc -b`）、把用戶端建置到 `dist/`、從 `src/entry-server.ts` 建置伺服器端套件到 `dist-ssr/`，再執行 `scripts/prerender.mjs`，把每個頁面與 `sitemap.xml` 寫入 `dist/` |
-| `npm run preview` | 以 `vite preview` 在本機提供 `dist/`。這裡不會套用 Cloudflare 的 `_headers` 與 `_redirects` |
+| `npm run preview` | 以 `vite preview` 在本機提供 `dist/`。這裡不會套用 Cloudflare 的 `_headers`、`_redirects` 與 404 處理；`npx wrangler pages dev dist` 三者都會套用 |
 | `npm run deploy` | 執行 `npm run build`，再執行 `wrangler pages deploy dist --project-name=saturn --commit-dirty=true` |
 
 `dist/` 與 `dist-ssr/` 是建置產出，git 會忽略。
@@ -81,7 +83,8 @@ npm run dev
    - 把 `<html lang>` 設為 `en` 或 `zh-Hant`，並以渲染出的 HTML 取代 `<!--app-html-->`；
    - `/` 寫到 `dist/index.html`，其他路徑寫到 `dist/<路徑>.html`（`dist/mcp.html`、`dist/zh/trust.html`），讓 Cloudflare Pages 直接以 `/mcp` 提供頁面，不轉址到 `/mcp/`，canonical 網址也就不需要轉址；
    - 以 [Turndown](https://github.com/mixmark-io/turndown) 把頁面的 `<main>` 轉成 Markdown，寫到頁面網址加上 `.md` 的位置（`/mcp.md`、`/zh/trust.md`），首頁則是 `index.md`。
-4. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，並以 [`src/llms.ts`](src/llms.ts) 的 `llmsIndex()` 與 `llmsFull()` 寫出 `dist/llms.txt` 與 `dist/llms-full.txt`。
+4. 把兩種語言的 404 頁渲染成 `dist/404.html` 與 `dist/zh/404.html`。
+5. 以 `sitemapXml()` 寫出 `dist/sitemap.xml`，並以 [`src/llms.ts`](src/llms.ts) 的 `llmsIndex()` 與 `llmsFull()` 寫出 `dist/llms.txt` 與 `dist/llms-full.txt`。
 
 範本缺少任一標記、渲染出的頁面沒有 `<h1>`，或頁面的 Markdown 沒有標題、少於 500 個字元、仍含有 HTML，或寫出 `v1.2.3` 這類 Saturn App 版號（App 經常更新，網站一律連到 releases 頁面），指令碼都會報錯停止。
 

@@ -239,6 +239,20 @@ const messages = {
         ['Identity', 'Members, roles, custom permissions, and MCP server mapping per employee.'],
       ],
     },
+    notFound: {
+      title: 'Page not found — Saturn',
+      description: 'This page does not exist on saturn-core.com.',
+      eyebrow: '404 · Page not found',
+      heading: 'This page doesn’t exist.',
+      lede: 'The link may be out of date, or the address may have a typo. These pages are good places to start.',
+      home: 'Back to home',
+      links: {
+        mcp: 'The gateway that puts every agent tool call under policy, approval and audit.',
+        app: 'The open-source workbench for studying what models actually do.',
+        trust: 'How keys, payloads and credentials are protected, and what Saturn cannot see.',
+        pricing: 'Both products are free, with every feature on every account.',
+      },
+    },
     cta: {
       title: 'Start with the side you need.',
       body: 'Put Saturn MCP in front of your first MCP server, or download Saturn App and run your first experiment.',
@@ -750,6 +764,20 @@ const messages = {
         ['Webhook', '核准、駁回與過期會送出簽章通知。送達成功不會執行工具。'],
         ['身份', '成員、角色、自訂權限，以及逐員工的 MCP Server 對應。'],
       ],
+    },
+    notFound: {
+      title: '找不到頁面 — Saturn',
+      description: 'saturn-core.com 上沒有這個頁面。',
+      eyebrow: '404 · 找不到頁面',
+      heading: '這個頁面不存在。',
+      lede: '連結可能已經過期，或是網址打錯了。可以從下面這幾頁開始。',
+      home: '回到首頁',
+      links: {
+        mcp: '讓 Agent 的每一次工具呼叫都經過政策、核准與審計的 Gateway。',
+        app: '用來研究模型實際上做了什麼的開源工作台。',
+        trust: '金鑰、內容與憑證如何受到保護，以及 Saturn 看不到什麼。',
+        pricing: '兩個產品都免費，每個帳號都有全部功能。',
+      },
     },
     cta: {
       title: '從你需要的那一面開始。',
